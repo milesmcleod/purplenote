@@ -3,7 +3,7 @@ OUTPUTFILE=${2:-bundle}
 
 echo "initializing and installing node modules."
 npm init --yes
-npm install --save webpack react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react redux react-redux
+npm install --save webpack react react-dom babel-core babel-loader babel-preset-es2015 babel-preset-react redux react-redux react-router-dom redux-logger redux-thunk
 
 echo "creating frontend directory with subdirectories and boilerplate scripts"
 echo "/actions, /components, /reducers, /store, /util"
