@@ -7,6 +7,12 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.img_url ||= 'placeholder'
+    idx = @user.email.index('@')
+    if idx.nil?
+      render json: ["Invalid email address"], status: 422
+      return
+    end
+    @user.username = @user.email.dup[0...idx]
     if @user.save
       login(@user)
       render :show

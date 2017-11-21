@@ -1,1 +1,15 @@
+Monday, 11/20/17
+
 -session actions and session reducer all working 100%
+
+-AuthRoute and ProtectedRoute written
+
+-login and signup forms work 100%
+
+-complete session errors
+
+-currently working on styling the login modals.
+  -need logo
+  -need to add text above and below modal form
+  -need to style error messages
+  -need button for demo login

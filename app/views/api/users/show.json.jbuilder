@@ -1,3 +1,3 @@
 json.currentUser do
-  json.extract! @user, :username, :email, :img_url
+  json.extract! @user, :id, :username, :email, :img_url
 end
