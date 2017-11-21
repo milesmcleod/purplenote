@@ -3,6 +3,7 @@ import * as SessionAPIUtil from '../util/session_api_util';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_SESSION = "REMOVE_SESSION";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 const receiveUser = (payload) => ({
   type: RECEIVE_USER,
@@ -16,6 +17,10 @@ const removeSession = () => ({
 const receiveSessionErrors = (errors) => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+});
+
+export const clearSessionErrors = () => ({
+  type: CLEAR_SESSION_ERRORS
 });
 
 export const postUser = (user) => (dispatch) => {
