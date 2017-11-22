@@ -929,7 +929,7 @@ NotesNav
 
 *******************************/
 
-.notes-nav {
+.notes-nav-container {
   position: fixed;
   left: 75px;
   height: 100%;
@@ -945,6 +945,7 @@ NotesNav
   padding-left: 25px;
   box-sizing: border-box;
   padding-top: 10px;
+  position: fixed;
 }
 
 .plain-notes-header h4 {
@@ -959,6 +960,15 @@ NotesNav
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   color: #ADADAD;
+}
+
+.notes-nav {
+  position: fixed;
+  left: 75px;
+  height: 100%;
+  width: 350px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: scroll;
 }
 
 .notes-nav-item {

@@ -53,6 +53,16 @@ class AuthModal extends React.Component {
     this.props.clearSessionErrors();
   }
 
+  componentDidMount() {
+    const input = document.getElementById('username');
+    input.focus();
+  }
+
+  resetFocus() {
+    const input = document.getElementById('username');
+    input.focus();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
@@ -158,9 +168,9 @@ class AuthModal extends React.Component {
           </div>
           <input
             type="text"
-            autoFocus
             name={identityInputName}
             placeholder={identityText}
+            id='username'
             className="auth-modal-input"
             value={this.state[identityInputName]}
             onChange={(e) => this.handleChange(e)}/>
@@ -188,7 +198,9 @@ class AuthModal extends React.Component {
         <p className="forgot">{forgotText}</p>
         <Link
           className="forgot-link"
-          to={forgotLinkPath}>{forgotLinkText}</Link>
+          onClick={() => this.resetFocus()}
+          to={forgotLinkPath}>{forgotLinkText}
+          </Link>
       </div>
     );
   }

@@ -19,13 +19,15 @@ class NotesNav extends React.Component {
 
   render() {
     return (
-      <div className='notes-nav'>
+      <div className='notes-nav-container'>
         {this.header}
-        {
-          this.props.notes.map(note => (
-            <NotesNavItem note={note} key={note.id}/>
-          ))
-        }
+        <div className='notes-nav'>
+          {
+            this.props.notes.map(note => (
+              <NotesNavItem note={note} key={note.id}/>
+            ))
+          }
+        </div>
       </div>
     );
   }
