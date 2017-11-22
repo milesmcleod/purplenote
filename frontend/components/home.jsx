@@ -1,12 +1,22 @@
 import React from 'react';
-import SideBarContainer from './note/bar_nav_container';
+import SideBarContainer from './note/side_bar_container';
 
-const Home = (props) => {
-  return (
-    <div className='home'>
-      <SideBarContainer />
-    </div>
-  );
-};
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
+  render() {
+    return (
+      <div className='home'>
+        <SideBarContainer />
+      </div>
+    );
+  }
+}
 
 export default Home;

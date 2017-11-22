@@ -1,4 +1,9 @@
 class Api::NotesController < ApplicationController
+  def index
+    @user = current_user
+    render :index
+  end
+
   def create
     @note = Note.new(note_params)
     @note.owner_id = current_user.id

@@ -23,8 +23,8 @@ Wednesday, 11/22/17
 -completed notes backend
 
 -notes gameplan:
-  -home page shell
-  -barnav
   -notes nav
+  -need to add something that converts dates into a time ago and
+  then send that up when notes are fetched
   -note body
     -use a regular text area for now for the text editing form.

@@ -158,6 +158,7 @@ class AuthModal extends React.Component {
           </div>
           <input
             type="text"
+            autoFocus
             name={identityInputName}
             placeholder={identityText}
             className="auth-modal-input"

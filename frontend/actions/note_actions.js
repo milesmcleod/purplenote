@@ -1,10 +1,15 @@
-import * as NoteAPIUtil from '../util/notes_api_util';
+import * as NotesAPIUtil from '../util/notes_api_util';
 
 export const RECEIVE_NOTE = "RECEIVE_NOTE";
+export const RECEIVE_NOTES = "RECEIVE_NOTES";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 
 const receiveNote = (payload) => ({
   type: RECEIVE_NOTE,
+  payload
+});
+const receiveNotes = (payload) => ({
+  type: RECEIVE_NOTES,
   payload
 });
 
@@ -13,17 +18,22 @@ const removeNote = (payload) => ({
   payload
 });
 
+export const fetchNotes = () => (dispatch) => {
+  return NotesAPIUtil.fetchNotes()
+  .then(response => dispatch(receiveNotes(response)));
+};
+
 export const postNote = (note) => (dispatch) => {
-  return NoteAPIUtil.postNote(note)
+  return NotesAPIUtil.postNote(note)
   .then(response => dispatch(receiveNote(response)));
 };
 
 export const patchNote = (note) => (dispatch) => {
-  return NoteAPIUtil.patchNote(note)
+  return NotesAPIUtil.patchNote(note)
   .then(response => dispatch(receiveNote(response)));
 };
 
 export const deleteNote = (id) => (dispatch) => {
-  return NoteAPIUtil.deleteNote(id)
+  return NotesAPIUtil.deleteNote(id)
   .then(response => dispatch(removeNote(response)));
 };

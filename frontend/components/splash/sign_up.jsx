@@ -100,6 +100,7 @@ class SignUp extends React.Component {
           <input
             type="text"
             name="email"
+            autoFocus
             placeholder="Email"
             className="splash-signup-input"
             value={this.state.email}

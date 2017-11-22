@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
-import SideBar from './side_bar';
-import { receiveBarNavType } from '../../actions/ui_actions';
+import NotesNav from './notes_nav';
+import values from 'lodash/values';
 
 const mapStateToProps = (state) => ({
+  notes: values(state.entities.notes),
   barNavType: state.ui.barNavType
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setBarNavType: (type) => dispatch(receiveBarNavType(type)),
+
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SideBar);
+)(NotesNav);

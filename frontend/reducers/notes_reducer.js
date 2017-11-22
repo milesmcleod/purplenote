@@ -4,6 +4,7 @@ import {
 } from '../actions/session_actions';
 import {
   RECEIVE_NOTE,
+  RECEIVE_NOTES,
   REMOVE_NOTE
 } from '../actions/note_actions';
 import merge from 'lodash/merge';
@@ -12,6 +13,7 @@ const NotesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
+    case RECEIVE_NOTES:
     case RECEIVE_USER:
       newState = merge({}, state, action.payload.notes);
       return newState;

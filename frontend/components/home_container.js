@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import SideBar from './side_bar';
-import { receiveBarNavType } from '../../actions/ui_actions';
+import Home from './home';
+import { fetchNotes } from '../actions/note_actions';
 
 const mapStateToProps = (state) => ({
   barNavType: state.ui.barNavType
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setBarNavType: (type) => dispatch(receiveBarNavType(type)),
+  fetchNotes: () => dispatch(fetchNotes())
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
-)(SideBar);
+)(Home);

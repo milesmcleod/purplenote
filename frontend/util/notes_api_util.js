@@ -1,3 +1,10 @@
+export const fetchNotes = () => {
+  return $.ajax({
+    method: 'get',
+    url: 'api/notes'
+  });
+};
+
 export const postNote = (note) => {
   return $.ajax({
     method: 'post',
