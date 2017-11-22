@@ -219,6 +219,30 @@ splash
   height: 45px;
 }
 
+.github {
+  background-image: url(github_icon.png);
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.linkedin {
+  background-image: url(linkedin_box.png);
+  height: 26px;
+  width: 26px;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.miles {
+  background-image: url(mm_logo_v2.png);
+  height: 28px;
+  width: 25px;
+  background-size: cover;
+  opacity: 0.5;
+}
+
 .splash-nav-right {
   margin-top: 5px;
   display: flex;
@@ -377,6 +401,14 @@ splash
   font-weight: bold;
 }
 
+.splash-signup-form-demo:hover {
+  cursor: pointer;
+}
+
+.splash-signup-form-submit:hover {
+  cursor: pointer;
+}
+
 .splash-signup-form-submit {
   width: 350px;
   height: 45px;
@@ -473,21 +505,25 @@ splash
 [class*='pitch-img-'] {
   width: 375px;
   height: 375px;
-  background-size: cover;
   border-radius: 50%;
   margin: 0 50px;
 }
 
 .pitch-img-1 {
   background-image: url(new_heights.png);
+  background-size: 140%;
+  background-position-x: -5px;
+  background-position-y: -160px;
 }
 
 .pitch-img-2 {
   background-image: url(organize.png);
+  background-size: cover;
 }
 
 .pitch-img-3 {
   background-image: url(teamwork.png);
+  background-size: cover;
 }
 
 .final-signup-div {
@@ -527,10 +563,24 @@ splash
   align-items: center;
   border-radius: 5px;
   margin-top: 40px;
+  text-decoration: none;
 }
 
 .splash-footer {
   position: relative;
   top: 2771px;
   height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-nav {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+}
+
+.footer-nav div {
+  opacity: 0.5;
 }

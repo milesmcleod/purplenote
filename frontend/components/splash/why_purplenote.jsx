@@ -55,7 +55,7 @@ const WhyPurplenote = (props) => (
       <h2>
         Purplenote is taking the world by storm. Find out why.
       </h2>
-      <div className="final-link-button">Sign up for free</div>
+      <Link to='/signup' className="final-link-button">Sign up for free</Link>
     </div>
   </section>
 );

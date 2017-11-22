@@ -11,9 +11,27 @@ const SplashNav = (props) => (
           <h1>PURPLENOTE</h1>
         </div>
         <ul>
-          <li>Explore</li>
-          <li>Link</li>
-          <li>Link</li>
+          <li>
+            <a
+              href="https://milesmcleod.com/"
+              target="_blank">
+              <div className="miles"></div>
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://github.com/milesmcleod'
+              target="_blank">
+              <div className="github"></div>
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://www.linkedin.com/in/miles-mcleod/'
+              target="_blank">
+              <div className="linkedin"></div>
+            </a>
+          </li>
         </ul>
       </div>
       <div className="splash-nav-right">

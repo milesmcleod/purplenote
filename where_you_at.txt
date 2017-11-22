@@ -15,7 +15,12 @@ Tuesday, 11/21/17
 -complete splash body
 
 -still needed for auth milestone:
+  -make the images lower resolution so that they load faster
+  -change hot air balloon image positioning
+  -change first paragraph of text to something original
   -splash footer with github/linkedin icons
   -dummy links in the splashnav
   -responsive page (including hamburger dropdown)
   -responsive nav (changes color)
+  -animated demo_user login
+  -deploy app to heroku
