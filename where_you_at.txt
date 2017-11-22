@@ -8,8 +8,14 @@ Monday, 11/20/17
 
 -complete session errors
 
--currently working on styling the login modals.
-  -need logo
-  -need to add text above and below modal form
-  -need to style error messages
-  -need button for demo login
+Tuesday, 11/21/17
+
+-complete modals
+
+-complete splash body
+
+-still needed for auth milestone:
+  -splash footer with github/linkedin icons
+  -dummy links in the splashnav
+  -responsive page (including hamburger dropdown)
+  -responsive nav (changes color)

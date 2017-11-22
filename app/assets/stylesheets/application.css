@@ -304,6 +304,7 @@ splash
   text-align: left;
   font-size: 18px;
   line-height: 1.5;
+  margin-right: 50px;
 }
 
 .splash-signup-form {
@@ -312,6 +313,8 @@ splash
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 50px;
+  box-sizing: border-box;
 }
 
 .splash-signup-form h2 {
@@ -349,7 +352,7 @@ splash
   margin-bottom: 20px;
   border: none;
   border-radius: 3px;
-  background-color: #F2F2F2;
+  background-color: whitesmoke;
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 14px;
@@ -399,6 +402,135 @@ splash
   line-height: 1.5;
 }
 
-.splash-footer {
+.why-purplenote {
+  width: 100%;
+  position: absolute;
+  top: 800px;
+}
 
+.pitch-zone {
+  width: 100%;
+  flex-direction: column;
+}
+
+.pitch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.pitch-text {
+  width: 375px;
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  align-items: left
+}
+
+.pitch-text h2 {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: left;
+  line-height: 1.2;
+  width: 350px;
+  display: block;
+}
+
+.pitch-text p {
+  font-family: 'Arvo', serif;
+  color: #303030;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+
+.pitch-text a {
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+}
+
+[class*='purple-underline'] {
+  height: 2px;
+  width: 180px;
+  border: none;
+  background: #7f00ff;
+}
+
+.purple-underline-2 {
+  width: 235px;
+}
+
+[class*='pitch-img-'] {
+  width: 375px;
+  height: 375px;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 0 50px;
+}
+
+.pitch-img-1 {
+  background-image: url(new_heights.png);
+}
+
+.pitch-img-2 {
+  background-image: url(organize.png);
+}
+
+.pitch-img-3 {
+  background-image: url(teamwork.png);
+}
+
+.final-signup-div {
+  position: absolute;
+  top: 1375px;
+  width: 100%;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+.final-signup-div h2 {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.2;
+  width: 350px;
+  display: block;
+}
+
+.final-link-button {
+  width: 200px;
+  height: 60px;
+  background: #7f00ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.splash-footer {
+  position: relative;
+  top: 2771px;
+  height: 95px;
 }

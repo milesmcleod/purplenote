@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SplashNav from './splash_nav';
 import SplashBody from './splash_body';
+import SplashFooter from './splash_footer';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -13,9 +14,7 @@ class Splash extends React.Component {
       <div className="splash">
         <SplashNav />
         <SplashBody />
-        <footer className="splash-footer">
-
-        </footer>
+        <SplashFooter />
       </div>
     );
   }
