@@ -7,6 +7,11 @@ import {
   postSession,
   deleteSession
 } from './actions/session_actions';
+import {
+  postNote,
+  patchNote,
+  deleteNote
+} from './actions/note_actions';
 
 import Root from './components/root';
 
@@ -24,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.postUser = postUser;
   window.postSession = postSession;
   window.deleteSession = deleteSession;
+  window.postNote = postNote;
+  window.patchNote = patchNote;
+  window.deleteNote = deleteNote;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');
