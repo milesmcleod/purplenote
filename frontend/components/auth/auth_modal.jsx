@@ -32,6 +32,23 @@ class AuthModal extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.formType !== this.props.formType) {
+      this.props.clearSessionErrors();
+      if (newProps.formType === 'signup') {
+        this.setState ({
+          email: "",
+          password: ""
+        });
+      } else {
+        this.setState ({
+          name: "",
+          password: ""
+        });
+      }
+    }
+  }
+
   componentWillMount() {
     this.props.clearSessionErrors();
   }
@@ -41,17 +58,9 @@ class AuthModal extends React.Component {
     const user = this.state;
     this.props.clearSessionErrors();
     this.props.post(user);
-    if (this.props.formType === 'signup') {
       this.setState ({
-        email: "",
         password: ""
       });
-    } else {
-      this.setState ({
-        name: "",
-        password: ""
-      });
-    }
   }
 
   handleChange(e) {
@@ -116,8 +125,8 @@ class AuthModal extends React.Component {
       submitText = 'Create Account';
       signupClause = <p className="signup-clause">
         By clicking Create Account, I agree to
-        the <a href="#/signup">Terms of Service
-        </a> and <a href="#/signup">Privacy Policy.</a>
+        the <a href={`/#/${this.props.formType}`}>Terms of Service
+      </a> and <a href={`/#/${this.props.formType}`}>Privacy Policy.</a>
       </p>;
       forgotText = 'Already have an account?';
       forgotLinkText = 'Sign in';

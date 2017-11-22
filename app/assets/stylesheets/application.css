@@ -22,6 +22,26 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.dummy-logout {
+  background-color: #7f00ff;
+  border: 0;
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  margin: 15px 0;
+  padding: 0 10px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
 .purple-bar {
   width: 100%;
   height: 4px;

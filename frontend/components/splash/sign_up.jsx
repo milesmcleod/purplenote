@@ -30,7 +30,6 @@ class SignUp extends React.Component {
     this.props.clearSessionErrors();
     this.props.postUser(user);
     this.setState ({
-      email: "",
       password: ""
     });
   }
@@ -121,8 +120,8 @@ class SignUp extends React.Component {
           </div>
           <p className="splash-signup-clause">
             By clicking Create Account, I agree to
-            the <a href="#/signup">Terms of Service
-            </a> and <a href="#/signup">Privacy Policy.</a>
+            the <a href="/#/">Terms of Service
+          </a> and <a href="/#/">Privacy Policy.</a>
           </p>
           <input
             type="submit"

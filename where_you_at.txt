@@ -20,13 +20,9 @@ Wednesday, 11/22/17
 
 -deployed to heroku
 
+-completed notes backend
+
 -notes gameplan:
-  -model/migration
-  -controller
-  -json views: how will this work? refer to routes
-  -ajax
-  -actions
-  -reducers
   -home page shell
   -barnav
   -notes nav
