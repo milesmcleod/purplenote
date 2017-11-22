@@ -17,6 +17,13 @@ class SplashNav extends React.Component {
     });
   }
 
+  // in the below function, i use setTimeout(f, 0) because it seems
+  // that classList combines all the calls in a particular script into
+  // one singular execution. perhaps it's just a quirk of the inner
+  // workings of CSS that transitions are overridden when they're
+  // triggered by adding a transition class in addition to non-transition
+  // classes.
+
   dropdown() {
 
     const blur = document.getElementById('blur');

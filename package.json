@@ -22,8 +22,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch"
+    "postinstall": "webpack"
+  },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
   },
   "keywords": [],
   "author": "",

@@ -490,6 +490,7 @@ splash
   text-align: left;
   line-height: 1.2;
   margin-left: 20px;
+  margin-right: 20px;
   min-width: 450px;
 }
 
@@ -756,7 +757,7 @@ splash
   opacity: 0.5;
 }
 
-@media all and (max-width: 950px) {
+@media all and (max-width: 948px) {
   [class*='pitch-img'] {
     display: none;
   }
@@ -772,7 +773,7 @@ splash
 
   .pitch-zone {
     position: relative;
-    top: 200px;
+    top: -200px;
   }
 
   .pitch, .splash-signup-header, .splash-signup-form {
@@ -788,13 +789,43 @@ splash
   }
 
   .final-signup-div {
-    top: 1075px;
+    top: 700px;
     height: 300px;
     background: white;
   }
 
   .final-signup-div h2 {
     margin-bottom: 5px;
+  }
+
+}
+
+@media all and (max-width: 840px) {
+
+  .pitch-zone {
+    position: relative;
+    top: 200px;
+  }
+
+  .pitch-text {
+    align-items: center;
+  }
+
+  .pitch-text h2 {
+    text-align: center;
+    font-size: 28px;
+  }
+  .pitch-text p {
+    text-align: center;
+  }
+  .pitch-text a {
+    text-align: center;
+  }
+
+  .final-signup-div {
+    top: 1075px;
+    height: 300px;
+    background: white;
   }
 
 }

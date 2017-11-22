@@ -14,6 +14,23 @@ Tuesday, 11/21/17
 
 -complete splash body
 
+Wednesday, 11/22/17
+
+-i am done with auth and the splash and the transitions
+
 -still needed for auth milestone:
-  -responsive page (including hamburger dropdown)
   -deploy app to heroku
+  -update checklists on each issue
+
+-notes gameplan:
+  -model/migration
+  -controller
+  -json views: how will this work? refer to routes
+  -ajax
+  -actions
+  -reducers
+  -home page shell
+  -barnav
+  -notes nav
+  -note body
+    -use a regular text area for now for the text editing form.
