@@ -3,5 +3,12 @@ json.currentUser do
 end
 
 json.notes do
-  json.array! @user.notes, :id, :title, :contents, :notebook_id
+  @user.notes.each do |note|
+    json.set! note.id do
+      json.id note.id
+      json.title note.title
+      json.content note.content
+      json.notebook_id note.notebook_id
+    end
+  end
 end
