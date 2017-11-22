@@ -4,10 +4,25 @@ import { Link } from 'react-router-dom';
 class AuthModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
+    if (this.props.formType === 'signup') {
+      this.state = {
+        email: "",
+        password: ""
+      };
+      this.demo_user = {
+        name: "demo_user@demo.com",
+        password: "password"
+      };
+    } else {
+      this.state = {
+        name: "",
+        password: ""
+      };
+      this.demo_user = {
+        name: "demo_user",
+        password: "password"
+      };
+    }
   }
 
   componentWillMount() {
@@ -20,10 +35,17 @@ class AuthModal extends React.Component {
     const user = this.state;
     this.props.clearSessionErrors();
     this.props.post(user);
-    this.setState({
-      name: "",
-      password: ""
-    });
+    if (this.props.formType === 'signup') {
+      this.setState ({
+        email: "",
+        password: ""
+      });
+    } else {
+      this.setState ({
+        name: "",
+        password: ""
+      });
+    }
   }
 
   handleChange(e) {
@@ -33,9 +55,17 @@ class AuthModal extends React.Component {
     });
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.clearSessionErrors();
+    this.props.postSession(this.demo_user);
+
+  }
+
   render() {
     let header;
-    let emailText;
+    let identityText;
+    let identityInputName;
     let passwordText;
     let submitText;
     let signupClause;
@@ -44,7 +74,8 @@ class AuthModal extends React.Component {
     let forgotLinkPath;
     if (this.props.formType === 'signup') {
       header = 'Create Account';
-      emailText = 'Your Email Address';
+      identityText = 'Your Email Address';
+      identityInputName = 'email';
       passwordText = 'Create a Password';
       submitText = 'Create Account';
       signupClause = <p className="signup-clause">
@@ -56,8 +87,9 @@ class AuthModal extends React.Component {
       forgotLinkText = 'Sign in';
       forgotLinkPath = '/login';
     } else {
-      header = 'Log In';
-      emailText = 'Email or Username';
+      header = 'Sign In';
+      identityText = 'Email or Username';
+      identityInputName = 'name';
       passwordText = 'Password';
       submitText = 'Continue';
       signupClause = <p></p>;
@@ -71,16 +103,18 @@ class AuthModal extends React.Component {
           <div className="auth-logo"></div>
           <h1>{header}</h1>
         <form
-          onSubmit={(e) => this.handleSubmit(e)}
           className="auth-modal-form">
-          <button className="auth-modal-submit">Demo User</button>
+          <button
+            className="auth-modal-submit"
+            onClick={(e) => this.handleDemo(e)}>
+            Demo User</button>
           <div className="auth-break">
             <hr></hr><p>or</p><hr></hr>
           </div>
           <input
             type="text"
-            name="email"
-            placeholder={emailText}
+            name={identityInputName}
+            placeholder={identityText}
             className="auth-modal-input"
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}/>
@@ -102,7 +136,8 @@ class AuthModal extends React.Component {
           <input
             type="submit"
             value={submitText}
-            className="auth-modal-submit"/>
+            className="auth-modal-submit"
+            onClick={(e) => this.handleSubmit(e)}/>
         </form>
         <p className="forgot">{forgotText}</p>
         <Link

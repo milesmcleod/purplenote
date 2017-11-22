@@ -24,3 +24,8 @@ export const deleteSession = () => {
     url: '/api/session'
   });
 };
+
+const demoUser = {
+  name: 'demo_user',
+  password: 'password'
+};

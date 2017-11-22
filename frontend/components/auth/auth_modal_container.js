@@ -25,7 +25,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
   return {
     post: (user) => dispatch(post(user)),
-    clearSessionErrors: () => dispatch(clearSessionErrors()),
+    postSession: (user) => dispatch(postSession(user)),
+    clearSessionErrors: () => dispatch(clearSessionErrors())
   };
 };
 
