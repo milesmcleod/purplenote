@@ -10,3 +10,8 @@ user1 = User.new(username: 'demo_user', email: 'demo_user@demo.com', password: '
 user1.save
 user2 = User.new(username: 'miles', email: 'miles@gmail.com', password: 'password', img_url: 'placeholder')
 user2.save
+
+3.times do
+  note = Note.new(title: "title", content: "content", owner_id: 1, notebook_id: 1 )
+  note.save
+end

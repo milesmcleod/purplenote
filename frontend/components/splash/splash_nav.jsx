@@ -17,7 +17,7 @@ class SplashNav extends React.Component {
     });
   }
 
-  // in the below function, i use setTimeout(f, 0) because it seems
+  // in the below function, i use setTimeout(callback, 0) because it seems
   // that classList combines all the calls in a particular script into
   // one singular execution. perhaps it's just a quirk of the inner
   // workings of CSS that transitions are overridden when they're

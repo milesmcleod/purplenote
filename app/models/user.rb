@@ -17,6 +17,11 @@ class User < ApplicationRecord
   validates :img_url, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :notes,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Note
+
   attr_reader :password
 
   before_validation :ensure_session_token
@@ -31,8 +36,8 @@ class User < ApplicationRecord
   end
 
   def self.find_by_credentials(name, password)
-    @user = User.find_by(email: name)
-    @user ||= User.find_by(username: name)
+    @user = User.includes(:notes).find_by(email: name)
+    @user ||= User.includes(:notes).find_by(username: name)
     if @user && @user.is_password?(password)
       return @user
     else

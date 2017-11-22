@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: notes
+#
+#  id           :integer          not null, primary key
+#  title        :string           not null
+#  contents     :string           not null
+#  owner_id     :integer          not null
+#  notebook_id  :integer          not null
+#  shortcut_id  :integer
+#  trashBoolean :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  contents: MyString
+  owner_id: 1
+  notebook_id: 1
+  shortcut_id: 1
+  trashBoolean: false
+
+two:
+  title: MyString
+  contents: MyString
+  owner_id: 1
+  notebook_id: 1
+  shortcut_id: 1
+  trashBoolean: false

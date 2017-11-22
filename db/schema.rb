@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120205709) do
+ActiveRecord::Schema.define(version: 20171122182319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "content", null: false
+    t.integer "owner_id", null: false
+    t.integer "notebook_id", null: false
+    t.integer "shortcut_id"
+    t.boolean "trashBoolean", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notebook_id"], name: "index_notes_on_notebook_id"
+    t.index ["owner_id"], name: "index_notes_on_owner_id"
+    t.index ["shortcut_id"], name: "index_notes_on_shortcut_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false

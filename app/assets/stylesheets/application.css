@@ -779,11 +779,26 @@ splash
 
   .pitch-zone {
     position: relative;
-    top: -200px;
+    top: -100px;
   }
 
   .pitch, .splash-signup-header, .splash-signup-form {
     width: 100%;
+  }
+
+  .pitch-text {
+    align-items: center;
+  }
+
+  .pitch-text h2 {
+    text-align: center;
+    font-size: 28px;
+  }
+  .pitch-text p {
+    text-align: center;
+  }
+  .pitch-text a {
+    text-align: center;
   }
 
   .splash-signup-form {
@@ -810,22 +825,7 @@ splash
 
   .pitch-zone {
     position: relative;
-    top: 200px;
-  }
-
-  .pitch-text {
-    align-items: center;
-  }
-
-  .pitch-text h2 {
-    text-align: center;
-    font-size: 28px;
-  }
-  .pitch-text p {
-    text-align: center;
-  }
-  .pitch-text a {
-    text-align: center;
+    top: 260px;
   }
 
   .final-signup-div {

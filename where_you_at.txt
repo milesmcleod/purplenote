@@ -18,9 +18,7 @@ Wednesday, 11/22/17
 
 -i am done with auth and the splash and the transitions
 
--still needed for auth milestone:
-  -deploy app to heroku
-  -update checklists on each issue
+-deployed to heroku
 
 -notes gameplan:
   -model/migration
