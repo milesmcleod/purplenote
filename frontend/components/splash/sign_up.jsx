@@ -91,10 +91,10 @@ class SignUp extends React.Component {
 
           className="splash-signup-form">
           <h2>Sign up for free</h2>
-          <button
+          <div
             className="splash-signup-form-demo"
             onClick={(e) => this.handleDemo(e)}>
-            Demo User</button>
+            Demo User</div>
           <div className="splash-signup-break">
             <hr></hr><p>Or</p><hr></hr>
           </div>

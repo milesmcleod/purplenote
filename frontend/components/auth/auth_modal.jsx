@@ -140,10 +140,10 @@ class AuthModal extends React.Component {
           <h1>{header}</h1>
         <form
           className="auth-modal-form">
-          <button
+          <div
             className="auth-modal-submit"
             onClick={(e) => this.handleDemo(e)}>
-            Demo User</button>
+            Demo User</div>
           <div className="auth-break">
             <hr></hr><p>or</p><hr></hr>
           </div>

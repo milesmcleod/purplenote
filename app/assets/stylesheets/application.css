@@ -131,6 +131,9 @@ body {
   padding: 0 10px;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-modal-submit:hover {
@@ -571,6 +574,9 @@ splash
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .splash-signup-form-demo:hover {
