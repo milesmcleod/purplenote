@@ -83,7 +83,7 @@ class SignUp extends React.Component {
     return (
       <div className="splash-signup">
         <article className="splash-signup-header">
-          <h1>Say hello to Purplenote.</h1>
+          <h1 className="main-header">Say hello to Purplenote.</h1>
           <p>Jot. Compose. Perfect. Share. <br></br> All your notes,
             everywhere you go.</p>
         </article>
