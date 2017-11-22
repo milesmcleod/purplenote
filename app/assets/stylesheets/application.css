@@ -863,3 +863,62 @@ splash
   }
 
 }
+
+/*******************************
+
+BarNav
+
+*******************************/
+
+.home {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*******************************
+
+BarNav
+
+*******************************/
+
+.bar-nav {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 75px;
+  border-right: 1px solid #e0e0e0;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.bar-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.bar-nav-button-list-1 li {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+[class*='bar-nav-button-list'] li {
+  margin-bottom: 30px;
+}
+
+.bar-nav-user-info {
+  margin-top: 300px;
+}

@@ -1,8 +1,11 @@
 import React from 'react';
+import SideBarContainer from './note/bar_nav_container';
 
 const Home = (props) => {
   return (
-    <div>Home!</div>
+    <div className='home'>
+      <SideBarContainer />
+    </div>
   );
 };
 
