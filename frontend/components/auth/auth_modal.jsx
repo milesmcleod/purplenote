@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 class AuthModal extends React.Component {
   constructor(props) {
     super(props);
+    this.demoUsername = [
+      'd', 'e', 'm', 'o', '_', 'u', 's', 'e', 'r', '@',
+      'd', 'e', 'm', 'o', '.', 'c', 'o', 'm'
+    ];
+    this.demoPassword = [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    ];
     if (this.props.formType === 'signup') {
       this.state = {
         email: "",
@@ -27,7 +34,6 @@ class AuthModal extends React.Component {
 
   componentWillMount() {
     this.props.clearSessionErrors();
-    console.log(this.props.formType);
   }
 
   handleSubmit(e) {
@@ -55,11 +61,41 @@ class AuthModal extends React.Component {
     });
   }
 
+  animateUsername() {
+    window.setTimeout(() => {
+      let name = (this.props.formType === 'signup') ? 'email' : 'name';
+      let newName = this.state[name] + this.demoUsername.shift();
+      this.setState({
+        [name]: newName
+      });
+      if (this.demoUsername.length > 0) {
+        this.animateUsername();
+      } else {
+        window.setTimeout(()=>{
+          this.animatePassword();
+        }, 300);
+      }
+    }, 90);
+  }
+
+  animatePassword() {
+    let newPassword = this.state.password + this.demoPassword.shift();
+    window.setTimeout(() => {
+      this.setState({
+        password: newPassword
+      });
+      if (this.demoPassword.length > 0) {
+        this.animatePassword();
+      } else {
+        window.setTimeout(()=> this.props.postSession(this.demo_user), 500);
+      }
+    }, 90);
+  }
+
   handleDemo(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
-    this.props.postSession(this.demo_user);
-
+    this.animateUsername();
   }
 
   render() {
@@ -116,7 +152,7 @@ class AuthModal extends React.Component {
             name={identityInputName}
             placeholder={identityText}
             className="auth-modal-input"
-            value={this.state.email}
+            value={this.state[identityInputName]}
             onChange={(e) => this.handleChange(e)}/>
           <input
             type="password"

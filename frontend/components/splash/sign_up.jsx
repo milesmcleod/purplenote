@@ -11,11 +11,17 @@ class SignUp extends React.Component {
       name: "demo_user@demo.com",
       password: "password"
     };
+    this.demoUsername = [
+      'd', 'e', 'm', 'o', '_', 'u', 's', 'e', 'r', '@',
+      'd', 'e', 'm', 'o', '.', 'c', 'o', 'm'
+    ];
+    this.demoPassword = [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    ];
   }
 
   componentWillMount() {
     this.props.clearSessionErrors();
-    console.log(this.props.formType);
   }
 
   handleSubmit(e) {
@@ -36,11 +42,41 @@ class SignUp extends React.Component {
     });
   }
 
+  animateUsername() {
+    window.setTimeout(() => {
+      let name = 'email';
+      let newName = this.state[name] + this.demoUsername.shift();
+      this.setState({
+        [name]: newName
+      });
+      if (this.demoUsername.length > 0) {
+        this.animateUsername();
+      } else {
+        window.setTimeout(()=>{
+          this.animatePassword();
+        }, 300);
+      }
+    }, 90);
+  }
+
+  animatePassword() {
+    let newPassword = this.state.password + this.demoPassword.shift();
+    window.setTimeout(() => {
+      this.setState({
+        password: newPassword
+      });
+      if (this.demoPassword.length > 0) {
+        this.animatePassword();
+      } else {
+        window.setTimeout(()=> this.props.postSession(this.demo_user), 500);
+      }
+    }, 90);
+  }
+
   handleDemo(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
-    this.props.postSession(this.demo_user);
-
+    this.animateUsername();
   }
 
   render() {
