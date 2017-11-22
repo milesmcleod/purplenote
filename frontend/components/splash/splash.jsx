@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SplashNav from './splash_nav';
+import SplashNavContainer from './splash_nav_container';
 import SplashBody from './splash_body';
 import SplashFooter from './splash_footer';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+    this.navType = 'regular';
   }
 
   render() {
     return (
       <div className="splash">
-        <SplashNav />
+        <SplashNavContainer />
         <SplashBody />
         <SplashFooter />
       </div>

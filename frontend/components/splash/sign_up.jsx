@@ -84,8 +84,8 @@ class SignUp extends React.Component {
       <div className="splash-signup">
         <article className="splash-signup-header">
           <h1>Say hello to Purplenote.</h1>
-          <p>Capture, organize, and share notes from anywhere. Your
-            best ideas are always with you and always in sync.</p>
+          <p>Jot. Compose. Perfect. Share. <br></br> All your notes,
+            everywhere you go.</p>
         </article>
         <form
 
