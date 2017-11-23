@@ -10,9 +10,14 @@ const mapStateToProps = (state) => ({
   barNavType: state.ui.barNavType
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
-  receiveSelectedNote: (id) => dispatch(receiveSelectedNote(id))
+  receiveSelectedNote: (noteId) => {
+    dispatch(receiveSelectedNote(noteId));
+    // .then((response) => ownProps.history.push(`/home&n=${
+    //   (noteId) ? noteId : 'new'
+    // }`));
+  }
 });
 
 export default withRouter(connect(

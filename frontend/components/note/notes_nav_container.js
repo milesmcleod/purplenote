@@ -14,8 +14,13 @@ const mapStateToProps = (state) => ({
   noteSortType: state.ui.noteSortType
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  receiveSelectedNote: (noteId) => dispatch(receiveSelectedNote(noteId)),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  receiveSelectedNote: (noteId) => {
+    dispatch(receiveSelectedNote(noteId));
+    // .then((response) => ownProps.history.push(`/home&n=${
+    //   (noteId) ? noteId : 'new'
+    // }`));
+  },
   receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType))
 });
 

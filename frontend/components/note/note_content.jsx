@@ -59,6 +59,7 @@ class NoteContent extends React.Component {
   }
 
   render() {
+    const autofocus = (this.props.match.params.noteId) ? false : true;
     return (
       <form
         className='note-content-form'
@@ -67,7 +68,7 @@ class NoteContent extends React.Component {
         <input
           type="text"
           name="title"
-          autoFocus
+          autoFocus={autofocus}
           className="note-content-form-title"
           value={this.state.title}
           id="title"

@@ -48,6 +48,33 @@ class NotesNav extends React.Component {
     this.props.receiveNoteSortType(arr);
   }
 
+  setHeader(props) {
+    this.setState({header: (
+      <header className="plain-notes-header">
+        <h4>NOTES</h4>
+        <p>{props.notes.length} notes</p>
+          <form className="note-sort-dropdown">
+            <select
+              onChange={(e) => this.handleSort(props.notes, e)}
+              defaultValue="updatedAt true">
+              <option disabled>Sort By</option>
+              <option value="createdAt">Date created (oldest first)</option>
+              <option value="createdAt true">Date created (newest first)</option>
+              <option value="updatedAt">Date updated (oldest first)</option>
+              <option value="updatedAt true">Date updated (newest first)</option>
+              <option value="title">Title (ascending)</option>
+              <option value="title true">Title (descending)</option>
+            </select>
+          </form>
+      </header>
+    )});
+  } //refactor the select into a dropdown so that you can recall search type on refresh from UI state
+
+  componentDidMount() {
+    this.sortNotes(this.props.notes, ...this.props.noteSortType);
+    this.setHeader(this.props);
+  }
+
   componentWillReceiveProps(newProps) {
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
@@ -55,26 +82,8 @@ class NotesNav extends React.Component {
         this.props.receiveSelectedNote(newProps.notes[0].id);
         this.props.history.push(`/home&n=${newProps.notes[0].id}`);
       }
-      this.setState({header: (
-        <header className="plain-notes-header">
-          <h4>NOTES</h4>
-          <p>{newProps.notes.length} notes</p>
-            <form className="note-sort-dropdown">
-              <select
-                onChange={(e) => this.handleSort(newProps.notes, e)}
-                defaultValue="updatedAt true">
-                <option disabled>Sort By</option>
-                <option value="createdAt">Date created (oldest first)</option>
-                <option value="createdAt true">Date created (newest first)</option>
-                <option value="updatedAt">Date updated (oldest first)</option>
-                <option value="updatedAt true">Date updated (newest first)</option>
-                <option value="title">Title (ascending)</option>
-                <option value="title true">Title (descending)</option>
-              </select>
-            </form>
-        </header>
-      )});
-    } //refactor this into a dropdown so that you can recall search type on refresh from UI state
+      this.setHeader(newProps);
+    }
   }
 
   componentDidUpdate() {

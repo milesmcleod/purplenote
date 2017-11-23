@@ -67,3 +67,6 @@ autoupdate.
 need a default note to be selected. it all starts with the relationship
 between the UI state and the URL...
 first child of parent should be selected. use DOM selectors to grab that?
+
+
+add padding to note index items
