@@ -7,7 +7,8 @@ class NotesNav extends React.Component {
     super(props);
     this.state = {
       header: undefined,
-      notes: this.props.notes
+      notes: this.props.notes,
+      selectedIndex: -1
     };
   }
 
@@ -93,24 +94,23 @@ class NotesNav extends React.Component {
 
 
   render() {
-    console.log(this.props.match);
     return (
       <div className='notes-nav-container'>
         {this.state.header}
         <div id='notes-nav' className='notes-nav'>
           {
             this.props.notes.map(note => (
-              <NotesNavItem
-                receiveSelectedNote={this.props.receiveSelectedNote}
-                deleteNote={this.props.deleteNote}
-                note={note}
-                selected={(
-                  this.props.selectedNote === note.id
-                ) ? true : false}
-                key={note.id}
-                id={note.id}
-                />
-            ))
+                <NotesNavItem
+                  receiveSelectedNote={this.props.receiveSelectedNote}
+                  deleteNote={this.props.deleteNote}
+                  note={note}
+                  selected={(
+                    this.props.selectedNote === note.id
+                  ) ? true : false}
+                  key={note.id}
+                  id={note.id}
+                  />
+              ))
           }
         </div>
       </div>
