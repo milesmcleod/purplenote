@@ -9,6 +9,10 @@ class BarNav extends React.Component {
     this.props.setBarNavType(type);
   }
 
+  renderNewNote() {
+    this.props.history.push("/home&n=new");
+  }
+
 
 
   render() {
@@ -17,7 +21,9 @@ class BarNav extends React.Component {
         <div
           className='splash-nav-branding-img'></div>
         <ul className='bar-nav-button-list-1'>
-          <li className="bar-nav-button-new-note">P</li>
+          <li
+            className="bar-nav-button-new-note"
+            onClick={() => this.renderNewNote()}>P</li>
           <li className="bar-nav-button-search">Q</li>
         </ul>
         <ul className='bar-nav-button-list-2'>

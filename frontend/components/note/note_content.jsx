@@ -9,7 +9,8 @@ class NoteContent extends React.Component {
     } else {
       this.state = {
         title: "",
-        content: ""
+        content: "",
+        notebook_id: 1
       };
     }
     this.debounceTimer = undefined;
@@ -17,6 +18,7 @@ class NoteContent extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.setState(newProps.note);
+
   }
 
   // i learned how to write the following function
@@ -31,49 +33,54 @@ class NoteContent extends React.Component {
   // reset timer every time a change is made within 4 seconds
 
   handleChange(e) {
-    console.log(this.props.note.id);
     this.setState({
       [e.target.name]: e.target.value
     });
-    if (!this.props.note.id) {
-      clearTimeout(this.debounceTimer);
-      this.debounceTimer = setTimeout(() => {
-        this.props.postNote(this.state);
-      }, 4000);
-    } else {
+    if (this.props.note) {
       clearTimeout(this.debounceTimer);
       this.debounceTimer = setTimeout(() => {
         this.props.patchNote(this.state);
       }, 4000);
     }
-
   }
 
-  autosave(){
-    window.setTimer(()=> {
-
-    });
-  }
-
-  componentDidMount() {
-
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.props.note) {
+      this.props.patchNote(this.state);
+    } else {
+      this.props.postNote(this.state);
+    }
   }
 
   render() {
     return (
-      <form className='note-content-form'>
+      <form
+        className='note-content-form'
+        onSubmit={e => this.handleSubmit(e)}
+        >
         <input
           type="text"
           name="title"
+          autoFocus
+          className="note-content-form-title"
           value={this.state.title}
+          id="title"
+          placeholder="Title your note"
           onChange={(e) => this.handleChange(e)}
           ></input>
         <textarea
           type="text"
           name="content"
+          placeholder="Just start typing..."
           value={this.state.content}
           onChange={(e) => this.handleChange(e)}
           ></textarea>
+        <input
+          className="save-note"
+          type="submit"
+          value="Done"
+        ></input>
       </form>
     );
   }

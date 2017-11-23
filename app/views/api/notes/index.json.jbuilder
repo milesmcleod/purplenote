@@ -1,5 +1,5 @@
 json.notes do
-  @user.notes.each do |note|
+  @user.notes.order("created_at DESC").each do |note|
     json.set! note.id do
       json.id note.id
       json.title note.title

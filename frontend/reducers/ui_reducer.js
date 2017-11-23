@@ -3,6 +3,9 @@ import {
   RECEIVE_SPLASH_NAV_TYPE,
   RECEIVE_SELECTED_NOTE
 } from '../actions/ui_actions';
+import {
+  RECEIVE_NOTE
+} from '../actions/note_actions';
 import merge from 'lodash/merge';
 
 // const combineReducers({
@@ -31,6 +34,10 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_SELECTED_NOTE:
       newState = merge({}, state);
       newState['selectedNote'] = action.noteId;
+      return newState;
+    case RECEIVE_NOTE:
+      newState = merge({}, state);
+      newState['selectedNote'] = action.payload.id;
       return newState;
     default:
       return state;

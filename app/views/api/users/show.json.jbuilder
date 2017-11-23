@@ -9,6 +9,7 @@ json.notes do
       json.title note.title
       json.content note.content
       json.notebook_id note.notebook_id
+      json.created_at note.created_at
     end
   end
 end

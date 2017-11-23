@@ -17,6 +17,7 @@ class Home extends React.Component {
       <div className='home'>
         <SideBarContainer />
         <Route exact path='/home&n=:noteId' component={NoteBodyContainer}/>
+        <Route exact path='/home&n=new' component={NoteBodyContainer}/>
       </div>
     );
   }
