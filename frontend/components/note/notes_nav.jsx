@@ -24,7 +24,11 @@ class NotesNav extends React.Component {
         <div className='notes-nav'>
           {
             this.props.notes.map(note => (
-              <NotesNavItem note={note} key={note.id}/>
+              <NotesNavItem
+                note={note}
+                key={note.id}
+                id={note.id}
+                />
             ))
           }
         </div>
