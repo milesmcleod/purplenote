@@ -24,8 +24,27 @@ Wednesday, 11/22/17
 
 -notes gameplan:
   -notes nav: need selected note to have a thicker border
-  -need a default selected note to be the first child
+  -need to figure out how to wrap note content in the index item
+  -need default selected note to be the first child
   -need to add something that converts dates into a time ago and
   then send that up when notes are fetched
   -note body
-    -use a regular text area for now for the text editing form.
+  -use a regular text area for now for the text editing form.
+  -icons to build:
+
+    barnav:
+      new note
+      search
+
+      shortcut
+      note
+      notebook
+      tag
+
+    note header
+      shortcut (reuse)
+      trash
+
+    note index items
+      shortcut (reuse)
+      trash (reuse)

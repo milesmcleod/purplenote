@@ -1053,3 +1053,9 @@ NoteBody
   left: 426px;
   background: #7f00ff;
 }
+
+.note-header-container {
+  width: 100%;
+  background-color: red;
+  height: 45px;
+}
