@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NoteContent from './note_content';
-import { postNote, patchNote } from '../../actions/note_actions';
+import { postNote, patchNote, fetchNotes } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   postNote: (note) => dispatch(postNote(note)),
-  patchNote: (note) => dispatch(patchNote(note))
+  patchNote: (note) => dispatch(patchNote(note)),
+  fetchNotes: (note) => dispatch(fetchNotes(note))
 });
 
 export default withRouter(connect(

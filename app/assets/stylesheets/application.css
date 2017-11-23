@@ -964,6 +964,12 @@ NotesNav
   color: #ADADAD;
 }
 
+.note-sort-dropdown {
+  position: relative;
+  left: 140px;
+  top: -17px;
+}
+
 .notes-nav {
   height: 90%;
   width: 350px;

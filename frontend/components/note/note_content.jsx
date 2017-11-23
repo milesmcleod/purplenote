@@ -48,8 +48,10 @@ class NoteContent extends React.Component {
     e.preventDefault();
     if (this.props.note) {
       this.props.patchNote(this.state);
+      this.props.fetchNotes();
     } else {
       this.props.postNote(this.state);
+      this.props.fetchNotes();
     }
   }
 

@@ -1,7 +1,8 @@
 import {
   RECEIVE_BAR_NAV_TYPE,
   RECEIVE_SPLASH_NAV_TYPE,
-  RECEIVE_SELECTED_NOTE
+  RECEIVE_SELECTED_NOTE,
+  RECEIVE_NOTE_SORT_TYPE
 } from '../actions/ui_actions';
 import {
   RECEIVE_NOTE
@@ -16,7 +17,8 @@ import merge from 'lodash/merge';
 const defaultState = {
   splashNavType: 'regular',
   barNavType: 'notes',
-  selectedNote: undefined
+  selectedNote: undefined,
+  noteSortType: ['updatedAt', true]
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -34,6 +36,10 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_SELECTED_NOTE:
       newState = merge({}, state);
       newState['selectedNote'] = action.noteId;
+      return newState;
+    case RECEIVE_NOTE_SORT_TYPE:
+      newState = merge({}, state);
+      newState['noteSortType'] = action.noteSortType;
       return newState;
     case RECEIVE_NOTE:
       newState = merge({}, state);

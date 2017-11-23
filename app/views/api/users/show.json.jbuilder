@@ -8,8 +8,9 @@ json.notes do
       json.id note.id
       json.title note.title
       json.content note.content
-      json.notebook_id note.notebook_id
-      json.created_at note.created_at
+      json.notebookId note.notebook_id
+      json.updatedAt note.updated_at
+      json.createdAt note.created_at
     end
   end
 end
