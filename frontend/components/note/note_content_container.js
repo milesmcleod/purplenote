@@ -3,10 +3,24 @@ import NoteContent from './note_content';
 import { postNote, patchNote, fetchNotes } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => ({
-  note: ownProps.note,
-  selectedNote: state.ui.selectedNote
-});
+const mapStateToProps = (state, ownProps) => {
+  if (ownProps.note) {
+    return {
+      note: ownProps.note,
+      selectedNote: ownProps.note.id
+    };
+  } else if (ownProps.match.params.noteId) {
+    return {
+      note: ownProps.note,
+      selectedNote: ownProps.match.params.noteId
+    };
+  } else {
+    return {
+      note: ownProps.note,
+      selectedNote: state.ui.selectedNote
+    };
+  }
+};
 
 // perhaps this should be refactored. the note should actually either
 // be state.entities.notes[state.ui.selectedNote] OR if that is null it

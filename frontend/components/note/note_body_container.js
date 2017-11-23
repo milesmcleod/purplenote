@@ -4,9 +4,19 @@ import { postNote, patchNote } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    note: state.entities.notes[state.ui.selectedNote]
-  };
+  if (state.ui.selectedNote) {
+    return {
+      note: state.entities.notes[state.ui.selectedNote]
+    };
+  } else if (ownProps.match.params.noteId) {
+    return {
+      note: state.entities.notes[ownProps.match.params.noteId]
+    };
+  } else {
+    return {
+      note: undefined
+    };
+  }
 };
 
 const mapDispatchToProps = (dispatch) => ({

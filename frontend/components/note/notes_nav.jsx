@@ -51,6 +51,10 @@ class NotesNav extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
+      if (!this.props.selectedNote) {
+        this.props.receiveSelectedNote(newProps.notes[0].id);
+        this.props.history.push(`/home&n=${newProps.notes[0].id}`);
+      }
       this.setState({header: (
         <header className="plain-notes-header">
           <h4>NOTES</h4>
@@ -75,6 +79,7 @@ class NotesNav extends React.Component {
 
 
   render() {
+    console.log(this.props.match);
     return (
       <div className='notes-nav-container'>
         {this.state.header}
@@ -86,6 +91,9 @@ class NotesNav extends React.Component {
                 <NotesNavItem
                   receiveSelectedNote={this.props.receiveSelectedNote}
                   note={note}
+                  selected={(
+                    this.props.selectedNote === note.id
+                  ) ? true : false}
                   key={note.id}
                   id={note.id}
                   />

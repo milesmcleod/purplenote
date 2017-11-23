@@ -46,7 +46,7 @@ class NotesNavItem extends React.Component {
     return (
       <div
         onClick={() => this.props.receiveSelectedNote(this.props.note.id)}
-        className="notes-nav-item">
+        className={(this.props.selected) ? "notes-nav-item selected-note" : "notes-nav-item"}>
         <div className="notes-nav-item-trash">T</div>
         <div className="notes-nav-item-shortcut">S</div>
         <h3 className="notes-nav-item-title">{this.props.note.title}</h3>
