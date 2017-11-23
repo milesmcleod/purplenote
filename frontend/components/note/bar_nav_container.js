@@ -14,9 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   receiveSelectedNote: (noteId) => {
     dispatch(receiveSelectedNote(noteId));
-    // .then((response) => ownProps.history.push(`/home&n=${
-    //   (noteId) ? noteId : 'new'
-    // }`));
+    ownProps.history.push(`/home&n=${(noteId) ? noteId : 'new'}`);
   }
 });
 

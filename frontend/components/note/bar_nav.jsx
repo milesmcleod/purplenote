@@ -11,7 +11,6 @@ class BarNav extends React.Component {
 
   renderNewNote() {
     this.props.receiveSelectedNote(undefined);
-    this.props.history.push("/home&n=new");
   }
 
 

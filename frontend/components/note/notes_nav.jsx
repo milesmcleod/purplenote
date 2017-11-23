@@ -80,17 +80,16 @@ class NotesNav extends React.Component {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
       if (!this.props.selectedNote) {
         this.props.receiveSelectedNote(newProps.notes[0].id);
-        this.props.history.push(`/home&n=${newProps.notes[0].id}`);
       }
       this.setHeader(newProps);
     }
   }
 
-  componentDidUpdate() {
-    if (this.props.selectedNote) {
-      this.props.history.push(`/home&n=${this.props.selectedNote}`);
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.props.selectedNote) {
+  //     this.props.history.push(`/home&n=${this.props.selectedNote}`);
+  //   }
+  // }
 
 
   render() {
@@ -101,18 +100,15 @@ class NotesNav extends React.Component {
         <div id='notes-nav' className='notes-nav'>
           {
             this.props.notes.map(note => (
-              <div onClick={() => (this.props.history.push(`/home&n=${note.id}`))
-                }>
-                <NotesNavItem
-                  receiveSelectedNote={this.props.receiveSelectedNote}
-                  note={note}
-                  selected={(
-                    this.props.selectedNote === note.id
-                  ) ? true : false}
-                  key={note.id}
-                  id={note.id}
-                  />
-              </div>
+              <NotesNavItem
+                receiveSelectedNote={this.props.receiveSelectedNote}
+                note={note}
+                selected={(
+                  this.props.selectedNote === note.id
+                ) ? true : false}
+                key={note.id}
+                id={note.id}
+                />
             ))
           }
         </div>
