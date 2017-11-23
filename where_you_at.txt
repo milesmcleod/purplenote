@@ -23,7 +23,8 @@ Wednesday, 11/22/17
 -completed notes backend
 
 -notes gameplan:
-  -notes nav
+  -notes nav: need selected note to have a thicker border
+  -need a default selected note to be the first child
   -need to add something that converts dates into a time ago and
   then send that up when notes are fetched
   -note body

@@ -12,6 +12,8 @@ user2 = User.new(username: 'miles', email: 'miles@gmail.com', password: 'passwor
 user2.save
 
 20.times do
-  note = Note.new(title: "title", content: "content", owner_id: 1, notebook_id: 1 )
+  note = Note.new(
+    title: Faker::StarWars.planet,
+    content: Faker::StarWars.wookiee_sentence, owner_id: 1, notebook_id: 1 )
   note.save
 end

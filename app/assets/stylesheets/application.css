@@ -936,7 +936,8 @@ NotesNav
   height: 100%;
   width: 350px;
   border-right: 1px solid #e0e0e0;
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
 .plain-notes-header {
@@ -946,7 +947,6 @@ NotesNav
   padding-left: 25px;
   box-sizing: border-box;
   padding-top: 10px;
-  position: relative;
   top: 0;
 }
 
@@ -965,12 +965,15 @@ NotesNav
 }
 
 .notes-nav {
-  position: fixed;
-  left: 75px;
-  height: 100%;
+  height: 90%;
   width: 350px;
+  top: 95px;
   border-right: 1px solid #e0e0e0;
   overflow-y: scroll;
+}
+
+.selected-note {
+  border: 5px solid black;
 }
 
 .notes-nav-item {
@@ -982,6 +985,8 @@ NotesNav
   padding-left: 25px;
   box-sizing: border-box;
   padding-top: 10px;
+  cursor: pointer;
+  position: relative;
 }
 
 .notes-nav-item:hover {
@@ -1002,6 +1007,7 @@ NotesNav
   margin-top: 5px;
   position: absolute;
   right: 40px;
+  top: 8px;
 }
 
 .notes-nav-item-shortcut {
@@ -1009,6 +1015,7 @@ NotesNav
   margin-top: 5px;
   position: absolute;
   right: 80px;
+  top: 8px;
 }
 
 .notes-nav-item-title {
@@ -1030,4 +1037,19 @@ NotesNav
 .notes-nav-item-content {
   font-size: 14px;
   color: #949494;
+}
+
+
+/*******************************
+
+NoteBody
+
+*******************************/
+
+.note-body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 426px;
+  background: #7f00ff;
 }
