@@ -62,7 +62,7 @@ class NotesNav extends React.Component {
             <form className="note-sort-dropdown">
               <select
                 onChange={(e) => this.handleSort(newProps.notes, e)}
-                value="updatedAt true">
+                defaultValue="updatedAt true">
                 <option disabled>Sort By</option>
                 <option value="createdAt">Date created (oldest first)</option>
                 <option value="createdAt true">Date created (newest first)</option>
@@ -75,6 +75,12 @@ class NotesNav extends React.Component {
         </header>
       )});
     } //refactor this into a dropdown so that you can recall search type on refresh from UI state
+  }
+
+  componentDidUpdate() {
+    if (this.props.selectedNote) {
+      this.props.history.push(`/home&n=${this.props.selectedNote}`);
+    }
   }
 
 

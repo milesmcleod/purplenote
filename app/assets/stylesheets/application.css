@@ -1009,6 +1009,13 @@ NotesNav
 .notes-nav-item:hover h3, .notes-nav-item:hover p {
   color: white;
 }
+.notes-nav-item:hover .notes-nav-item-shortcut {
+  display: block;
+}
+
+.notes-nav-item:hover .notes-nav-item-trash {
+  display: block;
+}
 
 .notes-nav-item-mouse-off {
   transition: all, 0.8s, ease;
@@ -1016,6 +1023,7 @@ NotesNav
 }
 
 .notes-nav-item-trash {
+  display: none;
   color: white;
   margin-top: 5px;
   position: absolute;
@@ -1024,6 +1032,7 @@ NotesNav
 }
 
 .notes-nav-item-shortcut {
+  display: none;
   color: white;
   margin-top: 5px;
   position: absolute;
