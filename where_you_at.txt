@@ -27,9 +27,8 @@ Wednesday, 11/22/17
   -need to figure out how to wrap note content in the index item
   -need default selected note to be the first child
   -need to add something that converts dates into a time ago and
-  then send that up when notes are fetched
-  -note body
-  -use a regular text area for now for the text editing form.
+  then send that up when notes are fetched (look up ruby/js datetime
+  object formats)
   -icons to build:
 
     barnav:
@@ -49,3 +48,22 @@ Wednesday, 11/22/17
     note index items
       shortcut (reuse)
       trash (reuse)
+
+
+
+thinking out loud:
+
+utilize the UI slice of state like the splash page does in order to
+toggle between fullscreen and regular view. think about how to
+integrate the form's submit button and the rest of the header bar.
+
+need transitions into and out of fullscreen.
+
+saving a note should save, and then when the notes nav receives new
+props, it should also receive UI -> selected note and then simulate a
+click on that note, so that the URL changes. then the note is free to
+autoupdate.
+
+need a default note to be selected. it all starts with the relationship
+between the UI state and the URL...
+first child of parent should be selected. use DOM selectors to grab that?

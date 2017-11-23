@@ -8,8 +8,6 @@ class NoteBody extends React.Component {
   }
 
   render() {
-    console.log(this.props.note);
-
     return ((!this.props.note) ? (
         <section className="note-body">
           <NoteHeaderContainer />

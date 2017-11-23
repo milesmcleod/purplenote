@@ -3,7 +3,6 @@ import BarNavContainer from './bar_nav_container';
 import NotesNavContainer from './notes_nav_container';
 
 const SideBar = (props) => {
-  console.log(props.barNavType);
   return (
     <div className='side-bar'>
       <BarNavContainer />

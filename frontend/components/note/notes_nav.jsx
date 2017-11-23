@@ -6,12 +6,43 @@ class NotesNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: undefined
+      header: undefined,
+      notes: this.props.notes
     };
+  }
+
+  // sorting options, will come through props via ui state (add that)
+
+  comparator(property, backwards) {
+    return function (x, y) {
+      if (x[property] > y[property]) {
+        if (backwards) {
+          return -1;
+        } else {
+          return 1;
+        }
+      } else {
+        if (backwards) {
+          return 1;
+        } else {
+          return -1;
+        }
+      }
+    };
+  }
+
+  sortNotes(notes, property, backwards) {
+    notes.sort(this.comparator(property, backwards));
+    this.setState({
+      notes
+    });
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.barNavType === 'notes') {
+      console.log(newProps.notes);
+      this.sortNotes(newProps.notes, 'title', true);
+      console.log(newProps.notes);
       this.setState({header: (
         <header className="plain-notes-header">
           <h4>NOTES</h4>
@@ -34,7 +65,6 @@ class NotesNav extends React.Component {
 
 
   render() {
-    console.log(this.state.header);
     return (
       <div className='notes-nav-container'>
         {this.state.header}

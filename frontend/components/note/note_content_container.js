@@ -7,6 +7,11 @@ const mapStateToProps = (state, ownProps) => ({
   note: ownProps.note
 });
 
+// perhaps this should be refactored. the note should actually either
+// be state.entities.notes[state.ui.selectedNote] OR if that is null it
+// should be null. this would hinge on finding some way to set the URL
+// right when the note is saved the first time.
+
 const mapDispatchToProps = (dispatch) => ({
   postNote: (note) => dispatch(postNote(note)),
   patchNote: (note) => dispatch(patchNote(note))
