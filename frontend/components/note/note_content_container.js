@@ -4,7 +4,8 @@ import { postNote, patchNote, fetchNotes } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
-  note: ownProps.note
+  note: ownProps.note,
+  selectedNote: state.ui.selectedNote
 });
 
 // perhaps this should be refactored. the note should actually either

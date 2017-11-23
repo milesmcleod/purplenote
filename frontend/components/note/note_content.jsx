@@ -16,11 +16,6 @@ class NoteContent extends React.Component {
     this.debounceTimer = undefined;
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState(newProps.note);
-
-  }
-
   // i learned how to write the following function
   // from reading up on throttling and debouncing
   // all over the web. the video that really made it click for me is at
@@ -52,6 +47,14 @@ class NoteContent extends React.Component {
     } else {
       this.props.postNote(this.state);
       this.props.fetchNotes();
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState(newProps.note);
+    if (newProps.selectedNote !== this.props.selectedNote && newProps.selectedNote ) {
+      this.setState(newProps.note);
+      this.props.history.push(`/home&n=${newProps.selectedNote}`);
     }
   }
 

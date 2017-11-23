@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import BarNav from './bar_nav';
-import { receiveBarNavType } from '../../actions/ui_actions';
+import {
+  receiveBarNavType,
+  receiveSelectedNote
+ } from '../../actions/ui_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +11,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setBarNavType: (type) => dispatch(receiveBarNavType(type))
+  setBarNavType: (type) => dispatch(receiveBarNavType(type)),
+  receiveSelectedNote: (id) => dispatch(receiveSelectedNote(id))
 });
 
 export default withRouter(connect(

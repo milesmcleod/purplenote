@@ -17,3 +17,7 @@ user2.save
     content: Faker::StarWars.wookiee_sentence, owner_id: 1, notebook_id: 1 )
   note.save
 end
+
+# use Date.now() to get utc, then subtract a random number of
+# milliseconds  within a range of, say, the last 6 months (distributed
+# accordingly) from it to set the created/updated at data.
