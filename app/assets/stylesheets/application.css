@@ -1029,6 +1029,8 @@ NotesNav
   position: absolute;
   right: 40px;
   top: 8px;
+  width: 20px;
+  z-index: 5;
 }
 
 .notes-nav-item-shortcut {
@@ -1038,6 +1040,8 @@ NotesNav
   position: absolute;
   right: 80px;
   top: 8px;
+  width: 20px;
+  z-index: 5;
 }
 
 .notes-nav-item-title {

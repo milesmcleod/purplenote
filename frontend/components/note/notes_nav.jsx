@@ -102,6 +102,7 @@ class NotesNav extends React.Component {
             this.props.notes.map(note => (
               <NotesNavItem
                 receiveSelectedNote={this.props.receiveSelectedNote}
+                deleteNote={this.props.deleteNote}
                 note={note}
                 selected={(
                   this.props.selectedNote === note.id

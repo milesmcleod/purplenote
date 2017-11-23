@@ -23,7 +23,7 @@ const NotesReducer = (state = {}, action) => {
       return newState;
     case REMOVE_NOTE:
       newState = merge({}, state);
-      newState[action.payload.id] = undefined;
+      delete newState[action.payload.id];
       return newState;
     case REMOVE_SESSION:
       return {};

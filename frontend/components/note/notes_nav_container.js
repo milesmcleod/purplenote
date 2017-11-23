@@ -5,6 +5,7 @@ import {
   receiveSelectedNote,
   receiveNoteSortType
 } from '../../actions/ui_actions';
+import { deleteNote } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
@@ -19,7 +20,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(receiveSelectedNote(noteId));
     ownProps.history.push(`/home&n=${(noteId) ? noteId : 'new'}`);
   },
-  receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType))
+  receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType)),
+  deleteNote: (id) => dispatch(deleteNote(id))
 });
 
 export default withRouter(connect(

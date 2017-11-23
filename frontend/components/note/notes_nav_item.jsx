@@ -47,12 +47,21 @@ class NotesNavItem extends React.Component {
       <div
         onClick={() => this.props.receiveSelectedNote(this.props.note.id)}
         className={(this.props.selected) ? "notes-nav-item selected-note" : "notes-nav-item"}>
-        <div className="notes-nav-item-trash">T</div>
-        <div className="notes-nav-item-shortcut">S</div>
         <h3 className="notes-nav-item-title">{this.props.note.title}</h3>
         <p className="notes-nav-item-date">{date}</p>
         <p className="notes-nav-item-content">{this.props.note.content}</p>
-      </div>
+        <div
+          className="notes-nav-item-trash"
+          onClick={(e) => {
+            e.stopPropagation();
+            this.props.deleteNote(this.props.note.id);
+            if (this.props.selected) {
+              this.props.receiveSelectedNote(undefined);
+            }
+          }}
+          >T</div>
+        <div className="notes-nav-item-shortcut">S</div>
+    </div>
     );
   }
 }
