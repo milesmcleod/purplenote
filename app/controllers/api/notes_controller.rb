@@ -20,7 +20,7 @@ class Api::NotesController < ApplicationController
       if @note.update_attributes(note_params)
         render :show
       else
-        render json: @note.errors.fullMessages, status: 422
+        render json: @note.errors.full_messages, status: 422
       end
     else
       render json: ['Could not find note.'], status: 404

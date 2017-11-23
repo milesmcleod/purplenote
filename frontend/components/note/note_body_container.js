@@ -1,15 +1,23 @@
 import { connect } from 'react-redux';
 import NoteBody from './note_body';
-import { postNote, updateNote } from '../../actions/note_actions';
+import { postNote, patchNote } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => ({
-  note: state.entities.notes[ownProps.match.params.noteId]
-});
+const mapStateToProps = (state, ownProps) => {
+  if (ownProps.match.params.noteId) {
+    return {
+      note: state.entities.notes[ownProps.match.params.noteId]
+    };
+  } else {
+    return {
+      note: undefined
+    };
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   postNote: (note) => dispatch(postNote(note)),
-  updateNote: (note) => dispatch(updateNote(note))
+  patchNote: (note) => dispatch(patchNote(note))
 });
 
 export default withRouter(connect(

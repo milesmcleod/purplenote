@@ -2,7 +2,7 @@ class CreateNotes < ActiveRecord::Migration[5.1]
   def change
     create_table :notes do |t|
       t.string :title, null: false
-      t.string :content, null: false
+      t.string :content
       t.integer :owner_id, null: false
       t.integer :notebook_id, null: false
       t.integer :shortcut_id

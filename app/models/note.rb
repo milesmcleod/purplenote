@@ -14,7 +14,7 @@
 #
 
 class Note < ApplicationRecord
-  validates :title, :content, presence: true
+  validates :title, presence: true
 
   belongs_to :owner,
   primary_key: :id,

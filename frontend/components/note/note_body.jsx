@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteHeaderContainer from './note_header_container';
+import NoteContentContainer from './note_content_container';
 
 class NoteBody extends React.Component {
   constructor(props) {
@@ -10,12 +11,14 @@ class NoteBody extends React.Component {
     console.log(this.props.note);
 
     return ((!this.props.note) ? (
-      <div></div>
+        <section className="note-body">
+          <NoteHeaderContainer />
+          <NoteContentContainer note={null}/>
+        </section>
       ) : (
         <section className="note-body">
           <NoteHeaderContainer />
-          <h1>{this.props.note.title}</h1>
-          <p>{this.props.note.content}</p>
+          <NoteContentContainer note={this.props.note}/>
         </section>
       )
     );

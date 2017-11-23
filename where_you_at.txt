@@ -44,6 +44,7 @@ Wednesday, 11/22/17
     note header
       shortcut (reuse)
       trash
+      fullscreen
 
     note index items
       shortcut (reuse)

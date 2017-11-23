@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171122182319) do
 
   create_table "notes", force: :cascade do |t|
     t.string "title", null: false
-    t.string "content", null: false
+    t.string "content"
     t.integer "owner_id", null: false
     t.integer "notebook_id", null: false
     t.integer "shortcut_id"
