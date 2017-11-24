@@ -45,7 +45,6 @@ class NotesNavItem extends React.Component {
     const date = this.setDateDisplayValue();
     return (
       <div
-        onClick={() => this.props.receiveSelectedNote(this.props.note.id)}
         className={(this.props.selected) ? "notes-nav-item selected-note" : "notes-nav-item"}>
         <h3 className="notes-nav-item-title">{this.props.note.title}</h3>
         <p className="notes-nav-item-date">{date}</p>
@@ -56,7 +55,7 @@ class NotesNavItem extends React.Component {
             e.stopPropagation();
             this.props.deleteNote(this.props.note.id);
             if (this.props.selected) {
-              this.props.receiveSelectedNote(undefined);
+              this.props.history.push('/home');
             }
           }}
           >T</div>

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
   barNavType: state.ui.barNavType,
-  selectedNote: state.ui.selectedNote
+  selectedNote: ownProps.match.params.noteId
 });
 
 const mapDispatchToProps = (dispatch) => ({

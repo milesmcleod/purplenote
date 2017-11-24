@@ -1,7 +1,6 @@
 import {
   RECEIVE_BAR_NAV_TYPE,
   RECEIVE_SPLASH_NAV_TYPE,
-  RECEIVE_SELECTED_NOTE,
   RECEIVE_NOTE_SORT_TYPE,
   ENTER_FULLSCREEN,
   EXIT_FULLSCREEN
@@ -35,10 +34,6 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_BAR_NAV_TYPE:
       newState = merge({}, state);
       newState['barNavType'] = action.barNavType;
-      return newState;
-    case RECEIVE_SELECTED_NOTE:
-      newState = merge({}, state);
-      newState['selectedNote'] = action.noteId;
       return newState;
     case RECEIVE_NOTE_SORT_TYPE:
       newState = merge({}, state);

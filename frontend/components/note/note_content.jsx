@@ -52,8 +52,7 @@ class NoteContent extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // this.setState(newProps.note);
-    if (newProps.selectedNote) {
+    if (newProps.selectedNote !== 'new') {
       this.setState(newProps.note);
     } else {
       this.setState({
@@ -63,7 +62,7 @@ class NoteContent extends React.Component {
       });
     }
     if (newProps.selectedNote !== this.props.selectedNote) {
-      this.props.history.push(`/home&n=${(newProps.selectedNote) ? newProps.selectedNote : "new"}`);
+      this.props.history.push(`/home&n=${newProps.selectedNote}`);
     }
   }
 

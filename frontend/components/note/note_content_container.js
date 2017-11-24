@@ -8,8 +8,8 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    note: state.entities.notes[state.ui.selectedNote],
-    selectedNote: state.ui.selectedNote
+    note: state.entities.notes[ownProps.match.params.noteId],
+    selectedNote: ownProps.match.params.noteId
   };
 };
 

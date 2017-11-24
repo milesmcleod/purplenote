@@ -80,7 +80,7 @@ class NotesNav extends React.Component {
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
       if (!this.props.selectedNote) {
-        this.props.receiveSelectedNote(newProps.notes[0].id);
+        this.props.history.push(`/home&n=${newProps.notes[0].id}`);
       }
       this.setHeader(newProps);
     }
@@ -94,8 +94,8 @@ class NotesNav extends React.Component {
         <div id='notes-nav' className='notes-nav'>
           {
             this.props.notes.map(note => (
+              <div onClick={() => this.props.history.push(`/home&n=${note.id}`)}>
                 <NotesNavItem
-                  receiveSelectedNote={this.props.receiveSelectedNote}
                   deleteNote={this.props.deleteNote}
                   note={note}
                   selected={(
@@ -103,7 +103,8 @@ class NotesNav extends React.Component {
                   ) ? true : false}
                   key={note.id}
                   id={note.id}
-                  />
+                />
+              </div>
               ))
           }
         </div>
