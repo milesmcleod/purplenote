@@ -45,30 +45,44 @@ class NotesNav extends React.Component {
   }
 
   handleSort(notes, e) {
-    const arr = e.target.value.split(" ");
+    e.stopPropagation();
+    const arr = e.target.id.split(" ");
+    this.toggleDropdown();
     this.props.receiveNoteSortType(arr);
   }
 
+  toggleDropdown() {
+    const dropdown = document.getElementsByClassName("sort-options")[0];
+    if (dropdown.classList.contains("show-sort-options")) {
+      dropdown.classList.remove("show-sort-options");
+    } else {
+      dropdown.classList.add("show-sort-options");
+    }
+  }
+
   setHeader(props) {
-    this.setState({header: (
-      <header className="plain-notes-header">
-        <h4>NOTES</h4>
-        <p>{props.notes.length} notes</p>
-          <form className="note-sort-dropdown">
-            <select
-              onChange={(e) => this.handleSort(props.notes, e)}
-              defaultValue="updatedAt true">
-              <option disabled>Sort By</option>
-              <option value="createdAt">Date created (oldest first)</option>
-              <option value="createdAt true">Date created (newest first)</option>
-              <option value="updatedAt">Date updated (oldest first)</option>
-              <option value="updatedAt true">Date updated (newest first)</option>
-              <option value="title">Title (ascending)</option>
-              <option value="title true">Title (descending)</option>
-            </select>
-          </form>
-      </header>
-    )});
+    const header = (
+      (
+        <header className="plain-notes-header">
+          <h4>NOTES</h4>
+          <p>{props.notes.length} notes</p>
+          <p
+            className="sort-dropdown-link"
+            onClick={() => this.toggleDropdown()}>Sort By</p>
+          <div className="sort-options">
+            <ul onClick={(e) => this.handleSort(props.notes, e)}>
+              <li id="createdAt">Date created (oldest first)</li>
+              <li id="createdAt true">Date created (newest first)</li>
+              <li id="updatedAt">Date updated (oldest first)</li>
+              <li id="updatedAt true">Date updated (newest first)</li>
+              <li id="title">Title (ascending)</li>
+              <li id="title true">Title (descending)</li>
+            </ul>
+          </div>
+        </header>
+      )
+    );
+    this.setState({ header });
   } //refactor the select into a dropdown so that you can recall search type on refresh from UI state
 
   componentDidMount() {

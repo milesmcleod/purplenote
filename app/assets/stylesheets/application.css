@@ -1079,10 +1079,44 @@ NotesNav
   color: #ADADAD;
 }
 
-.note-sort-dropdown {
+.sort-dropdown-link {
   position: relative;
-  left: 140px;
-  top: -17px;
+  left: 200px;
+  top: -12px;
+}
+
+.sort-dropdown-link:hover {
+  cursor: pointer;
+}
+
+.sort-options {
+  display: none;
+}
+
+.show-sort-options {
+  display: block;
+  position: fixed;
+  left: 298px;
+  top: 88px;
+  z-index: 5;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #808080;
+  box-shadow: 6px 5px 28px -5px #bdbdbd;
+}
+
+.sort-options li {
+  transition: all 0.2s ease;
+  padding: 20px 20px;
+}
+
+.sort-options li:hover {
+  cursor: pointer;
+  color: white;
+  background: #7f00ff;
 }
 
 .notes-nav {
