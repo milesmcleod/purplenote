@@ -940,7 +940,105 @@ BarNav
 }
 
 .bar-nav-user-info {
-  margin-top: 300px;
+  margin-top: 100px;
+}
+
+.bar-nav-button-new-note {
+  background-image: url('sprite.png');
+  background-size: 200%;
+}
+
+.bar-nav-button-search {
+  background-image: url('sprite.png');
+  background-size: 200%;
+  background-position-y: -40px;
+}
+
+[class*='hover-bar-nav-button'] {
+  width: 40px;
+  height: 40px;
+  background-image: url('sprite.png');
+  background-size: 200%;
+  opacity: 0;
+  border: 1px solid #7f00ff;
+  border-radius: 50%;
+  box-sizing: content-box;
+  position: absolute;
+}
+
+.hover-bar-nav-button-new-note {
+  background-position-x: -40px;
+}
+
+.hover-bar-nav-button-search {
+  background-position-y: -40px;
+  background-position-x: -40px;
+}
+
+.bar-nav-button-list-2 li {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar-nav-button-shortcuts {
+  background-image: url('sprite.png');
+  background-size: 200%;
+  background-position-y: -80px;
+}
+
+.bar-nav-button-notes {
+  background-image: url('sprite.png');
+  background-size: 200%;
+  background-position-y: -120px;
+}
+
+.bar-nav-button-notebooks {
+  background-image: url('sprite.png');
+  background-size: 200%;
+  background-position-y: -160px;
+}
+
+.bar-nav-button-tags {
+  background-image: url('sprite.png');
+  background-size: 200%;
+  background-position-y: -200px;
+}
+
+.hover-bar-nav-button-shortcuts {
+  background-position-x: -40px;
+  background-position-y: -80px;
+}
+
+.hover-bar-nav-button-notes {
+  background-position-x: -40px;
+  background-position-y: -120px;
+}
+
+.hover-bar-nav-button-notebooks {
+  background-position-x: -40px;
+  background-position-y: -160px;
+}
+
+.hover-bar-nav-button-tags {
+  background-position-x: -40px;
+  background-position-y: -200px;
+}
+
+[class*='hover-bar-nav-button'] {
+  transition: opacity 0.2s ease;
+}
+
+[class*='hover-bar-nav-button']:hover {
+  opacity: 1;
+}
+
+[class*='bar-nav-button'] > li:hover {
+  cursor: pointer;
 }
 
 /*******************************
@@ -996,7 +1094,8 @@ NotesNav
 }
 
 .notes-nav-item {
-  transition: all 0.1s ease-out;
+  transition: background-color 0.1s ease-out,
+  color 0.1s ease-out,
   background-color: white;
   width: 100%;
   height: 120px;
