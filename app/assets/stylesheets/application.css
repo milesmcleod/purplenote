@@ -1196,9 +1196,15 @@ NotesNav
 
 .notes-nav-item-trash {
   transition: opacity 0.15s ease;
+  background-image: url(sprite.png);
+  width: 25px;
+  height: 25px;
+  background-image: url('sprite.png');
+  background-size: 800%;
+  background-position-y: -315px;
+  background-position-x: -13px;
   display: none;
   color: white;
-  width: 20px;
   z-index: 5;
   position: relative;
   top: -28px;
@@ -1206,16 +1212,30 @@ NotesNav
   opacity: 0;
 }
 
+.notes-nav-item-trash:hover {
+  background-position-x: -63px;
+}
+
 .notes-nav-item-shortcut {
   transition: opacity 0.4s ease;
+  background-image: url(sprite.png);
+  width: 25px;
+  height: 25px;
+  background-image: url('sprite.png');
+  background-size: 760%;
+  background-position-y: -390px;
+  background-position-x: -11px;
   display: none;
   color: white;
-  width: 20px;
   z-index: 5;
   position: relative;
   top: -28px;
   left: 245px;
   opacity: 0;
+}
+
+.notes-nav-item-shortcut:hover {
+  background-position-x: -58px;
 }
 
 .notes-nav-item:hover .notes-nav-item-shortcut {
