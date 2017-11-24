@@ -46,20 +46,22 @@ class NotesNavItem extends React.Component {
     return (
       <div
         className={(this.props.selected) ? "notes-nav-item selected-note" : "notes-nav-item"}>
-        <h3 className="notes-nav-item-title">{this.props.note.title}</h3>
+        <div className="notes-nav-item-header">
+          <h3 className="notes-nav-item-title">{this.props.note.title}</h3>
+          <div className="notes-nav-item-shortcut">S</div>
+          <div
+            className="notes-nav-item-trash"
+            onClick={(e) => {
+              e.stopPropagation();
+              this.props.deleteNote(this.props.note.id);
+              if (this.props.selected) {
+                this.props.history.push('/home');
+              }
+            }}
+          >T</div>
+        </div>
         <p className="notes-nav-item-date">{date}</p>
         <p className="notes-nav-item-content">{this.props.note.content}</p>
-        <div
-          className="notes-nav-item-trash"
-          onClick={(e) => {
-            e.stopPropagation();
-            this.props.deleteNote(this.props.note.id);
-            if (this.props.selected) {
-              this.props.history.push('/home');
-            }
-          }}
-          >T</div>
-        <div className="notes-nav-item-shortcut">S</div>
     </div>
     );
   }

@@ -996,8 +996,7 @@ NotesNav
 }
 
 .notes-nav-item {
-  transition: background-color 0.1s ease-out;
-  transition: color 0.1s ease-out;
+  transition: all 0.1s ease-out;
   background-color: white;
   width: 100%;
   height: 120px;
@@ -1006,6 +1005,8 @@ NotesNav
   box-sizing: border-box;
   cursor: pointer;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .selected-note {
@@ -1022,45 +1023,22 @@ NotesNav
   background-color: #7f00ff;
 }
 
+.notes-nav-item:hover .notes-nav-item-title {
+  width: 75%;
+}
+
 .notes-nav-item:hover h3, .notes-nav-item:hover p {
   color: white;
 }
-.notes-nav-item:hover .notes-nav-item-shortcut {
-  display: block;
-}
 
-.notes-nav-item:hover .notes-nav-item-trash {
-  display: block;
-}
-
-.notes-nav-item-mouse-off {
-  transition: all, 0.8s, ease;
-  background-color: white;
-}
-
-.notes-nav-item-trash {
-  display: none;
-  color: white;
-  margin-top: 5px;
-  position: absolute;
-  right: 40px;
-  top: 8px;
-  width: 20px;
-  z-index: 5;
-}
-
-.notes-nav-item-shortcut {
-  display: none;
-  color: white;
-  margin-top: 5px;
-  position: absolute;
-  right: 80px;
-  top: 8px;
-  width: 20px;
-  z-index: 5;
+.notes-nav-item-header {
+  width: 100%;
+  height: 28px;
+  display: inline-block;
 }
 
 .notes-nav-item-title {
+  transition: width 0.1s ease;
   font-weight: normal;
   font-family: 'Arvo', serif;
   color: #808080;
@@ -1068,6 +1046,46 @@ NotesNav
   font-size: 16px;
   line-height: 1.5;
   padding-bottom: 5px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
+
+.notes-nav-item-trash {
+  transition: opacity 0.15s ease;
+  display: none;
+  color: white;
+  width: 20px;
+  z-index: 5;
+  position: relative;
+  top: -28px;
+  left: 260px;
+  opacity: 0;
+}
+
+.notes-nav-item-shortcut {
+  transition: opacity 0.4s ease;
+  display: none;
+  color: white;
+  width: 20px;
+  z-index: 5;
+  position: relative;
+  top: -28px;
+  left: 245px;
+  opacity: 0;
+}
+
+.notes-nav-item:hover .notes-nav-item-shortcut {
+  display: inline-block;
+  opacity: 1;
+}
+
+.notes-nav-item:hover .notes-nav-item-trash {
+  display: inline-block;
+  opacity: 1;
 }
 
 .notes-nav-item-date {
@@ -1077,10 +1095,13 @@ NotesNav
 }
 
 .notes-nav-item-content {
+  width: 100%;
   font-size: 14px;
   color: #949494;
-  text-overflow: ellipsis;
-  height: 42px;
+  height: 43px;
+  display: block;
+  overflow: hidden;
+  display: block;
 }
 
 
