@@ -24,23 +24,11 @@ Wednesday, 11/22/17
 
 -workable frontend note structure
 
--gameplan:
-  -icons to build:
 
-    barnav:
-      new note
-      search
+TODO:
 
-      shortcut
-      note
-      notebook
-      tag
-
-    note header
-      shortcut (reuse)
-      trash
-      fullscreen
-
-    note index items
-      shortcut (reuse)
-      trash (reuse)
+when sorting, the url should not change...
+redo sort dropdown...
+fix icons, make em look great in draw, resize...
+highlight new note icon border when active/when url matches new...
+speed up icon transitions...

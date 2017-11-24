@@ -61,7 +61,7 @@ class NoteContent extends React.Component {
         notebook_id: 1
       });
     }
-    if (newProps.selectedNote !== this.props.selectedNote) {
+    if (newProps.match.params.noteId !== this.props.match.params.noteId) {
       this.props.history.push(`/home&n=${newProps.selectedNote}`);
     }
   }
