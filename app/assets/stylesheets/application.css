@@ -872,15 +872,28 @@ BarNav
 
 .home {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
 .side-bar {
+  transition: left 0.3s ease, opacity 0.05s ease;
   display: flex;
+  position: relative;
+  left: 0;
+  width: 425px;
+  padding: 0px;
+  margin: 0;
+}
+
+.side-bar-hidden {
+  left: -450px;
+  opacity: 0
+}
+
+.side-bar-show {
+  left: 0px;
 }
 
 /*******************************
@@ -892,20 +905,6 @@ BarNav
 .bar-nav {
   transition: all 0.3s ease;
   left: 0;
-  height: 100%;
-  width: 75px;
-  border-right: 1px solid #e0e0e0;
-  background: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  box-sizing: border-box;
-}
-
-.bar-nav-hidden {
-  position: fixed;
-  left: -500px;
   height: 100%;
   width: 75px;
   border-right: 1px solid #e0e0e0;
@@ -1091,11 +1090,20 @@ NoteBody
 *******************************/
 
 .note-body {
+  transition: left 0.3s ease;
   height: 100%;
-  width: 100%;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   align-items: center;
+  display: block;
+  position: absolute;
+  left: 425px;
+  min-width: 425px;
+  right: 0px;
+}
+
+.full-screen {
+  left: 0px;
 }
 
 .note-header-container {
@@ -1105,10 +1113,8 @@ NoteBody
 
 .note-content-form {
   height: 100%;
-  position: relative;
-  top: 45px;
   width: 80%;
-  margin: 0 auto;
+  margin: 45px auto;
   background: black;
   display: flex;
   flex-direction: column;

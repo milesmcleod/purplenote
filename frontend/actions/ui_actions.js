@@ -26,16 +26,22 @@ export const receiveNoteSortType = (noteSortType) => ({
 });
 
 export const enterFullscreen = () => {
-  const nav = document.getElementsByClassName("bar-nav")[0];
-  nav.classList.add("bar-nav-hidden");
+  const nav = document.getElementsByClassName("side-bar")[0];
+  const note = document.getElementsByClassName("note-body")[0];
+  nav.classList.add("side-bar-hidden");
+  note.classList.add("full-screen");
   return {
     type: ENTER_FULLSCREEN
   };
 };
 
 export const exitFullscreen = () => {
-  const nav = document.getElementsByClassName("bar-nav-hidden")[0];
-  nav.classList.remove("bar-nav-hidden");
+  const nav = document.getElementsByClassName("side-bar")[0];
+  const note = document.getElementsByClassName("note-body")[0];
+  nav.classList.add("side-bar-show");
+  window.setTimeout(() => nav.classList.remove("side-bar-hidden"), 200);
+  window.setTimeout(() => nav.classList.remove("side-bar-show"), 300);
+  note.classList.remove("full-screen");
   return {
     type: EXIT_FULLSCREEN
   };
