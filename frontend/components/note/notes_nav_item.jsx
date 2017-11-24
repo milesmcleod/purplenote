@@ -31,7 +31,7 @@ class NotesNavItem extends React.Component {
     ) {
       return `YESTERDAY`;
     } else if (
-      ((Date.now() - noteDate)/1000 >=(3600*24)) &&
+      ((Date.now() - noteDate)/1000 >=(3600*24*2)) &&
       ((Date.now() - noteDate)/1000 < (3600*24*7))
     ) {
       return `${Math.floor(((Date.now() - noteDate)/1000)/3600*24)} days ago`;

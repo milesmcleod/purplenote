@@ -876,6 +876,11 @@ BarNav
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+}
+
+.side-bar {
+  display: flex;
 }
 
 /*******************************
@@ -885,8 +890,22 @@ BarNav
 *******************************/
 
 .bar-nav {
-  position: fixed;
+  transition: all 0.3s ease;
   left: 0;
+  height: 100%;
+  width: 75px;
+  border-right: 1px solid #e0e0e0;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.bar-nav-hidden {
+  position: fixed;
+  left: -500px;
   height: 100%;
   width: 75px;
   border-right: 1px solid #e0e0e0;
@@ -931,8 +950,6 @@ NotesNav
 *******************************/
 
 .notes-nav-container {
-  position: fixed;
-  left: 75px;
   height: 100%;
   width: 350px;
   border-right: 1px solid #e0e0e0;
@@ -1062,6 +1079,8 @@ NotesNav
 .notes-nav-item-content {
   font-size: 14px;
   color: #949494;
+  text-overflow: ellipsis;
+  height: 42px;
 }
 
 
@@ -1073,9 +1092,7 @@ NoteBody
 
 .note-body {
   height: 100%;
-  position: fixed;
-  left: 426px;
-  right: 0px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

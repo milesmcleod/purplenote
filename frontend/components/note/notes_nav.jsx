@@ -81,16 +81,11 @@ class NotesNav extends React.Component {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
       if (!this.props.selectedNote) {
         this.props.receiveSelectedNote(newProps.notes[0].id);
+        console.log('here it is');
       }
       this.setHeader(newProps);
     }
   }
-
-  // componentDidUpdate() {
-  //   if (this.props.selectedNote) {
-  //     this.props.history.push(`/home&n=${this.props.selectedNote}`);
-  //   }
-  // }
 
 
   render() {

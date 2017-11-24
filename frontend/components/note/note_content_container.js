@@ -2,35 +2,22 @@ import { connect } from 'react-redux';
 import NoteContent from './note_content';
 import { postNote, patchNote, fetchNotes } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
+import {
+  exitFullscreen
+} from '../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  if (ownProps.note) {
-    return {
-      note: ownProps.note,
-      selectedNote: ownProps.note.id
-    };
-  } else if (ownProps.match.params.noteId) {
-    return {
-      note: ownProps.note,
-      selectedNote: ownProps.match.params.noteId
-    };
-  } else {
-    return {
-      note: ownProps.note,
-      selectedNote: state.ui.selectedNote
-    };
-  }
+  return {
+    note: state.entities.notes[state.ui.selectedNote],
+    selectedNote: state.ui.selectedNote
+  };
 };
-
-// perhaps this should be refactored. the note should actually either
-// be state.entities.notes[state.ui.selectedNote] OR if that is null it
-// should be null. this would hinge on finding some way to set the URL
-// right when the note is saved the first time.
 
 const mapDispatchToProps = (dispatch) => ({
   postNote: (note) => dispatch(postNote(note)),
   patchNote: (note) => dispatch(patchNote(note)),
-  fetchNotes: (note) => dispatch(fetchNotes(note))
+  fetchNotes: (note) => dispatch(fetchNotes(note)),
+  exitFullscreen: () => dispatch(exitFullscreen())
 });
 
 export default withRouter(connect(

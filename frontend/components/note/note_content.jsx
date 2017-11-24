@@ -48,13 +48,22 @@ class NoteContent extends React.Component {
       this.props.postNote(this.state);
       this.props.fetchNotes();
     }
+    this.props.exitFullscreen();
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState(newProps.note);
-    if (newProps.selectedNote !== this.props.selectedNote && newProps.selectedNote ) {
+    // this.setState(newProps.note);
+    if (newProps.selectedNote) {
       this.setState(newProps.note);
-      this.props.history.push(`/home&n=${newProps.selectedNote}`);
+    } else {
+      this.setState({
+        title: "",
+        content: "",
+        notebook_id: 1
+      });
+    }
+    if (newProps.selectedNote !== this.props.selectedNote) {
+      this.props.history.push(`/home&n=${(newProps.selectedNote) ? newProps.selectedNote : "new"}`);
     }
   }
 

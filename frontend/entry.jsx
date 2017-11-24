@@ -13,6 +13,11 @@ import {
   deleteNote
 } from './actions/note_actions';
 
+import {
+  enterFullscreen,
+  exitFullscreen
+ } from './actions/ui_actions';
+
 import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.enterFullscreen = enterFullscreen;
+  window.exitFullscreen = exitFullscreen;
   window.postUser = postUser;
   window.postSession = postSession;
   window.deleteSession = deleteSession;

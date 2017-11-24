@@ -59,14 +59,5 @@ integrate the form's submit button and the rest of the header bar.
 
 need transitions into and out of fullscreen.
 
-saving a note should save, and then when the notes nav receives new
-props, it should also receive UI -> selected note and then simulate a
-click on that note, so that the URL changes. then the note is free to
-autoupdate.
 
-need a default note to be selected. it all starts with the relationship
-between the UI state and the URL...
-first child of parent should be selected. use DOM selectors to grab that?
-
-
-add padding to note index items
+figure out how to do text overflow for index titles and contents

@@ -23,7 +23,10 @@ class BarNav extends React.Component {
         <ul className='bar-nav-button-list-1'>
           <li
             className="bar-nav-button-new-note"
-            onClick={() => this.renderNewNote()}>P</li>
+            onClick={() => {
+              this.renderNewNote();
+              this.props.enterFullscreen();
+            }}>P</li>
           <li className="bar-nav-button-search">Q</li>
         </ul>
         <ul className='bar-nav-button-list-2'>
