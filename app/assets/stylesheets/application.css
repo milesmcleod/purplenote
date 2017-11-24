@@ -945,20 +945,23 @@ BarNav
 
 .bar-nav-button-new-note {
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
+  background-position-x: -100px;
+  background-position-y: -20px;
 }
 
 .bar-nav-button-search {
   background-image: url('sprite.png');
-  background-size: 200%;
-  background-position-y: -40px;
+  background-size: 400%;
+  background-position-x: -100px;
+  background-position-y: -179px;
 }
 
 [class*='hover-bar-nav-button'] {
   width: 40px;
   height: 40px;
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
   opacity: 0;
   border: 1px solid #7f00ff;
   border-radius: 50%;
@@ -967,12 +970,13 @@ BarNav
 }
 
 .hover-bar-nav-button-new-note {
-  background-position-x: -40px;
+  background-position-x: -100px;
+  background-position-y: -100px;
 }
 
 .hover-bar-nav-button-search {
-  background-position-y: -40px;
-  background-position-x: -40px;
+  background-position-x: -100px;
+  background-position-y: -259px;
 }
 
 .bar-nav-button-list-2 li {
@@ -987,25 +991,25 @@ BarNav
 
 .bar-nav-button-shortcuts {
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
   background-position-y: -80px;
 }
 
 .bar-nav-button-notes {
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
   background-position-y: -120px;
 }
 
 .bar-nav-button-notebooks {
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
   background-position-y: -160px;
 }
 
 .bar-nav-button-tags {
   background-image: url('sprite.png');
-  background-size: 200%;
+  background-size: 400%;
   background-position-y: -200px;
 }
 
@@ -1030,7 +1034,7 @@ BarNav
 }
 
 [class*='hover-bar-nav-button'] {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.1s ease;
 }
 
 [class*='hover-bar-nav-button']:hover {
@@ -1041,6 +1045,9 @@ BarNav
   cursor: pointer;
 }
 
+[class*='bar-nav-button'] li:hover {
+  background: #7f00ff;
+}
 /*******************************
 
 NotesNav
