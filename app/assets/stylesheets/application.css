@@ -903,6 +903,10 @@ BarNav
 
 *******************************/
 
+.selected-nav-button {
+  border: 1px solid #7f00ff !important;
+}
+
 .bar-nav {
   transition: all 0.3s ease;
   left: 0;
@@ -931,7 +935,7 @@ BarNav
   border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
 
 
@@ -965,7 +969,6 @@ BarNav
   opacity: 0;
   border: 1px solid #7f00ff;
   border-radius: 50%;
-  box-sizing: content-box;
   position: absolute;
 }
 
@@ -980,9 +983,10 @@ BarNav
 }
 
 .bar-nav-button-list-2 li {
+  box-sizing: content-box;
   width: 40px;
   height: 40px;
-  border: none;
+  border: 1px solid whitesmoke;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -993,24 +997,28 @@ BarNav
   background-image: url('sprite.png');
   background-size: 400%;
   background-position-y: -80px;
+  top: 300px;
 }
 
 .bar-nav-button-notes {
   background-image: url('sprite.png');
   background-size: 400%;
   background-position-y: -120px;
+  top: 370px;
 }
 
 .bar-nav-button-notebooks {
   background-image: url('sprite.png');
   background-size: 400%;
   background-position-y: -160px;
+  top: 440px;
 }
 
 .bar-nav-button-tags {
   background-image: url('sprite.png');
   background-size: 400%;
   background-position-y: -200px;
+  top: 510px;
 }
 
 .hover-bar-nav-button-shortcuts {
@@ -1118,12 +1126,22 @@ NotesNav
 .sort-options li {
   transition: all 0.2s ease;
   padding: 20px 20px;
+  margin-right: 50px;
+}
+
+.sort-options span {
+  display: none;
+  padding-left: 20px;
 }
 
 .sort-options li:hover {
   cursor: pointer;
   color: white;
   background: #7f00ff;
+}
+
+.sort-options-selected span {
+  display: inline-block;
 }
 
 .notes-nav {

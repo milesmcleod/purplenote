@@ -13,6 +13,19 @@ class BarNav extends React.Component {
     this.props.history.push('/home&n=new');
   }
 
+  componentWillReceiveProps(newProps) {
+    let selectedIcon = document.getElementsByClassName(`bar-nav-button-${this.props.barNavType}`)[0];
+    if (selectedIcon.classList.contains("selected-nav-button")) {
+      selectedIcon.classList.remove("selected-nav-button");
+    }
+    if (
+      newProps.barNavType !== this.props.barNavType
+    ) {
+      selectedIcon = document.getElementsByClassName(`bar-nav-button-${newProps.barNavType}`)[0];
+      selectedIcon.classList.add("selected-nav-button");
+    }
+  }
+
 
 
   render() {

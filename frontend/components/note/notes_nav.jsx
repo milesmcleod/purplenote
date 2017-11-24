@@ -56,7 +56,11 @@ class NotesNav extends React.Component {
     if (dropdown.classList.contains("show-sort-options")) {
       dropdown.classList.remove("show-sort-options");
     } else {
+      const previous = document.getElementsByClassName('sort-options-selected')[0];
+      if (previous) previous.classList.remove('sort-options-selected');
       dropdown.classList.add("show-sort-options");
+      const selectedSort = document.getElementById(`${this.props.noteSortType.join(" ")}`);
+      selectedSort.classList.add("sort-options-selected");
     }
   }
 
@@ -68,15 +72,15 @@ class NotesNav extends React.Component {
           <p>{props.notes.length} notes</p>
           <p
             className="sort-dropdown-link"
-            onClick={() => this.toggleDropdown()}>Sort By</p>
+            onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
           <div className="sort-options">
             <ul onClick={(e) => this.handleSort(props.notes, e)}>
-              <li id="createdAt">Date created (oldest first)</li>
-              <li id="createdAt true">Date created (newest first)</li>
-              <li id="updatedAt">Date updated (oldest first)</li>
-              <li id="updatedAt true">Date updated (newest first)</li>
-              <li id="title">Title (ascending)</li>
-              <li id="title true">Title (descending)</li>
+              <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+              <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+              <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+              <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+              <li id="title">Title (ascending)<span>&#10004;</span></li>
+              <li id="title true">Title (descending)<span>&#10004;</span></li>
             </ul>
           </div>
         </header>
