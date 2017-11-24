@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,7 +47,6 @@ group :development, :test do
   gem 'annotate'
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'faker'
 end
 
 group :development do
