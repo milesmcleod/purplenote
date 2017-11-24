@@ -8,7 +8,7 @@ class NotesNav extends React.Component {
     this.state = {
       header: undefined,
       notes: this.props.notes,
-      selectedIndex: -1
+      selectedId: null
     };
   }
 
@@ -80,27 +80,35 @@ class NotesNav extends React.Component {
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, ...newProps.noteSortType); //sorting here
       if (!this.props.selectedNote) {
-        this.props.history.push(`/home&n=${newProps.notes[0].id}`);
+        this.selectNote(newProps.notes[0].id);
       }
       this.setHeader(newProps);
     }
   }
 
+  selectNote(selectedId) {
+    this.props.history.push(`/home&n=${selectedId}`);
+    this.setState({
+      selectedId
+    });
+  }
+
 
   render() {
+    console.log(this.props.match);
     return (
       <div className='notes-nav-container'>
         {this.state.header}
         <div id='notes-nav' className='notes-nav'>
           {
             this.props.notes.map(note => (
-              <div onClick={() => this.props.history.push(`/home&n=${note.id}`)}>
+              <div onClick={() => this.selectNote(note.id)}>
                 <NotesNavItem
                   deleteNote={this.props.deleteNote}
                   note={note}
                   selected={(
-                    this.props.selectedNote === note.id
-                  ) ? true : false}
+                    this.state.selectedId === note.id
+                  ) ? 'true' : false}
                   key={note.id}
                   id={note.id}
                 />
