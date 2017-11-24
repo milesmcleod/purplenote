@@ -1126,7 +1126,6 @@ NotesNav
 .sort-options li {
   transition: all 0.2s ease;
   padding: 20px 20px;
-  margin-right: 50px;
 }
 
 .sort-options span {
