@@ -1,5 +1,4 @@
 import React from 'react';
-import NoteHeaderContainer from './note_header_container';
 import NoteContentContainer from './note_content_container';
 
 class NoteBody extends React.Component {
@@ -9,15 +8,9 @@ class NoteBody extends React.Component {
 
   render() {
     return ((!this.props.note) ? (
-        <section className="note-body">
-          <NoteHeaderContainer />
-          <NoteContentContainer note={null}/>
-        </section>
+        <NoteContentContainer note={null}/>
       ) : (
-        <section className="note-body">
-          <NoteHeaderContainer />
-          <NoteContentContainer note={this.props.note}/>
-        </section>
+        <NoteContentContainer note={this.props.note}/>
       )
     );
   }

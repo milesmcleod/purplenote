@@ -12,7 +12,7 @@ class NoteHeader extends React.Component {
           className="exit-fullscreen-button"
           onClick={() => {
             this.props.exitFullscreen();
-            if (this.props.match.params.noteId === 'new') {
+            if (this.props.match.params.selectedNote === 'new') {
               this.props.history.goBack();
             }
           }}
@@ -31,7 +31,7 @@ class NoteHeader extends React.Component {
             className="note-header-trash"
             onClick={(e) => {
               e.stopPropagation();
-              this.props.deleteNote(this.props.noteId);
+              this.props.deleteNote(this.props.selectedNote);
               this.props.history.push('/home');
             }}
             ></div>

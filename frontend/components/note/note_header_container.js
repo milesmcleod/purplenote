@@ -8,7 +8,7 @@ import {
 } from '../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  noteId: ownProps.match.params.noteId,
+  selectedNote: ownProps.match.params.noteId,
   fullscreen: state.ui.fullscreen
 });
 

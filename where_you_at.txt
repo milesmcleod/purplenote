@@ -30,8 +30,11 @@ TO DO
   write note header bar...
   re-do favicon to have gradient background and dark foreground
 
-  note form autofocus?????? grab the element and set it to autofocus
-  get element by id(akjskldgmasd).autofocus();
+  look up new ES version async await syntax
+    -use it for patching when you click into and out of fullscreen
+    -wait for it to update before switching
+    -or maybe is it because it re-renders the component first and then
+    loads the note
 
 
 

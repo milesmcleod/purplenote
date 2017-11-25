@@ -15,6 +15,7 @@ class NoteContent extends React.Component {
     }
     this.debounceTimer = undefined;
     this.focus = undefined;
+    this.button = undefined;
   }
 
   // i learned how to write the following function
@@ -71,50 +72,98 @@ class NoteContent extends React.Component {
     ) {
       this.props.patchNote(this.state);
     }
-
   }
 
   render() {
-    let button;
+    console.log(this.props.match.params.noteId);
+    console.log(this.state.title);
     if (
       this.props.match.params.noteId === 'new' &&
       this.state.title !== ''
     ) {
-      button = (
-        <input
-          className="save-note"
+      this.button = (
+        <span
+          className="save-note-button"
           type="submit"
           onClick={e => this.handleSubmit(e)}
           value="Save"
-        ></input>
+        >Save</span>
+      );
+    } else if (
+      this.props.match.params.noteId === 'new' &&
+      this.state.title === ''
+    ) {
+      this.button = (
+        <span
+          className="exit-fullscreen-button"
+          onClick={() => {
+            this.props.history.goBack();
+            this.props.exitFullscreen();
+          }}
+          value="Cancel"
+          >Cancel</span>
+      );
+    } else if (this.props.fullscreen) {
+      this.button = (
+        <span
+          className="exit-fullscreen-button"
+          onClick={() => {
+            this.props.patchNote(this.state);
+            this.props.exitFullscreen();
+          }}
+          value="Done"
+          >Done</span>
       );
     } else {
-      button = (
-        <div></div>
+      this.button = (
+        <span
+          className="fullscreen-button"
+          onClick={() => {
+            this.props.patchNote(this.state);
+            this.props.enterFullscreen();
+          }}
+          value="Fullscreen"
+          >Fullscreen</span>
       );
     }
+    console.log(this.props.match.params.noteId);
     return (
-      <form
-        className='note-content-form'
-        >
-        <input
-          type="text"
-          name="title"
-          className="note-content-form-title"
-          value={this.state.title}
-          id="title"
-          placeholder="Title your note"
-          onChange={(e) => this.handleChange(e)}
-          ></input>
-        <textarea
-          type="text"
-          name="content"
-          placeholder="Just start typing..."
-          value={this.state.content}
-          onChange={(e) => this.handleChange(e)}
-          ></textarea>
-        {button}
-      </form>
+      <section className="note-body">
+        <header className="note-header-container">
+          <div className="note-options">
+            <div className="note-header-shortcut"></div>
+            <div
+              className="note-header-trash"
+              onClick={(e) => {
+                e.stopPropagation();
+                this.props.deleteNote(this.props.selectedNote);
+                this.props.history.push('/home');
+              }}
+              ></div>
+          </div>
+          {this.button}
+        </header>
+        <form
+          className='note-content-form'
+          >
+          <input
+            type="text"
+            name="title"
+            className="note-content-form-title"
+            value={this.state.title}
+            id="title"
+            placeholder="Title your note"
+            onChange={(e) => this.handleChange(e)}
+            ></input>
+          <textarea
+            type="text"
+            name="content"
+            placeholder="Just start typing..."
+            value={this.state.content}
+            onChange={(e) => this.handleChange(e)}
+            ></textarea>
+        </form>
+      </section>
     );
   }
 }
