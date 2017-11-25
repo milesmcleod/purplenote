@@ -14,6 +14,7 @@ class NoteContent extends React.Component {
       };
     }
     this.debounceTimer = undefined;
+    this.focus = undefined;
   }
 
   // i learned how to write the following function
@@ -24,7 +25,7 @@ class NoteContent extends React.Component {
   // it is a simple video to code through.
   // warning: the narrator's commentary is lewd.
 
-  // autosave 5 seconds from when the user stops changing things;
+  // autosave 4 seconds from when the user stops changing things;
   // reset timer every time a change is made within 4 seconds
 
   handleChange(e) {
@@ -36,22 +37,21 @@ class NoteContent extends React.Component {
       this.debounceTimer = setTimeout(() => {
         this.props.patchNote(this.state);
       }, 4000);
-    }
+      }
   }
 
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.note) {
       this.props.patchNote(this.state);
-      this.props.fetchNotes();
     } else {
       this.props.postNote(this.state);
-      this.props.fetchNotes();
     }
     this.props.exitFullscreen();
   }
 
   componentWillReceiveProps(newProps) {
+    console.log(newProps);
     if (newProps.selectedNote !== 'new') {
       this.setState(newProps.note);
     } else {
@@ -60,23 +60,46 @@ class NoteContent extends React.Component {
         content: "",
         notebook_id: 1
       });
+      let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
-    if (newProps.match.params.noteId !== this.props.match.params.noteId) {
-      this.props.history.push(`/home&n=${newProps.selectedNote}`);
+    if (
+      this.state &&
+      this.props.note &&
+      this.props.selectedNote !== 'new' &&
+      this.props.selectedNote !== newProps.selectedNote &&
+      (this.props.note.title !== this.state.title || this.props.note.content !== this.state.content)
+    ) {
+      this.props.patchNote(this.state);
     }
+
   }
 
   render() {
-    const autofocus = (this.props.match.params.noteId) ? false : true;
+    let button;
+    if (
+      this.props.match.params.noteId === 'new' &&
+      this.state.title !== ''
+    ) {
+      button = (
+        <input
+          className="save-note"
+          type="submit"
+          onClick={e => this.handleSubmit(e)}
+          value="Save"
+        ></input>
+      );
+    } else {
+      button = (
+        <div></div>
+      );
+    }
     return (
       <form
         className='note-content-form'
-        onSubmit={e => this.handleSubmit(e)}
         >
         <input
           type="text"
           name="title"
-          autoFocus={autofocus}
           className="note-content-form-title"
           value={this.state.title}
           id="title"
@@ -90,11 +113,7 @@ class NoteContent extends React.Component {
           value={this.state.content}
           onChange={(e) => this.handleChange(e)}
           ></textarea>
-        <input
-          className="save-note"
-          type="submit"
-          value="Done"
-        ></input>
+        {button}
       </form>
     );
   }

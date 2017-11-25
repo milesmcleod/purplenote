@@ -785,6 +785,7 @@ splash
 }
 
 @media all and (max-width: 948px) {
+
   [class*='pitch-img'] {
     display: none;
   }
@@ -797,10 +798,9 @@ splash
     text-align: center;
   }
 
-
   .pitch-zone {
     position: relative;
-    top: -100px;
+    top: 260px;
   }
 
   .pitch, .splash-signup-header, .splash-signup-form {
@@ -831,31 +831,16 @@ splash
   }
 
   .final-signup-div {
-    top: 700px;
+    top: 1075px;
     height: 300px;
     background: white;
   }
-
   .final-signup-div h2 {
     margin-bottom: 5px;
   }
 
 }
 
-@media all and (max-width: 840px) {
-
-  .pitch-zone {
-    position: relative;
-    top: 260px;
-  }
-
-  .final-signup-div {
-    top: 1075px;
-    height: 300px;
-    background: white;
-  }
-
-}
 
 @media all and (max-width: 420px) {
 
@@ -1305,11 +1290,6 @@ NoteBody
   left: 0px;
 }
 
-.note-header-container {
-  width: 100%;
-  height: 45px;
-}
-
 .note-content-form {
   height: 100%;
   width: 80%;
@@ -1357,4 +1337,82 @@ NoteBody
   background: #7f00ff;
   border: none;
   border-radius: 8px;
+}
+
+/************************************
+
+NotesHeader
+
+************************************/
+
+.note-header-container {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-header-trash {
+  transition: opacity 0.15s ease;
+  width: 26px;
+  height: 26px;
+  background-image: url('sprite.png');
+  background-size: 800%;
+  background-position-y: -379px;
+  background-position-x: -13px;
+  z-index: 5;
+  margin-left: 30px;
+}
+
+.note-header-trash:hover {
+  background-position-x: -65px;
+  cursor: pointer;
+}
+
+
+.note-header-shortcut {
+  transition: opacity 0.4s ease;
+  width: 25px;
+  height: 25px;
+  background-image: url('sprite.png');
+  background-size: 760%;
+  background-position-y: -437px;
+  background-position-x: -11px;
+  z-index: 5;
+  margin-left: 30px;
+}
+
+.note-options {
+  transition: opacity 0.8s ease;
+  position: relative;
+  display: flex;
+}
+
+.note-header-shortcut:hover {
+  background-position-x: -59px;
+  cursor: pointer;
+}
+
+.note-options-slide {
+  left: -150px;
+  opacity: 0;
+}
+
+.fullscreen-button, .exit-fullscreen-button {
+  width: 80px;
+  height: 30px;
+  color: white;
+  background: #7f00ff;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.fullscreen-button:hover, .exit-fullscreen-button:hover {
+  cursor: pointer;
 }

@@ -22,8 +22,10 @@ export const receiveNoteSortType = (noteSortType) => ({
 export const enterFullscreen = () => {
   const nav = document.getElementsByClassName("side-bar")[0];
   const note = document.getElementsByClassName("note-body")[0];
+  const noteOptions = document.getElementsByClassName("note-options")[0];
   nav.classList.add("side-bar-hidden");
   note.classList.add("full-screen");
+  noteOptions.classList.add("note-options-slide");
   return {
     type: ENTER_FULLSCREEN
   };
@@ -32,9 +34,11 @@ export const enterFullscreen = () => {
 export const exitFullscreen = () => {
   const nav = document.getElementsByClassName("side-bar")[0];
   const note = document.getElementsByClassName("note-body")[0];
+  const noteOptions = document.getElementsByClassName("note-options")[0];
   nav.classList.add("side-bar-show");
   window.setTimeout(() => nav.classList.remove("side-bar-hidden"), 200);
   window.setTimeout(() => nav.classList.remove("side-bar-show"), 300);
+  window.setTimeout(() => noteOptions.classList.remove("note-options-slide"), 400);
   note.classList.remove("full-screen");
   return {
     type: EXIT_FULLSCREEN

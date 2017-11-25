@@ -25,7 +25,15 @@ Wednesday, 11/22/17
 -workable frontend note structure
 
 
-TODO:
+TO DO
 
-write note header bar...
-splash breakpoint for signup should be same as pitchzone
+  write note header bar...
+  re-do favicon to have gradient background and dark foreground
+
+  note form autofocus?????? grab the element and set it to autofocus
+  get element by id(akjskldgmasd).autofocus();
+
+
+
+login modal animation
+extra special final touch: night mode. dark blues with white text.

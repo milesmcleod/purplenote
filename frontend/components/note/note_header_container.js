@@ -1,17 +1,24 @@
 import { connect } from 'react-redux';
 import NoteHeader from './note_header';
+import { withRouter } from 'react-router-dom';
+import { deleteNote } from '../../actions/note_actions';
+import {
+  enterFullscreen,
+  exitFullscreen
+} from '../../actions/ui_actions';
 
-const mapStateToProps = (state) => ({
-
+const mapStateToProps = (state, ownProps) => ({
+  noteId: ownProps.match.params.noteId,
+  fullscreen: state.ui.fullscreen
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  deleteNote: (id) => dispatch(deleteNote(id)),
+  enterFullscreen: () => dispatch(enterFullscreen()),
+  exitFullscreen: () => dispatch(exitFullscreen())
 });
 
-export default connect(
-  // mapStateToProps,
-  // mapDispatchToProps
-  null,
-  null
-)(NoteHeader);
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NoteHeader));
