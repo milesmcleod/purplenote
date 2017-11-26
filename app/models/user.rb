@@ -22,6 +22,11 @@ class User < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :Note
 
+  has_many :notebooks,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Notebook
+
   attr_reader :password
 
   before_validation :ensure_session_token
@@ -36,8 +41,8 @@ class User < ApplicationRecord
   end
 
   def self.find_by_credentials(name, password)
-    @user = User.includes(:notes).find_by(email: name)
-    @user ||= User.includes(:notes).find_by(username: name)
+    @user = User.includes(:notes, :notebooks).find_by(email: name)
+    @user ||= User.includes(:notes, :notebooks).find_by(username: name)
     if @user && @user.is_password?(password)
       return @user
     else

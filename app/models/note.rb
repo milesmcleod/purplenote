@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  title        :string           not null
-#  contents     :string           not null
+#  content      :string
 #  owner_id     :integer          not null
 #  notebook_id  :integer          not null
 #  shortcut_id  :integer
@@ -21,7 +21,10 @@ class Note < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :User
 
-  # belongs_to :notebook
+  belongs_to :notebook,
+  primary_key: :id,
+  foreign_key: :notebook_id,
+  class_name: :Notebook
   # has_one :shortcut, as: :shortcuttable
 
 end

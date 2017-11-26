@@ -10,12 +10,22 @@ user1.save
 user2 = User.new(username: 'miles', email: 'miles@gmail.com', password: 'password', img_url: 'placeholder')
 user2.save
 
+i = 1
+3.times do
+  notebook = Notebook.new(
+    title: Faker::BossaNova.song,
+    owner_id: 1
+  )
+  notebook.save
+  i += 1
+end
+
 10.times do
   note = Note.new(
     title: Faker::StarWars.planet,
     content: Faker::Lorem.paragraph(4, true, 12),
     owner_id: 1,
-    notebook_id: 1 )
+    notebook_id: [1, 2, 3].sample )
   note.save
   year = 2017
   month = [11, 11, 11, 11, 11, 10, 10, 9, 9, 8, 7, 5, 2]
@@ -40,7 +50,7 @@ end
     title: Faker::StarWars.planet,
     content: Faker::StarWars.wookiee_sentence,
     owner_id: 1,
-    notebook_id: 1 )
+    notebook_id: [1, 2, 3].sample )
   note.save
   year = 2017
   month = [11, 11, 11, 11, 11, 10, 10, 9, 9, 8, 7, 5, 2]

@@ -22,19 +22,35 @@ Wednesday, 11/22/17
 
 -completed notes backend
 
--workable frontend note structure
+-complete notes. however, something to think about and come back to:
 
-
-TO DO
-
-  write note header bar...
-  re-do favicon to have gradient background and dark foreground
-
-  look up new ES version async await syntax
+  think about the transitions. why is a new note rendering for a split second before showing the saved note when it saves a new note? i think there could be a promise.then(()=>{}) there that would save that split second render. maybe bring that up with Andres. and
+  look up new ES version async await syntax:
     -use it for patching when you click into and out of fullscreen
     -wait for it to update before switching
     -or maybe is it because it re-renders the component first and then
     loads the note
+
+notebooks gameplan:
+
+  (ASIDE) deleting notebooks should put all the notes in the trash.
+
+  -build a nav shell that can be filled with either a notebook index, tag index, or shortcut index
+  -write the components:
+    -NotebooksHeader
+    -NewNotebookModal + presentational component
+    -NewNotebookModalContainer + presentational component
+    -NotebookIndexItem
+    -TrashContainer + presentational component
+  -write the trash functionality and change around the note trash callbacks to change trashBoolean
+  -once the notebooks CRUD is working, write a notebook header for the notes nav and filter out trash notes for regular notes index, and filter out trash + non-notebook notes for the notebook notes index
+  -make an emptyTrash function that deletes each note from the DB
+  -write a popup function that alerts you that you have moved an item to the trash
+  -write a dropdown that gives the user the ability to edit which notebook a note belongs to (right above the note title in the note show)
+  -write javascript animation for the show bar, with a modal that greys out the screen
+  -write the search functionality in a modal
+
+
 
 
 

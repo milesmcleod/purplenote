@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  title        :string           not null
-#  contents     :string           not null
+#  content      :string
 #  owner_id     :integer          not null
 #  notebook_id  :integer          not null
 #  shortcut_id  :integer

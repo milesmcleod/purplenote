@@ -12,6 +12,12 @@ import {
   patchNote,
   deleteNote
 } from './actions/note_actions';
+import {
+  fetchNotebooks,
+  postNotebook,
+  patchNotebook,
+  deleteNotebook
+} from './actions/notebook_actions';
 
 import {
   enterFullscreen,
@@ -39,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.postNote = postNote;
   window.patchNote = patchNote;
   window.deleteNote = deleteNote;
+  window.fetchNotebooks =fetchNotebooks;
+  window.postNotebook = postNotebook;
+  window.patchNotebook = patchNotebook;
+  window.deleteNotebook = deleteNotebook;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');

@@ -145,6 +145,7 @@ class NoteContent extends React.Component {
         </header>
         <form
           className='note-content-form'
+          onSubmit={(e) => this.handleSubmit(e)}
           >
           <input
             type="text"
