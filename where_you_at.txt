@@ -51,6 +51,9 @@ notebooks gameplan:
   -write javascript animation for the show bar, with a modal that greys out the screen
   -write the search functionality in a modal
 
+  -note info (this should be easy)
+  -notebook info (for editing notebook titles)
+
 
 don't forget to add whitespace to the bottom borders of the notes
 

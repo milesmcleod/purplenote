@@ -9,16 +9,48 @@ class NewNotebookModal extends React.Component {
   }
 
   handleChange(e) {
+    e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     });
+    window.setTimeout(() => {
+      if (this.props.titles.includes(this.state.title)) {
+        const errors = document.getElementsByClassName("modal-form-errors")[0];
+        errors.classList.add("modal-form-errors-show");
+        const submit = document.getElementsByClassName("modal-submit")[0];
+        submit.classList.add("modal-submit-empty");
+      } else if (this.state.title === '') {
+        const submit = document.getElementsByClassName("modal-submit")[0];
+        submit.classList.add("modal-submit-empty");
+      } else {
+        const errors = document.getElementsByClassName("modal-form-errors")[0];
+        errors.classList.remove("modal-form-errors-show");
+        const submit = document.getElementsByClassName("modal-submit")[0];
+        submit.classList.remove("modal-submit-empty");
+      }
+    }, 20);
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.props.postNotebook(this.state)
-    .then(() => this.exitModal());
+    if (this.state.title === "") {
+      e.preventDefault();
+    } else if (this.props.titles.includes(this.state.title)) {
+      e.preventDefault();
+      const errors = document.getElementsByClassName("modal-form-errors")[0];
+      errors.classList.add("modal-form-errors-show");
+      const submit = document.getElementsByClassName("modal-submit")[0];
+      submit.classList.add("modal-submit-empty");
+    } else {
+      e.preventDefault();
+      const notebook = Object.assign({}, this.state);
+      this.props.postNotebook(notebook);
+      this.exitModal(0);
+      window.setTimeout(() => {
+        this.setState({
+          title: ""
+        });
+      }, 400);
+    }
   }
 
   exitModal(e) {
@@ -26,16 +58,19 @@ class NewNotebookModal extends React.Component {
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.remove("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-notebook-modal')[0];
-    modal.classList.remove("new-notebook-modal-show");
+    modal.classList.remove("new-notebook-modal-fade-in");
+    window.setTimeout(() => {
+      modal.classList.remove("new-notebook-modal-show");
+    }, 400);
   }
 
   render() {
-    console.log(this.state);
     return(
       <div className='new-notebook-modal'>
         <div className='modal-form-errors'>
-          <ul>
-          </ul>
+          <p>
+            The notebook title entered already exists. Please choose another title.
+          </p>
         </div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="new-notebook-form-icon"></div>
@@ -44,17 +79,31 @@ class NewNotebookModal extends React.Component {
           <input
             type="text"
             name="title"
-            className="note-content-form-title"
+            autoFocus
+            className={
+              (this.state.title === "") ?
+              "notebook-form-title notebook-form-title-empty" :
+              "notebook-form-title"
+            }
             value={this.state.title}
             id="title"
-            placeholder="Title your note"
+            placeholder="Title your notebook"
             onChange={(e) => this.handleChange(e)}
           ></input>
-        <button
-          value="Cancel"
-          onClick={(e) => this.exitModal(e)}
-          >Cancel</button>
-        <input type="submit" value="Create Notebook"></input>
+          <div className='form-buttons'>
+            <input
+              className={
+                (this.state.title === "") ?
+                "modal-submit modal-submit-empty" :
+                "modal-submit"
+              }
+             type="submit" value="Create Notebook"></input>
+             <button
+               value="Cancel"
+               onClick={(e) => this.exitModal(e)}
+               className="modal-submit modal-cancel"
+               >Cancel</button>
+          </div>
         </form>
       </div>
     );
