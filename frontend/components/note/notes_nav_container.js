@@ -4,7 +4,8 @@ import values from 'lodash/values';
 import { receiveNoteSortType } from '../../actions/ui_actions';
 import {
   trashNote,
-  deleteNote
+  deleteNote,
+  restoreNote
  } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -45,6 +46,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType)),
   trashNote: (note) => dispatch(trashNote(note)),
+  restoreNote: (note) => dispatch(restoreNote(note)),
+  deleteNote: (id) => dispatch(deleteNote(id)),
   emptyTrash: (e, notes) => {
     e.preventDefault();
     notes.forEach(note => {

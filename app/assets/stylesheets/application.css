@@ -1329,6 +1329,45 @@ NotesNav
   opacity: 1;
 }
 
+.notes-nav-item:hover .erase-note {
+  display: inline-block;
+  opacity: 1;
+}
+
+.notes-nav-item:hover .restore-note {
+  display: inline-block;
+  opacity: 1;
+}
+
+.erase-note, .restore-note {
+  display: none;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  padding: 4px 6px;
+  color: white;
+  border: 1px solid white;
+  background: none;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  position: relative;
+  top: -30px;
+  opacity: 0;
+}
+
+.erase-note {
+  left: 180px;
+}
+
+.restore-note {
+  left: 200px;
+}
+
+.erase-note:hover, .restore-note:hover {
+  color: #7f00ff;
+  background: white;
+}
+
 .notes-nav-item-date {
   color: #949494;
   font-size: 11px;

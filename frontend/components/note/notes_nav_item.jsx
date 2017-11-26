@@ -44,7 +44,21 @@ class NotesNavItem extends React.Component {
   render() {
     const date = this.setDateDisplayValue();
     const options = (this.props.trashView) ? (
-      <div></div>
+      <div>
+        <div className="erase-note"
+          onClick={(e) => {
+            e.stopPropagation();
+            this.props.deleteNote(this.props.note.id);
+          }}
+        >Erase</div>
+        <div
+          className="restore-note"
+          onClick={(e) => {
+            e.stopPropagation();
+            this.props.restoreNote(this.props.note);
+          }}
+        >Restore</div>
+      </div>
   ) : (
     <div>
       <div className="notes-nav-item-shortcut"></div>

@@ -39,6 +39,12 @@ export const trashNote = (note) => (dispatch) => {
   .then(response => dispatch(receiveNote(response)));
 };
 
+export const restoreNote = (note) => (dispatch) => {
+  note.trashBoolean = false;
+  return NotesAPIUtil.patchNote(note)
+  .then(response => dispatch(receiveNote(response)));
+};
+
 export const deleteNote = (id) => (dispatch) => {
   return NotesAPIUtil.deleteNote(id)
   .then(response => dispatch(removeNote(response)));
