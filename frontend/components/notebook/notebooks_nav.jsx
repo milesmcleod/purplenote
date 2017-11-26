@@ -96,6 +96,12 @@ class NotebooksNav extends React.Component {
                   <NotebooksNavItem
                     deleteNotebook={this.props.deleteNotebook}
                     notebook={notebook}
+                    noteCount={
+                      this.props.notes.filter(note => (
+                        note.notebookId === notebook.id &&
+                        note.trashBoolean === false
+                      )).length
+                    }
                     selected={(
                       this.props.selectedNotebook === notebook.id
                     ) ? 'true' : false}

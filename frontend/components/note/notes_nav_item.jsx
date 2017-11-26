@@ -53,7 +53,7 @@ class NotesNavItem extends React.Component {
             className="notes-nav-item-trash"
             onClick={(e) => {
               e.stopPropagation();
-              this.props.deleteNote(this.props.note.id);
+              this.props.trashNote(this.props.note);
               if (this.props.selected) {
                 this.props.history.push('/home');
               }

@@ -37,11 +37,6 @@ notebooks gameplan:
 
 
   -write the components:
-    -NewNotebookModalContainer + presentational component
-    -NotebooksNav
-    -NotebookIndexItem
-    -NewNotebookModal + presentational component
-    -TrashContainer + presentational component
 
   -write the trash functionality and change around the note trash callbacks to change trashBoolean
   -once the notebooks CRUD is working, write a notebook header for the notes nav and filter out trash notes for regular notes index, and filter out trash + non-notebook notes for the notebook notes index

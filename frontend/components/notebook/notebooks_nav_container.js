@@ -10,6 +10,7 @@ import { deleteNotebook } from '../../actions/notebook_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   notebooks: values(state.entities.notebooks),
+  notes: values(state.entities.notes),
   barNavType: state.ui.barNavType,
   selectedNotebook: state.ui.selectedNotebook
 });

@@ -13,8 +13,15 @@ class NotebooksNavItem extends React.Component {
            "notebook-item selected-notebook" : "notebook-item"}>
          <p className='notebook-item-title'>{this.props.notebook.title}</p>
          <span className="notebook-item-shortcut"></span>
-         <span className="notebook-item-trash"></span>
-         <p className='notebook-item-count'>{this.props.notebook.noteCount}{' '}
+         <span
+           className="notebook-item-trash"
+           onClick={(e) => {
+             e.preventDefault();
+             e.stopPropagation();
+             this.props.deleteNotebook(this.props.notebook.id);
+           }}
+           ></span>
+         <p className='notebook-item-count'>{this.props.noteCount}{' '}
            {(this.props.notebook.noteCount === 1) ? 'note' : 'notes'}</p>
       </div>
     );

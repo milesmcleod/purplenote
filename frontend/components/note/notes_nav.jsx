@@ -107,7 +107,7 @@ class NotesNav extends React.Component {
           !this.props.selectedNote &&
           this.props.noteSortType === newProps.noteSortType
         ) {
-          this.selectNote(newProps.notes[0].id);
+          if (newProps.notes[0]) this.selectNote(newProps.notes[0].id);
         }
         this.setHeader(newProps);
       }
@@ -137,7 +137,7 @@ class NotesNav extends React.Component {
                 key={note.id}
                 onClick={() => this.selectNote(note.id)}>
                 <NotesNavItem
-                  deleteNote={this.props.deleteNote}
+                  trashNote={this.props.trashNote}
                   note={note}
                   selected={(
                     this.state.selectedId === note.id

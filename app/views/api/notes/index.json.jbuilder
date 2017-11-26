@@ -4,6 +4,7 @@ json.notes do
       json.id note.id
       json.title note.title
       json.content note.content
+      json.trashBoolean note.trashBoolean
       json.notebookId note.notebook_id
       json.updatedAt note.updated_at
       json.createdAt note.created_at
@@ -16,7 +17,6 @@ json.notebooks do
     json.set! notebook.id do
       json.id notebook.id
       json.title notebook.title
-      json.noteCount notebook.notes.length
       json.shortcut_id notebook.shortcut_id
       json.updatedAt notebook.updated_at
       json.createdAt notebook.created_at
