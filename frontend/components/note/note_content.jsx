@@ -52,7 +52,6 @@ class NoteContent extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     if (newProps.selectedNote !== 'new') {
       this.setState(newProps.note);
     } else {
@@ -75,8 +74,6 @@ class NoteContent extends React.Component {
   }
 
   render() {
-    console.log(this.props.match.params.noteId);
-    console.log(this.state.title);
     if (
       this.props.match.params.noteId === 'new' &&
       this.state.title !== ''
@@ -126,7 +123,6 @@ class NoteContent extends React.Component {
           >Fullscreen</span>
       );
     }
-    console.log(this.props.match.params.noteId);
     return (
       <section className="note-body">
         <header className="note-header-container">

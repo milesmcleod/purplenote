@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { receiveBarNavType } from '../../actions/ui_actions';
+import {
+  receiveBarNavType,
+  receiveSelectedNotebook
+ } from '../../actions/ui_actions';
 import values from 'lodash/values';
 import NotebooksNav from './notebooks_nav';
+import { deleteNotebook} from '../../actions/notebook_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  notes: values(state.entities.notes),
-  barNavType: state.ui.barNavType
+  notebooks: values(state.entities.notebooks),
+  barNavType: state.ui.barNavType,
+  selectedNotebook: state.ui.selectedNotebook
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setBarNavType: (type) => dispatch(receiveBarNavType(type))
+  setBarNavType: (type) => dispatch(receiveBarNavType(type)),
+  deleteNotebook: (id) => dispatch(deleteNotebook(id)),
+  selectNotebook: (id) => dispatch(receiveSelectedNotebook(id))
 });
 
 export default connect(

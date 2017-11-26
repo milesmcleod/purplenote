@@ -1,8 +1,12 @@
 import React from 'react';
+import NotebooksNavItem from './notebooks_nav_item';
 
 class NotebooksNav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      notebooks: this.props.notebooks
+    };
   }
 
   componentWillReceiveProps (newProps) {
@@ -13,6 +17,7 @@ class NotebooksNav extends React.Component {
         const modal = document.getElementById('modalBackground');
         modal.classList.add('secondary-nav-background-show');
       }
+      this.sortNotebooks(this.props.notebooks);
     } else {
       const nav = document.getElementById('notebooksNav');
       nav.classList.remove('secondary-nav-container-show');
@@ -23,15 +28,73 @@ class NotebooksNav extends React.Component {
     }
   }
 
+  comparator(property, backwards) {
+    let a, b;
+    return function (x, y) {
+      a = (typeof x[property] === 'string') ?
+       x[property].toLowerCase() : x[property];
+      b = (typeof y[property] === 'string') ?
+       y[property].toLowerCase() : y[property];
+      if (a > b) {
+        if (backwards) {
+          return -1;
+        } else {
+          return 1;
+        }
+      } else {
+        if (backwards) {
+          return 1;
+        } else {
+          return -1;
+        }
+      }
+    };
+  }
+
+  sortNotebooks(notebooks) {
+    notebooks.sort(this.comparator('title', true));
+    this.setState({
+      notebooks
+    });
+  }
+
   render () {
     return (
       <div>
-        <div id = 'notebooksNav' className='secondary-nav-container'></div>
+        <div
+          id='notebooksNav'
+          className='secondary-nav-container'>
+          <header>
+            <h4>NOTEBOOKS</h4>
+          </header>
+          <div id='notebooks-nav' className='notebooks-nav'>
+            {
+              this.props.notebooks.map(notebook => (
+                <div
+                  key={notebook.title}
+                  onClick={() => this.props.selectNotebook(notebook.id)}>
+                  <NotebooksNavItem
+                    deleteNote={this.props.deleteNotebook}
+                    notebook={notebook}
+                    selected={(
+                      this.state.selectedNotebook === notebook.id
+                    ) ? 'true' : false}
+                    id={notebook.id}
+                  />
+                </div>
+              ))
+            }
+            <div onClick={() => this.props.selectNotebook(-1)}>
+              <p>Trash</p>
+            </div>
+          </div>
+
+        </div>
         <div
           id = 'modalBackground'
           className='secondary-nav-background'
           onClick={(e) => this.props.setBarNavType('notes')}
-          ></div>
+        ></div>
       </div>
     );
   }

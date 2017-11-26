@@ -1420,7 +1420,7 @@ SecondaryNav
   width: 455px;
   position: absolute;
   left: -385px;
-  z-index: 300;
+  z-index: 299;
   border-right: 3px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   display: flex;
@@ -1429,6 +1429,7 @@ SecondaryNav
 }
 
 .secondary-nav-container-show {
+  z-index: 300;
   left: 73px;
 }
 
@@ -1449,4 +1450,32 @@ SecondaryNav
   z-index: 200;
   background: white;
   opacity: .9
+}
+
+.secondary-nav-totality {
+  z-index: 1000;
+  background: white;
+  opacity: 1;
+}
+
+/*****************************
+
+NotebookItem
+
+*****************************/
+
+.notebook-item {
+
+}
+
+.selected-notebook {
+
+}
+
+.notebook-item-title {
+
+}
+
+.notebook-item-count {
+
 }

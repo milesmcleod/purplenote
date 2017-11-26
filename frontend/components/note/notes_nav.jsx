@@ -95,7 +95,6 @@ class NotesNav extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, "updatedAt", true);
       if (newProps.notes.length > this.props.notes.length) {
@@ -134,14 +133,15 @@ class NotesNav extends React.Component {
         <div id='notes-nav' className='notes-nav'>
           {
             this.props.notes.map(note => (
-              <div onClick={() => this.selectNote(note.id)}>
+              <div
+                key={note.id}
+                onClick={() => this.selectNote(note.id)}>
                 <NotesNavItem
                   deleteNote={this.props.deleteNote}
                   note={note}
                   selected={(
                     this.state.selectedId === note.id
                   ) ? 'true' : false}
-                  key={note.id}
                   id={note.id}
                 />
               </div>

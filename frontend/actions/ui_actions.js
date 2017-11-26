@@ -1,6 +1,7 @@
 export const RECEIVE_SPLASH_NAV_TYPE = 'RECEIVE_SPLASH_NAV_TYPE';
 export const RECEIVE_BAR_NAV_TYPE = 'RECEIVE_BAR_NAV_TYPE';
 export const RECEIVE_NOTE_SORT_TYPE = 'RECEIVE_NOTE_SORT_TYPE';
+export const RECEIVE_SELECTED_NOTEBOOK = 'RECEIVE_SELECTED_NOTEBOOK';
 export const ENTER_FULLSCREEN = 'ENTER_FULLSCREEN';
 export const EXIT_FULLSCREEN = 'EXIT_FULLSCREEN';
 
@@ -17,6 +18,11 @@ export const receiveBarNavType = (barNavType) => ({
 export const receiveNoteSortType = (noteSortType) => ({
   type: RECEIVE_NOTE_SORT_TYPE,
   noteSortType
+});
+
+export const receiveSelectedNotebook = (notebookId) => ({
+  type: RECEIVE_SELECTED_NOTEBOOK,
+  notebookId
 });
 
 export const enterFullscreen = () => {

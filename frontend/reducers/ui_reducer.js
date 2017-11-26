@@ -2,6 +2,7 @@ import {
   RECEIVE_BAR_NAV_TYPE,
   RECEIVE_SPLASH_NAV_TYPE,
   RECEIVE_NOTE_SORT_TYPE,
+  RECEIVE_SELECTED_NOTEBOOK,
   ENTER_FULLSCREEN,
   EXIT_FULLSCREEN
 } from '../actions/ui_actions';
@@ -19,6 +20,7 @@ const defaultState = {
   splashNavType: 'regular',
   barNavType: 'notes',
   selectedNote: undefined,
+  selectedNotebook: undefined,
   noteSortType: ['updatedAt', true],
   fullscreen: false
 };
@@ -42,6 +44,10 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_NOTE:
       newState = merge({}, state);
       newState['selectedNote'] = action.payload.id;
+      return newState;
+    case RECEIVE_SELECTED_NOTEBOOK:
+      newState = merge({}, state);
+      newState['selectedNotebook'] = action.notebookId;
       return newState;
     case ENTER_FULLSCREEN:
       newState = merge({}, state);

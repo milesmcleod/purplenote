@@ -7,6 +7,9 @@ import {
   RECEIVE_NOTEBOOKS,
   REMOVE_NOTEBOOK
 } from '../actions/notebook_actions';
+import {
+  RECEIVE_NOTES
+} from '../actions/note_actions';
 import merge from 'lodash/merge';
 
 const NotebooksReducer = (state = {}, action) => {
@@ -14,6 +17,7 @@ const NotebooksReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_NOTEBOOKS:
+    case RECEIVE_NOTES:
     case RECEIVE_USER:
       newState = merge({}, state, action.payload.notebooks);
       return newState;
