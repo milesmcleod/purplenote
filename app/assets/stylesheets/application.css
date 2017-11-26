@@ -1534,62 +1534,24 @@ NotebookItem
 
 }
 
-/*.notes-nav-item {
-  transition: background-color 0.1s ease-out,
-  color 0.1s ease-out;
-  background-color: white;
-  width: 100%;
-  height: 120px;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 25px;
-  box-sizing: border-box;
-  cursor: pointer;
-  position: relative;
-  display: flex;
+/*****************************
+
+NewNotebookModal
+
+*****************************/
+
+.new-notebook-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   flex-direction: column;
+  align-items: center;
+  z-index: 1500;
 }
 
-.selected-note {
-  border: 3px solid #D9D9D9;
-  padding-left: 22px;
-  padding-top: 7px;
+.new-notebook-modal-show {
+  display: flex;
 }
-
-.selected-note:hover {
-  border: 3px solid #7f00ff;
-}
-
-.notes-nav-item:hover {
-  background-color: #7f00ff;
-}
-
-.notes-nav-item:hover .notes-nav-item-title {
-  width: 75%;
-}
-
-.notes-nav-item:hover h3, .notes-nav-item:hover p {
-  color: white;
-}
-
-.notes-nav-item-header {
-  width: 100%;
-  height: 28px;
-  display: inline-block;
-}
-
-.notes-nav-item-title {
-  transition: width 0.1s ease;
-  font-weight: normal;
-  font-family: 'Arvo', serif;
-  color: #808080;
-  text-align: left;
-  font-size: 16px;
-  line-height: 1.5;
-  padding-bottom: 5px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  white-space: nowrap;
-}*/

@@ -1,5 +1,6 @@
 import React from 'react';
 import NotebooksNavItem from './notebooks_nav_item';
+import NewNotebookModalContainer from './new_notebook_modal_container';
 
 class NotebooksNav extends React.Component {
   constructor(props) {
@@ -65,6 +66,8 @@ class NotebooksNav extends React.Component {
   showNewNotebookModal() {
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.add("secondary-nav-totality");
+    const modal = document.getElementsByClassName('new-notebook-modal')[0];
+    modal.classList.add("new-notebook-modal-show");
   }
 
   render () {
@@ -88,7 +91,7 @@ class NotebooksNav extends React.Component {
                   key={notebook.title}
                   onClick={() => this.props.selectNotebook(notebook.id)}>
                   <NotebooksNavItem
-                    deleteNote={this.props.deleteNotebook}
+                    deleteNotebook={this.props.deleteNotebook}
                     notebook={notebook}
                     selected={(
                       this.props.selectedNotebook === notebook.id
@@ -112,6 +115,7 @@ class NotebooksNav extends React.Component {
           className='secondary-nav-background'
           onClick={(e) => this.props.setBarNavType('notes')}
         ></div>
+        <NewNotebookModalContainer />
       </div>
     );
   }

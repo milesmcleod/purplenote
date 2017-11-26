@@ -6,7 +6,7 @@ import {
  } from '../../actions/ui_actions';
 import values from 'lodash/values';
 import NotebooksNav from './notebooks_nav';
-import { deleteNotebook} from '../../actions/notebook_actions';
+import { deleteNotebook } from '../../actions/notebook_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   notebooks: values(state.entities.notebooks),

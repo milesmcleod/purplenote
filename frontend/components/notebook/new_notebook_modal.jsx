@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 
 class NewNotebookModal extends React.Component {
   constructor(props) {
@@ -15,28 +15,29 @@ class NewNotebookModal extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.postNote(this.state)
-    .then(
-      response => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.postNotebook(this.state)
+    .then(() => this.exitModal());
+  }
 
-      },
-      errors => {
-
-      }
-    );
+  exitModal(e) {
+    if (e) e.preventDefault();
+    const modalBackground = document.getElementById("modalBackground");
+    modalBackground.classList.remove("secondary-nav-totality");
+    const modal = document.getElementsByClassName('new-notebook-modal')[0];
+    modal.classList.remove("new-notebook-modal-show");
   }
 
   render() {
+    console.log(this.state);
     return(
       <div className='new-notebook-modal'>
         <div className='modal-form-errors'>
           <ul>
-            {
-              this.props.formErrors.map(err => <li>{err}</li>)
-            }
           </ul>
         </div>
-        <form onSubmit={this.handleSubmit()}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <div className="new-notebook-form-icon"></div>
           <h4>CREATE NOTEBOOK</h4>
           <hr></hr>
@@ -49,10 +50,15 @@ class NewNotebookModal extends React.Component {
             placeholder="Title your note"
             onChange={(e) => this.handleChange(e)}
           ></input>
-        <button value="Cancel"></button>
+        <button
+          value="Cancel"
+          onClick={(e) => this.exitModal(e)}
+          >Cancel</button>
         <input type="submit" value="Create Notebook"></input>
         </form>
       </div>
     );
   }
 }
+
+export default NewNotebookModal;
