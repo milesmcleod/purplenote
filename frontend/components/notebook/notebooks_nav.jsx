@@ -5,7 +5,11 @@ class NotebooksNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notebooks: this.props.notebooks
+      notebooks: this.props.notebooks,
+      notebooksModal: (<div></div>),
+      newNotebook: {
+        title: ""
+      }
     };
   }
 
@@ -58,14 +62,24 @@ class NotebooksNav extends React.Component {
     });
   }
 
+  showNewNotebookModal() {
+    const modalBackground = document.getElementById("modalBackground");
+    modalBackground.classList.add("secondary-nav-totality");
+  }
+
   render () {
     return (
       <div>
         <div
           id='notebooksNav'
           className='secondary-nav-container'>
-          <header>
+          <header className='notebooks-header'>
             <h4>NOTEBOOKS</h4>
+            <div
+              className="new-notebook-button"
+              onClick={() => this.showNewNotebookModal()}
+              >N</div>
+            {this.state.notebooksModal}
           </header>
           <div id='notebooks-nav' className='notebooks-nav'>
             {
@@ -77,14 +91,17 @@ class NotebooksNav extends React.Component {
                     deleteNote={this.props.deleteNotebook}
                     notebook={notebook}
                     selected={(
-                      this.state.selectedNotebook === notebook.id
+                      this.props.selectedNotebook === notebook.id
                     ) ? 'true' : false}
                     id={notebook.id}
                   />
                 </div>
               ))
             }
-            <div onClick={() => this.props.selectNotebook(-1)}>
+            <div
+              onClick={() => this.props.selectNotebook(-1)}
+              className="notebook-item-trash"
+              >
               <p>Trash</p>
             </div>
           </div>

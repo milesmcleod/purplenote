@@ -17,7 +17,10 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   deleteNotebook: (id) => dispatch(deleteNotebook(id)),
-  selectNotebook: (id) => dispatch(receiveSelectedNotebook(id))
+  selectNotebook: (id) => {
+    dispatch(receiveSelectedNotebook(id));
+    dispatch(receiveBarNavType('notes'));
+  }
 });
 
 export default connect(
