@@ -106,9 +106,10 @@ class NotebooksNav extends React.Component {
             }
             <div
               onClick={() => this.props.selectNotebook(-1)}
-              className="notebook-item-trash"
+              className="notebook-trash"
               >
               <p>Trash</p>
+              <p>*trashcount*</p>
             </div>
           </div>
 
