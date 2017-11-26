@@ -904,6 +904,8 @@ BarNav
   align-items: center;
   padding-top: 20px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 500;
 }
 
 .bar-nav ul {
@@ -1404,4 +1406,47 @@ NotesHeader
 
 .fullscreen-button:hover, .exit-fullscreen-button:hover, .save-note-button:hover {
   cursor: pointer;
+}
+
+/*****************************
+
+SecondaryNav
+
+*****************************/
+
+.secondary-nav-container {
+  transition: left 0.5s ease;
+  height: 100%;
+  width: 455px;
+  position: absolute;
+  left: -385px;
+  z-index: 300;
+  border-right: 3px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.secondary-nav-container-show {
+  left: 73px;
+}
+
+.secondary-nav-background {
+  transition: opacity 0.5s ease;
+  position: fixed;
+  z-index: -200;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.secondary-nav-background-show {
+  z-index: 200;
+  background: white;
+  opacity: .9
 }

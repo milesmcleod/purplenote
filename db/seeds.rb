@@ -33,14 +33,27 @@ end
   hour = (0..14).to_a
   minute = (0..59).to_a
   second = (0..59).to_a
+  a = month.sample
+  b = day.sample
+  c = hour.sample
+  d = minute.sample
+  e = second.sample
   note.update_attributes(
     updated_at: DateTime.new(
       year,
-      month.sample,
-      day.sample,
-      hour.sample,
-      minute.sample,
-      second.sample
+      a,
+      b,
+      c,
+      d,
+      e
+    ),
+    created_at: DateTime.new(
+      year,
+      a,
+      b,
+      c,
+      d,
+      e
     )
   )
 end

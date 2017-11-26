@@ -6,7 +6,11 @@ class BarNav extends React.Component {
   }
 
   handleNavChange(type) {
-    this.props.setBarNavType(type);
+    if (this.props.barNavType === type ) {
+      this.props.setBarNavType('notes');
+    } else {
+      this.props.setBarNavType(type);
+    }
   }
 
   renderNewNote() {

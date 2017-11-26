@@ -1,6 +1,7 @@
 import React from 'react';
 import BarNavContainer from './bar_nav_container';
 import NotesNavContainer from './notes_nav_container';
+import NotebooksNavContainer from '../notebook/notebooks_nav_container';
 
 class SideBar extends React.Component {
   constructor(props){
@@ -11,13 +12,8 @@ class SideBar extends React.Component {
     return (
       <div className='side-bar'>
         <BarNavContainer />
-        {
-          (this.props.barNavType === 'notes') ? (
-            <NotesNavContainer />
-          ) : (
-            <div></div>
-          )
-        }
+        <NotesNavContainer />
+        <NotebooksNavContainer />
       </div>
     );
   }
