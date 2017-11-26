@@ -65,27 +65,82 @@ class NotesNav extends React.Component {
   }
 
   setHeader(props) {
-    const header = (
-      (
-        <header className="plain-notes-header">
-          <h4>NOTES</h4>
-          <p>{props.notes.length} notes</p>
-          <p
-            className="sort-dropdown-link"
-            onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
-          <div className="sort-options">
-            <ul onClick={(e) => this.handleSort(props.notes, e)}>
-              <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
-              <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
-              <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
-              <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
-              <li id="title">Title (ascending)<span>&#10004;</span></li>
-              <li id="title true">Title (descending)<span>&#10004;</span></li>
-            </ul>
-          </div>
-        </header>
-      )
-    );
+    let header;
+    if (props.selectedNotebook === -1 ) { //trash header
+      header = (
+        (
+          <header className="trash-notes-header">
+            <div className="trash-notes-title">
+              <h4>Trash</h4>
+              <button
+                onClick={(e) => this.props.emptyTrash(e, props.notes)}
+                className="empty-trash"
+                >Empty Trash</button>
+            </div>
+            <p>{props.notes.length} notes</p>
+            <p
+              id="alt-dropdown-link"
+              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
+            <div className="sort-options">
+              <ul onClick={(e) => this.handleSort(props.notes, e)}>
+                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+                <li id="title">Title (ascending)<span>&#10004;</span></li>
+                <li id="title true">Title (descending)<span>&#10004;</span></li>
+              </ul>
+            </div>
+          </header>
+        )
+      );
+    } else if (!props.selectedNotebook) {
+      header = (
+        (
+          <header className="plain-notes-header">
+            <h4>NOTES</h4>
+            <p>{props.notes.length} notes</p>
+            <p
+              className="sort-dropdown-link"
+              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
+            <div className="sort-options">
+              <ul onClick={(e) => this.handleSort(props.notes, e)}>
+                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+                <li id="title">Title (ascending)<span>&#10004;</span></li>
+                <li id="title true">Title (descending)<span>&#10004;</span></li>
+              </ul>
+            </div>
+          </header>
+        )
+      );
+    } else {
+      header = (
+        (
+          <header className="notebook-notes-header">
+            <div className="notebook-notes-title">
+              <h4>{props.selectedNotebookTitle}</h4>
+            </div>
+            <p>{props.notes.length} notes</p>
+            <p
+              id="alt-dropdown-link"
+              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
+            <div className="sort-options">
+              <ul onClick={(e) => this.handleSort(props.notes, e)}>
+                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+                <li id="title">Title (ascending)<span>&#10004;</span></li>
+                <li id="title true">Title (descending)<span>&#10004;</span></li>
+              </ul>
+            </div>
+          </header>
+        )
+      );
+    }
     this.setState({ header });
   } //refactor the select into a dropdown so that you can recall search type on refresh from UI state
 
@@ -138,6 +193,7 @@ class NotesNav extends React.Component {
                 onClick={() => this.selectNote(note.id)}>
                 <NotesNavItem
                   trashNote={this.props.trashNote}
+                  trashView={(this.props.selectedNotebook === -1 ) ? true : false}
                   note={note}
                   selected={(
                     this.state.selectedId === note.id

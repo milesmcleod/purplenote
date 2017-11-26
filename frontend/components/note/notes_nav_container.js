@@ -29,6 +29,15 @@ const mapStateToProps = (state, ownProps) => {
     notes,
     barNavType: state.ui.barNavType,
     selectedNote: ownProps.match.params.noteId,
+    selectedNotebook: state.ui.selectedNotebook,
+    selectedNotebookTitle: (
+      state.ui.selectedNotebook &&
+      state.ui.selectedNotebook > -1
+    ) ? (
+      state.entities.notebooks[state.ui.selectedNotebook].title
+    ) : (
+      undefined
+    ),
     noteSortType: state.ui.noteSortType
   };
 };
@@ -36,7 +45,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType)),
   trashNote: (note) => dispatch(trashNote(note)),
-  deleteNote: (id) => dispatch(deleteNote(id))
+  emptyTrash: (e, notes) => {
+    e.preventDefault();
+    notes.forEach(note => {
+      dispatch(deleteNote(note.id));
+    });
+  }
 });
 
 export default withRouter(connect(

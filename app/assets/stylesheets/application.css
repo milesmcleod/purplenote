@@ -1067,6 +1067,68 @@ NotesNav
   top: 0;
 }
 
+.trash-notes-header {
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid #e0e0e0;
+  top: 0;
+}
+
+.trash-notes-title {
+  width: 100%;
+  height: 150px;
+  background-color: #3B3C45;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trash-notes-title h4 {
+  font-family: 'Arvo', serif;
+  font-size: 28px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/*.trash-notes-header p {
+
+}*/
+
+.notebook-notes-header {
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid #e0e0e0;
+  top: 0;
+}
+
+.notebook-notes-title {
+  width: 100%;
+  height: 150px;
+  background-color: #3B3C45;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notebook-notes-title h4 {
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.empty-trash {
+  width: 120px;
+  color: #7f00ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  background-color: #2C2C33;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 .plain-notes-header h4 {
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
@@ -1075,16 +1137,30 @@ NotesNav
   color: #949494;
 }
 
-.plain-notes-header p {
+.plain-notes-header p, .trash-notes-header p,
+.notebook-notes-header p {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   color: #ADADAD;
+}
+
+.trash-notes-header p,
+.notebook-notes-header p {
+  position: relative;
+  left: 20px;
+  top: 20px;
 }
 
 .sort-dropdown-link {
   position: relative;
   left: 240px;
   top: -14px;
+}
+
+#alt-dropdown-link {
+  position: relative;
+  left: 240px;
+  top: 5px;
 }
 
 .sort-dropdown-link:hover {
