@@ -1,9 +1,8 @@
 import React from 'react';
 import TagsNavItem from './tags_nav_item';
-// import NewTagModalContainer from './new_tag_modal_container';
+import NewTagModalContainer from './new_tag_modal_container';
 // import DeleteTagModalContainer from './delete_tag_modal_container';
 // import TagInfoModalContainer from './tag_info_modal_container';
-// <NewTagModalContainer />
 // <DeleteTagModalContainer />
 // <TagInfoModalContainer />
 
@@ -59,9 +58,9 @@ class TagsNav extends React.Component {
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.add("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-tag-modal')[0];
-    modal.classList.add("new-tag-modal-show");
+    modal.classList.add("new-notebook-modal-show");
     window.setTimeout(() => {
-      modal.classList.add("new-tag-modal-fade-in");
+      modal.classList.add("new-notebook-modal-fade-in");
     }, 0);
   }
 
@@ -129,6 +128,7 @@ class TagsNav extends React.Component {
           className='secondary-nav-background'
           onClick={(e) => this.props.setBarNavType('notes')}
         ></div>
+      <NewTagModalContainer />
       </div>
     );
   }

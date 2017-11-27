@@ -62,11 +62,12 @@ class NoteContent extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.note) {
-      this.props.patchNote(this.state);
+      this.props.patchNote(this.state)
+      .then(() => this.props.exitFullscreen());
     } else {
-      this.props.postNote(this.state);
+      this.props.postNote(this.state)
+      .then(() => this.props.exitFullscreen());
     }
-    this.props.exitFullscreen();
   }
 
   componentWillReceiveProps(newProps) {

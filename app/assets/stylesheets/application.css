@@ -1861,7 +1861,7 @@ NewNotebookModal
 
 *****************************/
 
-.new-notebook-modal, .delete-notebook-modal {
+.new-notebook-modal, .delete-notebook-modal, .new-tag-modal {
   transition: opacity 0.4s ease;
   opacity: 0;
   display: none;
@@ -1879,7 +1879,7 @@ NewNotebookModal
   display: flex;
 }
 
-.new-notebook-modal form{
+.new-notebook-modal form, .new-tag-modal form{
   margin-top: 18%;
   display: flex;
   flex-direction: column;
@@ -1896,7 +1896,8 @@ NewNotebookModal
 .new-notebook-form-icon {
 }
 
-.new-notebook-modal h4, .delete-notebook-modal h4 {
+.new-notebook-modal h4, .delete-notebook-modal h4,
+.new-tag-modal h4 {
   color: #5E5E5E;
 }
 
@@ -1926,7 +1927,8 @@ NewNotebookModal
 
 
 
-.new-notebook-modal hr, .delete-notebook-modal hr, .notebook-info-modal hr {
+.new-notebook-modal hr, .delete-notebook-modal hr, .notebook-info-modal hr,
+.new-tag-modal hr {
   margin-top: 25px;
   width: 128px;
   border: 1px solid  #e0e0e0;
@@ -2014,23 +2016,62 @@ TagsNav
   font-size: 12px;
 }
 
-[class*='tags-nav-item'] input {
+[class*='tags-nav-item'] div, [class*='tags-nav-item'] input {
   margin: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   border: 1px solid #cccccc;
   background: whitesmoke;
   border-radius: 5px;
-  padding: 4px;
+  padding: 8px;
   color: #4d4d4d;
+  display: inline-block;
 }
 
-.tags-nav-item-selected input {
+.tags-nav-item-selected div {
   border: 1px solid #7f00ff;
 }
 
+[class*='tags-nav-item'] div h4 {
+  display: inline;
+}
 
+[class*='tags-nav-item'] div p {
+  display: inline;
+  margin-left: 20px;
+  color: #7f00ff;
+}
 
-.tags-nav-item input:hover {
+.tags-nav-item input, .tags-nav-item-selected input {
+  display: none;
+}
+
+.tags-nav-item:hover {
   cursor: pointer;
+}
+
+.tags-nav-item:hover span, .tags-nav-item-selected:hover span {
+  display: inline;
+}
+
+.tags-nav-item, .tags-nav-item-selected  {
+  display: inline-block;
+  padding-right: 50px;
+}
+
+[class*='tag-icon-'] {
+  display: none;
+  position: relative;
+}
+
+.tag-icon-star {
+  left: -20px;
+}
+
+.tag-icon-edit {
+  left: 0px;
+}
+
+.tag-icon-trash {
+  left: 20px;
 }
