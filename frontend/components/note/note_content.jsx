@@ -24,6 +24,18 @@ class NoteContent extends React.Component {
     this.button = undefined;
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", (e) => this.handleKeypress(e));
+  }
+
+
+
+  handleKeypress(e) {
+    if (e.keyCode === 27 && this.props.fullscreen === true) {
+      this.props.exitFullscreen();
+    }
+  }
+
   // i learned how to write the following function
   // from reading up on throttling and debouncing
   // all over the web. the video that really made it click for me is at
@@ -59,7 +71,11 @@ class NoteContent extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.selectedNote !== 'new') {
-      this.setState(newProps.note);
+      if (this.state.id === newProps.note.id) {
+        this.setState(this.state);
+      } else {
+        this.setState(newProps.note);
+      }
     } else if (newProps.selectedNotebook) {
       this.state = {
         title: "",
@@ -145,7 +161,7 @@ class NoteContent extends React.Component {
         <span
           className="exit-fullscreen-button"
           onClick={() => {
-            this.props.patchNote(this.state);
+            // this.props.patchNote(this.state);
             this.props.exitFullscreen();
           }}
           value="Done"
@@ -156,7 +172,7 @@ class NoteContent extends React.Component {
         <span
           className="fullscreen-button"
           onClick={() => {
-            this.props.patchNote(this.state);
+            // this.props.patchNote(this.state);
             this.props.enterFullscreen();
           }}
           value="Fullscreen"
