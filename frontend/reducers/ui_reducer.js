@@ -54,6 +54,7 @@ const UIReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_SELECTED_NOTEBOOK:
       newState = merge({}, state);
+      newState['selectedTag'] = undefined;
       newState['selectedNotebook'] = action.notebookId;
       return newState;
     case ENTER_NOTEBOOK_DELETION:
@@ -66,6 +67,7 @@ const UIReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_SELECTED_TAG:
       newState = merge({}, state);
+      newState['selectedNotebook'] = undefined;
       newState['selectedTag'] = action.tagId;
       return newState;
     case ENTER_TAG_DELETION:

@@ -13,7 +13,14 @@ class BarNav extends React.Component {
     ) {
       this.props.setBarNavType('notes');
       this.props.selectNotebook(undefined);
-    } else if (this.props.barNavType === type ) {
+    } else if (
+      this.props.barNavType !== 'tags' &&
+      this.props.selectedTag &&
+      this.props.barNavType === type
+    ) {
+      this.props.setBarNavType('notes');
+      this.props.selectTag(undefined);
+    } if (this.props.barNavType === type ) {
       this.props.setBarNavType('notes');
     } else {
       this.props.setBarNavType(type);

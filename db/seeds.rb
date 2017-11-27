@@ -98,7 +98,7 @@ end
   )
 end
 
-TAGS = ['work', 'play', 'music', 'food', 'todo', 'thoughs', 'ideas', 'quotes']
+TAGS = ['work', 'play', 'music', 'food', 'todo', 'thoughts', 'ideas', 'quotes']
 
 8.times do
   tag = Tag.new(title: TAGS.pop)

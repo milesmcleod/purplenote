@@ -25,8 +25,11 @@ class TagsNavItem extends React.Component {
 
   render() {
     return (
-      <div className = 'tags-nav-item'>
+      <div className={
+          (this.props.selected) ? 'tags-nav-item-selected' : 'tags-nav-item'
+        }>
         <input
+          disabled
           value={this.state.title}
           onChange={(e) => this.handleChange()}
           >

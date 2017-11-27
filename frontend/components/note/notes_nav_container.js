@@ -11,12 +11,16 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   let notes;
-  if (state.ui.selectedNotebook === -1) {
+  if (state.ui.selectedTag) {
+    notes = values(state.entities.notes).filter(note => (
+      note.tagIds.includes(state.ui.selectedTag) &&
+      note.trashBoolean === false
+    ));
+  } else if (state.ui.selectedNotebook === -1) {
     notes = values(state.entities.notes).filter(note => (
       note.trashBoolean === true
     ));
-  }
-  else if (!state.ui.selectedNotebook) {
+  } else if (!state.ui.selectedNotebook) {
     notes = values(state.entities.notes).filter(note => (
       note.trashBoolean === false
     ));
@@ -37,6 +41,12 @@ const mapStateToProps = (state, ownProps) => {
       state.entities.notebooks[state.ui.selectedNotebook]
     ) ? (
       state.entities.notebooks[state.ui.selectedNotebook].title
+    ) : (
+      undefined
+    ),
+    selectedTag: state.ui.selectedTag,
+    selectedTagTitle: (state.ui.selectedTag && state.entities.tags[state.ui.selectedTag]) ? (
+      state.entities.tags[state.ui.selectedTag].title
     ) : (
       undefined
     ),
