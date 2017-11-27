@@ -6,11 +6,17 @@ class NoteContent extends React.Component {
     super(props);
     if (this.props.note){
       this.state = this.props.note;
-    } else {
+    } else if (this.props.selectedNotebook) {
       this.state = {
         title: "",
         content: "",
         notebook_id: this.props.selectedNotebook
+      };
+    } else {
+      this.state = {
+        title: "",
+        content: "",
+        notebook_id: this.props.defaultNotebook
       };
     }
     this.debounceTimer = undefined;
@@ -54,12 +60,19 @@ class NoteContent extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.selectedNote !== 'new') {
       this.setState(newProps.note);
-    } else {
-      this.setState({
+    } else if (newProps.selectedNotebook) {
+      this.state = {
         title: "",
         content: "",
         notebook_id: newProps.selectedNotebook
-      });
+      };
+      let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
+    } else {
+      this.state = {
+        title: "",
+        content: "",
+        notebook_id: newProps.defaultNotebook
+      };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
     if (
@@ -150,7 +163,7 @@ class NoteContent extends React.Component {
           >Fullscreen</span>
       );
     }
-    const currentNotebook = this.props.notebooks.filter(notebook => (
+    let currentNotebook = this.props.notebooks.filter(notebook => (
       notebook.id === this.state.notebook_id
     ))[0];
     const selectNotebook = (
@@ -180,17 +193,6 @@ class NoteContent extends React.Component {
         </div>
       </div>
     );
-    // <select onChange={(e) => this.handleSelect(e)}>
-    //   {
-    //     this.props.notebooks.map(notebook => (
-    //       <option
-    //         value={notebook.id}
-    //         key={`${notebook.id}`}
-    //         selected={(this.state.notebook_id === notebook.id) ? true : false}
-    //         >{`${notebook.title}`}</option>
-    //     ))
-    //   }
-    // </select>
 
     return (
       <section className="note-body">

@@ -19,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
     notebooks: values(state.entities.notebooks),
     selectedNote: ownProps.match.params.noteId,
     fullscreen: state.ui.fullscreen,
-    selectedNotebook: state.ui.selectedNotebook
+    selectedNotebook: state.ui.selectedNotebook,
+    defaultNotebook: state.session.currentUser.default_notebook_id
   };
 };
 
