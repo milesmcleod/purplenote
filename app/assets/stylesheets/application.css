@@ -1163,16 +1163,21 @@ NotesNav
   top: 5px;
 }
 
+#alt-dropdown-link:hover {
+  cursor: pointer;
+}
+
+#alt-sort-options {
+  left: 300px;
+  top: 189px;
+}
+
 .sort-dropdown-link:hover {
   cursor: pointer;
 }
 
 .sort-options {
   display: none;
-}
-
-.show-sort-options {
-  display: block;
   position: fixed;
   left: 325px;
   top: 88px;
@@ -1185,6 +1190,10 @@ NotesNav
   color: #808080;
   box-shadow: 6px 5px 28px -5px #bdbdbd;
   padding: 10px 0;
+}
+
+.show-sort-options {
+  display: block;
 }
 
 .sort-options li {
@@ -1423,10 +1432,65 @@ NoteBody
   height: 100%;
   width: 80%;
   margin: 45px auto;
-  background: black;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.notebook-dropdown-container {
+  position: relative;
+}
+
+.select-notebook-dropdown-link {
+  position: relative;
+  top: -10px;
+  color: #808080;
+  font-size: 12px;
+}
+
+.select-notebook-dropdown-link:hover {
+  cursor: pointer;
+}
+
+.select-notebook-options {
+  display: none;
+}
+
+.show-select-notebook-options {
+  display: block;
+  position: absolute;
+  left: -12px;
+  top: 8px;
+  z-index: 5;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #808080;
+  box-shadow: 6px 5px 28px -5px #bdbdbd;
+  padding: 10px 0;
+}
+
+.select-notebook-options li {
+  transition: all 0.2s ease;
+  width: 200px;
+  padding: 12px 15px;
+}
+
+.select-notebook-options span {
+  display: none;
+  padding-left: 20px;
+}
+
+.select-notebook-options li:hover {
+  cursor: pointer;
+  color: white;
+  background: #7f00ff;
+}
+
+.select-notebook-options-selected span {
+  display: inline-block;
 }
 
 .note-content-form-title {

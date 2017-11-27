@@ -81,7 +81,7 @@ class NotesNav extends React.Component {
             <p
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
-            <div className="sort-options">
+            <div className="sort-options" id="alt-sort-options">
               <ul onClick={(e) => this.handleSort(props.notes, e)}>
                 <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
                 <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
@@ -127,7 +127,7 @@ class NotesNav extends React.Component {
             <p
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
-            <div className="sort-options">
+            <div className="sort-options" id="alt-sort-options">
               <ul onClick={(e) => this.handleSort(props.notes, e)}>
                 <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
                 <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>

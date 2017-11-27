@@ -73,31 +73,31 @@ class NoteContent extends React.Component {
     }
   }
 
-  handleSelect(e) {
-    // e.preventDefault();
-    // e.stopPropagation();
+  handleSelect(e, notebook_id) {
+    e.preventDefault();
+    e.stopPropagation();
     this.setState({
-      notebook_id: e.target.value
+      notebook_id
     });
     window.setTimeout(() => {
       if (this.props.note) {
         this.props.patchNote(this.state);
       }
     });
-    // this.toggleDropdown();
+    this.toggleDropdown();
   }
 
   toggleDropdown() {
-    // const dropdown = document.getElementsByClassName("sort-options")[0];
-    // if (dropdown.classList.contains("show-sort-options")) {
-    //   dropdown.classList.remove("show-sort-options");
-    // } else {
-    //   const previous = document.getElementsByClassName('sort-options-selected')[0];
-    //   if (previous) previous.classList.remove('sort-options-selected');
-    //   dropdown.classList.add("show-sort-options");
-    //   const selectedSort = document.getElementById(`${this.props.noteSortType.join(" ")}`);
-    //   selectedSort.classList.add("sort-options-selected");
-    // }
+    const dropdown = document.getElementsByClassName("select-notebook-options")[0];
+    if (dropdown.classList.contains("show-select-notebook-options")) {
+      dropdown.classList.remove("show-select-notebook-options");
+    } else {
+      const previous = document.getElementsByClassName('select-notebook-options-selected')[0];
+      if (previous) previous.classList.remove('select-notebook-options-selected');
+      dropdown.classList.add("show-select-notebook-options");
+      const selectedNotebook = document.getElementById(this.state.notebook_id);
+      selectedNotebook.classList.add("select-notebook-options-selected");
+    }
   }
 
   render() {
@@ -150,6 +150,48 @@ class NoteContent extends React.Component {
           >Fullscreen</span>
       );
     }
+    const currentNotebook = this.props.notebooks.filter(notebook => (
+      notebook.id === this.state.notebook_id
+    ))[0];
+    const selectNotebook = (
+      <div className="notebook-dropdown-container">
+        <p
+          className="select-notebook-dropdown-link"
+          onClick={() => this.toggleDropdown()}>{`${currentNotebook.title}`} &#8623;</p>
+        <div className="select-notebook-options">
+          <ul>
+            {
+              this.props.notebooks.map(notebook => (
+                <li
+                  onClick={(e) => this.handleSelect(e, notebook.id)}
+                  id={`${notebook.id}`}
+                  key={`${notebook.id}`}
+                  className={
+                    (notebook.id === this.state.notebook_id) ? (
+                      "selected-notebook-options-selected"
+                    ) : (
+                      ""
+                    )
+                  }
+                >{`${notebook.title}`}<span>&#10004;</span></li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    );
+    // <select onChange={(e) => this.handleSelect(e)}>
+    //   {
+    //     this.props.notebooks.map(notebook => (
+    //       <option
+    //         value={notebook.id}
+    //         key={`${notebook.id}`}
+    //         selected={(this.state.notebook_id === notebook.id) ? true : false}
+    //         >{`${notebook.title}`}</option>
+    //     ))
+    //   }
+    // </select>
+
     return (
       <section className="note-body">
         <header className="note-header-container">
@@ -170,17 +212,7 @@ class NoteContent extends React.Component {
           className='note-content-form'
           onSubmit={(e) => this.handleSubmit(e)}
           >
-          <select onChange={(e) => this.handleSelect(e)}>
-            {
-              this.props.notebooks.map(notebook => (
-                <option
-                  value={notebook.id}
-                  key={`${notebook.id}`}
-                  selected={(this.state.notebook_id === notebook.id) ? true : false}
-                  >{`${notebook.title}`}</option>
-              ))
-            }
-          </select>
+          {selectNotebook}
           <input
             type="text"
             name="title"
