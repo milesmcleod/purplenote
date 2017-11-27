@@ -18,6 +18,12 @@ import {
   patchNotebook,
   deleteNotebook
 } from './actions/notebook_actions';
+import {
+  fetchTags,
+  postTag,
+  patchTag,
+  deleteTag
+} from './actions/tag_actions';
 
 import {
   enterFullscreen,
@@ -49,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.postNotebook = postNotebook;
   window.patchNotebook = patchNotebook;
   window.deleteNotebook = deleteNotebook;
+  window.fetchTags =fetchTags;
+  window.postTag = postTag;
+  window.patchTag = patchTag;
+  window.deleteTag = deleteTag;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');
