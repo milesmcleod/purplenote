@@ -7,7 +7,11 @@ import {
   RECEIVE_NOTES,
   REMOVE_NOTE
 } from '../actions/note_actions';
+import {
+  REMOVE_NOTEBOOK
+} from '../actions/notebook_actions';
 import merge from 'lodash/merge';
+import values from 'lodash/values';
 
 const NotesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -24,6 +28,15 @@ const NotesReducer = (state = {}, action) => {
     case REMOVE_NOTE:
       newState = merge({}, state);
       delete newState[action.payload.id];
+      return newState;
+    case REMOVE_NOTEBOOK:
+      newState = {};
+      let notes = values(state);
+      notes.forEach(note => {
+        if (note.notebookId !== action.payload.id) {
+          newState[note.id] = note;
+        }
+      });
       return newState;
     case REMOVE_SESSION:
       return {};

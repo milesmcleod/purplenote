@@ -1,11 +1,23 @@
 import React from 'react';
 
+
 class NotebooksNavItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      deletion: (<div></div>)
+    };
   }
 
-
+  showDeleteNotebookModal() {
+    const modalBackground = document.getElementById("modalBackground");
+    modalBackground.classList.add("secondary-nav-totality");
+    const modal = document.getElementsByClassName('delete-notebook-modal')[0];
+    modal.classList.add("new-notebook-modal-show");
+    window.setTimeout(() => {
+      modal.classList.add("new-notebook-modal-fade-in");
+    }, 0);
+  }
 
   render() {
     return (
@@ -18,7 +30,8 @@ class NotebooksNavItem extends React.Component {
            onClick={(e) => {
              e.preventDefault();
              e.stopPropagation();
-             this.props.deleteNotebook(this.props.notebook.id);
+             this.props.enterNotebookDeletion(this.props.notebook.id);
+             this.showDeleteNotebookModal();
            }}
            ></span>
          <p className='notebook-item-count'>{this.props.noteCount}{' '}

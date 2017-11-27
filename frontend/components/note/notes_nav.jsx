@@ -169,6 +169,9 @@ class NotesNav extends React.Component {
     } else {
       this.setHeader(newProps);
     }
+    if (newProps.notes.length === 0) {
+      this.selectNote(undefined);
+    }
   }
 
   selectNote(selectedId) {
@@ -195,6 +198,7 @@ class NotesNav extends React.Component {
                   trashNote={this.props.trashNote}
                   deleteNote={this.props.deleteNote}
                   restoreNote={this.props.restoreNote}
+                  history={this.props.history}
                   trashView={(this.props.selectedNotebook === -1 ) ? true : false}
                   note={note}
                   selected={(

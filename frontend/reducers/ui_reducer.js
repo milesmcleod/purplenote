@@ -3,6 +3,8 @@ import {
   RECEIVE_SPLASH_NAV_TYPE,
   RECEIVE_NOTE_SORT_TYPE,
   RECEIVE_SELECTED_NOTEBOOK,
+  ENTER_NOTEBOOK_DELETION,
+  EXIT_NOTEBOOK_DELETION,
   ENTER_FULLSCREEN,
   EXIT_FULLSCREEN
 } from '../actions/ui_actions';
@@ -22,7 +24,8 @@ const defaultState = {
   selectedNote: undefined,
   selectedNotebook: undefined,
   noteSortType: ['updatedAt', true],
-  fullscreen: false
+  fullscreen: false,
+  notebookDeletion : false
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -48,6 +51,14 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_SELECTED_NOTEBOOK:
       newState = merge({}, state);
       newState['selectedNotebook'] = action.notebookId;
+      return newState;
+    case ENTER_NOTEBOOK_DELETION:
+      newState = merge({}, state);
+      newState['notebookDeletion'] = action.notebookId;
+      return newState;
+    case EXIT_NOTEBOOK_DELETION:
+      newState = merge({}, state);
+      newState['notebookDeletion'] = true;
       return newState;
     case ENTER_FULLSCREEN:
       newState = merge({}, state);

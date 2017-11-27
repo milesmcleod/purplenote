@@ -2,6 +2,8 @@ export const RECEIVE_SPLASH_NAV_TYPE = 'RECEIVE_SPLASH_NAV_TYPE';
 export const RECEIVE_BAR_NAV_TYPE = 'RECEIVE_BAR_NAV_TYPE';
 export const RECEIVE_NOTE_SORT_TYPE = 'RECEIVE_NOTE_SORT_TYPE';
 export const RECEIVE_SELECTED_NOTEBOOK = 'RECEIVE_SELECTED_NOTEBOOK';
+export const ENTER_NOTEBOOK_DELETION = 'ENTER_NOTEBOOK_DELETION';
+export const EXIT_NOTEBOOK_DELETION = 'EXIT_NOTEBOOK_DELETION';
 export const ENTER_FULLSCREEN = 'ENTER_FULLSCREEN';
 export const EXIT_FULLSCREEN = 'EXIT_FULLSCREEN';
 
@@ -24,6 +26,19 @@ export const receiveSelectedNotebook = (notebookId) => ({
   type: RECEIVE_SELECTED_NOTEBOOK,
   notebookId
 });
+
+export const enterNotebookDeletion = (notebookId) => {
+  return {
+    type: ENTER_NOTEBOOK_DELETION,
+    notebookId
+  };
+};
+
+export const exitNotebookDeletion = () => {
+  return {
+    type: ENTER_NOTEBOOK_DELETION
+  };
+};
 
 export const enterFullscreen = () => {
   const nav = document.getElementsByClassName("side-bar")[0];

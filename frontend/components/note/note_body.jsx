@@ -7,11 +7,14 @@ class NoteBody extends React.Component {
   }
 
   render() {
-    return ((!this.props.note) ? (
-        <NoteContentContainer note={null}/>
-      ) : (
-        <NoteContentContainer note={this.props.note}/>
-      )
+    let body;
+    if (!this.props.note) {
+      body = (<div className="no-notes"></div>);
+    } else {
+      body = (<NoteContentContainer />);
+    }
+    return (
+      body
     );
   }
 }

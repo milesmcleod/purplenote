@@ -1,6 +1,7 @@
 import React from 'react';
 import NotebooksNavItem from './notebooks_nav_item';
 import NewNotebookModalContainer from './new_notebook_modal_container';
+import DeleteNotebookModalContainer from './delete_notebook_modal_container';
 
 class NotebooksNav extends React.Component {
   constructor(props) {
@@ -94,7 +95,7 @@ class NotebooksNav extends React.Component {
                   key={notebook.title}
                   onClick={() => this.props.selectNotebook(notebook.id)}>
                   <NotebooksNavItem
-                    deleteNotebook={this.props.deleteNotebook}
+                    enterNotebookDeletion={this.props.enterNotebookDeletion}
                     notebook={notebook}
                     noteCount={
                       this.props.notes.filter(note => (
@@ -126,6 +127,7 @@ class NotebooksNav extends React.Component {
           onClick={(e) => this.props.setBarNavType('notes')}
         ></div>
         <NewNotebookModalContainer />
+        <DeleteNotebookModalContainer />
       </div>
     );
   }

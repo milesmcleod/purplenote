@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
   receiveBarNavType,
-  receiveSelectedNotebook
+  receiveSelectedNotebook,
+  enterNotebookDeletion
  } from '../../actions/ui_actions';
 import values from 'lodash/values';
 import NotebooksNav from './notebooks_nav';
@@ -17,7 +18,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
-  deleteNotebook: (id) => dispatch(deleteNotebook(id)),
+  enterNotebookDeletion: (id) => dispatch(enterNotebookDeletion(id)),
   selectNotebook: (id) => {
     dispatch(receiveSelectedNotebook(id));
     dispatch(receiveBarNavType('notes'));

@@ -10,7 +10,7 @@ class NoteContent extends React.Component {
       this.state = {
         title: "",
         content: "",
-        notebook_id: 1
+        notebook_id: this.props.selectedNotebook
       };
     }
     this.debounceTimer = undefined;
@@ -38,7 +38,7 @@ class NoteContent extends React.Component {
       this.debounceTimer = setTimeout(() => {
         this.props.patchNote(this.state);
       }, 4000);
-      }
+    }
   }
 
   handleSubmit(e) {
@@ -58,7 +58,7 @@ class NoteContent extends React.Component {
       this.setState({
         title: "",
         content: "",
-        notebook_id: 1
+        notebook_id: newProps.selectedNotebook
       });
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }

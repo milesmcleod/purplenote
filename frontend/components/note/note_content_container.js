@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     note: state.entities.notes[ownProps.match.params.noteId],
     selectedNote: ownProps.match.params.noteId,
-    fullscreen: state.ui.fullscreen
+    fullscreen: state.ui.fullscreen,
+    selectedNotebook: state.ui.selectedNotebook
   };
 };
 

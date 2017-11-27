@@ -7,6 +7,7 @@ class BarNav extends React.Component {
 
   handleNavChange(type) {
     if (
+      this.props.barNavType !== 'notebooks' &&
       this.props.selectedNotebook &&
       this.props.barNavType === type
     ) {
