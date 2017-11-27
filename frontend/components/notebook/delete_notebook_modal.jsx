@@ -30,7 +30,6 @@ class DeleteNotebookModal extends React.Component {
   }
 
   render () {
-    console.log(this.props.active);
     return (
       <div className="delete-notebook-modal">
         <h4>DELETE NOTEBOOK</h4>

@@ -33,7 +33,7 @@ const NotesReducer = (state = {}, action) => {
       newState = {};
       let notes = values(state);
       notes.forEach(note => {
-        if (note.notebookId !== action.payload.id) {
+        if (note.notebook_id !== action.payload.id) {
           newState[note.id] = note;
         }
       });

@@ -99,7 +99,7 @@ class NotebooksNav extends React.Component {
                     notebook={notebook}
                     noteCount={
                       this.props.notes.filter(note => (
-                        note.notebookId === notebook.id &&
+                        note.notebook_id === notebook.id &&
                         note.trashBoolean === false
                       )).length
                     }

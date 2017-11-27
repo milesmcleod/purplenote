@@ -150,13 +150,10 @@ class NotesNav extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log('hit');
     if (newProps.barNavType === 'notes') {
       this.sortNotes(newProps.notes, "updatedAt", true);
-      if (
-        !this.state.selectedId &&
-        newProps.notes.length > this.props.notes.length &&
-        !newProps.selectedNote
-      ) {
+      if (newProps.notes.length > this.props.notes.length) {
         this.selectNote(newProps.notes[0].id);
         this.sortNotes(newProps.notes, ...newProps.noteSortType);
         this.setHeader(newProps);
@@ -166,15 +163,20 @@ class NotesNav extends React.Component {
           !this.props.selectedNote &&
           this.props.noteSortType === newProps.noteSortType
         ) {
-          if (newProps.notes[0]) this.selectNote(newProps.notes[0].id);
+          if (newProps.notes[0]) {
+            console.log(2);
+            this.selectNote(newProps.notes[0].id);
+          }
         }
         this.setHeader(newProps);
       }
     } else {
       this.setHeader(newProps);
+      console.log(3);
     }
     if (newProps.notes.length === 0) {
       this.selectNote(undefined);
+      console.log(4);
     }
   }
 

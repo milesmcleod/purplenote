@@ -5,7 +5,7 @@ json.notes do
       json.title note.title
       json.content note.content
       json.trashBoolean note.trashBoolean
-      json.notebookId note.notebook_id
+      json.notebook_id note.notebook_id
       json.updatedAt note.updated_at
       json.createdAt note.created_at
     end

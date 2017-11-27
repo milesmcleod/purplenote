@@ -24,6 +24,8 @@ Wednesday, 11/22/17
 
 notebooks gameplan:
 
+  -remember to check that if you delete a notebook, if it's the default notebook, you need to change that value on the user itself as well
+
   -write a dropdown that gives the user the ability to edit which notebook a note belongs to (right above the note title in the note show)
     -when an account is created, a notebook should also be created and then set as the default notebook. unless specified otherwise, or unless a notebook is selected at the time that a new note is created, the default notebook for items to be added to should be {username}'s notebook.
   -note info (this should be easy)

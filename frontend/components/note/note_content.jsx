@@ -74,12 +74,17 @@ class NoteContent extends React.Component {
   }
 
   handleSelect(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    // e.preventDefault();
+    // e.stopPropagation();
     this.setState({
-      notebookId: e.target.id
+      notebook_id: e.target.value
     });
-    this.toggleDropdown();
+    window.setTimeout(() => {
+      if (this.props.note) {
+        this.props.patchNote(this.state);
+      }
+    });
+    // this.toggleDropdown();
   }
 
   toggleDropdown() {
@@ -145,51 +150,6 @@ class NoteContent extends React.Component {
           >Fullscreen</span>
       );
     }
-    let notebookSelect = (<div></div>);
-    // if (this.props.selectedNotebook) {
-    //   notebookSelect = (
-    //     <div>
-    //       <p
-    //         id="notebook-select-dropdown-link"
-    //         onClick={() => this.toggleDropdown()}>{
-    //           this.props.notebooks.filter(notebook => (
-    //             notebook.id === this.props.selectedNotebook
-    //           ))[0].title
-    //         }&#8623;</p>
-    //       <div className="note-notebook-options">
-    //         <ul onClick={(e) => this.handleSelect(e)}>
-    //           {
-    //             this.props.notebooks.map(notebook => (
-    //               <li id={notebook.id}>{notebook.title}<span>&#10004;</span></li>
-    //             ))
-    //           }
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   );
-    // } else if (this.props.notebooks.length) {
-    //   console.log(this.props.notebooks);
-    //   notebookSelect = (
-    //     <div>
-    //       <p
-    //         id="notebook-select-dropdown-link"
-    //         onClick={() => this.toggleDropdown()}>{
-    //           this.props.notebooks.filter(notebook => (
-    //             notebook.id === this.state.notebook_id
-    //           ))[0].title
-    //         }&#8623;</p>
-    //       <div className="note-notebook-options">
-    //         <ul onClick={(e) => this.handleSelect(e)}>
-    //           {
-    //             this.props.notebooks.map(notebook => (
-    //               <li id={notebook.id}>{notebook.title}<span>&#10004;</span></li>
-    //             ))
-    //           }
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   );
-    // }
     return (
       <section className="note-body">
         <header className="note-header-container">
@@ -210,7 +170,17 @@ class NoteContent extends React.Component {
           className='note-content-form'
           onSubmit={(e) => this.handleSubmit(e)}
           >
-          {notebookSelect}
+          <select onChange={(e) => this.handleSelect(e)}>
+            {
+              this.props.notebooks.map(notebook => (
+                <option
+                  value={notebook.id}
+                  key={`${notebook.id}`}
+                  selected={(this.state.notebook_id === notebook.id) ? true : false}
+                  >{`${notebook.title}`}</option>
+              ))
+            }
+          </select>
           <input
             type="text"
             name="title"

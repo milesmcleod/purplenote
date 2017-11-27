@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     ));
   } else {
     notes = values(state.entities.notes).filter(note => (
-      note.notebookId === state.ui.selectedNotebook &&
+      note.notebook_id === state.ui.selectedNotebook &&
       note.trashBoolean === false
     ));
   }
