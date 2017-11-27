@@ -5,6 +5,9 @@ import {
   receiveSelectedTag,
   enterTagDeletion
 } from '../../actions/ui_actions';
+import {
+  patchTag
+} from '../../actions/tag_actions';
 import values from 'lodash/values';
 import TagsNav from './tags_nav';
 import { deleteTag } from '../../actions/tag_actions';
@@ -19,6 +22,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   enterTagDeletion: (id) => dispatch(enterTagDeletion(id)),
+  patchTag: (tag) => dispatch(patchTag(tag)),
   selectTag: (id) => {
     dispatch(receiveSelectedTag(id));
     dispatch(receiveBarNavType('notes'));

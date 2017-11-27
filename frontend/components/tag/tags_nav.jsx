@@ -1,8 +1,11 @@
 import React from 'react';
 import TagsNavItem from './tags_nav_item';
-import NewTagModalContainer from './new_tag_modal_container';
-import DeleteTagModalContainer from './delete_tag_modal_container';
-import TagInfoModalContainer from './tag_info_modal_container';
+// import NewTagModalContainer from './new_tag_modal_container';
+// import DeleteTagModalContainer from './delete_tag_modal_container';
+// import TagInfoModalContainer from './tag_info_modal_container';
+// <NewTagModalContainer />
+// <DeleteTagModalContainer />
+// <TagInfoModalContainer />
 
 class TagsNav extends React.Component {
   constructor(props) {
@@ -16,6 +19,23 @@ class TagsNav extends React.Component {
     };
   }
 
+  comparator(property) {
+    let a, b;
+    return function (x, y) {
+      a = x[property].toLowerCase();
+      b = y[property].toLowerCase();
+      if (a > b) {
+        return 1;
+      } else {
+        return -1;
+      }
+    };
+  }
+
+  sortTags(tags, property) {
+    tags.sort(this.comparator(property));
+  }
+
   componentWillReceiveProps (newProps) {
     if (newProps.barNavType === 'tags') {
       const nav = document.getElementById('tagsNav');
@@ -24,7 +44,7 @@ class TagsNav extends React.Component {
         const modal = document.getElementById('modalBackground');
         modal.classList.add('secondary-nav-background-show');
       }
-      this.sortNotebooks(this.props.tags);
+      this.sortTags(newProps.tags, 'title');
     } else {
       const nav = document.getElementById('tagsNav');
       nav.classList.remove('secondary-nav-container-show');
@@ -46,13 +66,21 @@ class TagsNav extends React.Component {
   }
 
   render () {
+    const alphabet = {};
+    this.props.tags.forEach(tag => {
+      if (alphabet[tag.title[0].toUpperCase()]) {
+        alphabet[tag.title[0].toUpperCase()].push(tag);
+      } else {
+        alphabet[tag.title[0].toUpperCase()] = [tag];
+      }
+    });
     return (
       <div>
         <div
           id='tagsNav'
           className='secondary-nav-container'>
           <header className='notebooks-header'>
-            <h4>NOTEBOOKS</h4>
+            <h4>TAGS</h4>
             <div
               className="new-notebook-button"
               onClick={() => this.showNewTagModal()}
@@ -61,21 +89,29 @@ class TagsNav extends React.Component {
           </header>
           <div id='tags-nav' className='tags-nav'>
             {
-              this.props.tags.map(tag => (
-                <div
-                  key={tag.title}
-                  onClick={() => this.props.selectTag(tag.id)}>
-                  <TagsNavItem
-                    enterTagDeletion={this.props.enterTagDeletion}
-                    notebook={tag}
-                    noteCount={
-                      this.props.notes.filter(note => (
-                        note.tagIds.includes(tag.id) &&
-                        note.trashBoolean === false
-                      )).length
-                    }
-                    id={tag.id}
-                  />
+              Object.keys(alphabet).map(letter => (
+                <div className='tag-letter'>
+                  <h3>{letter}</h3>
+                  {
+                    alphabet[letter].map(tag => (
+                      <div
+                        key={tag.title}
+                        onClick={() => this.props.selectTag(tag.id)}>
+                        <TagsNavItem
+                          enterTagDeletion={this.props.enterTagDeletion}
+                          patchTag={this.props.patchTag}
+                          tag={tag}
+                          tagCount={
+                            this.props.notes.filter(note => (
+                              note.tagIds.includes(tag.id) &&
+                              note.trashBoolean === false
+                            )).length
+                          }
+                          id={tag.id}
+                        />
+                      </div>
+                    ))
+                  }
                 </div>
               ))
             }
@@ -87,9 +123,6 @@ class TagsNav extends React.Component {
           className='secondary-nav-background'
           onClick={(e) => this.props.setBarNavType('notes')}
         ></div>
-        <NewTagModalContainer />
-        <DeleteTagModalContainer />
-        <TagInfoModalContainer />
       </div>
     );
   }

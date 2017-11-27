@@ -22,9 +22,9 @@ class Home extends React.Component {
       !e.target.classList.contains("select-notebook-dropdown-link")
     ) {
       const dropdown1 = document.getElementsByClassName("sort-options")[0];
-      dropdown1.classList.remove("show-sort-options");
+      if (dropdown1) dropdown1.classList.remove("show-sort-options");
       const dropdown2 = document.getElementsByClassName("select-notebook-options")[0];
-      dropdown2.classList.remove("show-select-notebook-options");
+      if (dropdown2) dropdown2.classList.remove("show-select-notebook-options");
     }
   }
 
