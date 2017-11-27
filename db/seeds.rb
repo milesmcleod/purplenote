@@ -5,10 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Note.destroy_all
+Notebook.destroy_all
+
 user1 = User.new(username: 'demo_user', email: 'demo_user@demo.com', password: 'password', img_url: 'placeholder')
 user1.save
 user2 = User.new(username: 'miles', email: 'miles@gmail.com', password: 'password', img_url: 'placeholder')
 user2.save
+
+notebook = Notebook.new(
+  title: "demo_user's notebook",
+  owner_id: 1
+)
+notebook.save
+user1.default_notebook_id = notebook.id
+user1.save
 
 i = 1
 3.times do
@@ -20,12 +33,12 @@ i = 1
   i += 1
 end
 
-10.times do
+30.times do
   note = Note.new(
     title: Faker::StarWars.planet,
     content: Faker::Lorem.paragraph(4, true, 12),
     owner_id: 1,
-    notebook_id: [1, 2, 3].sample )
+    notebook_id: [1, 2, 3, 4].sample )
   note.save
   year = 2017
   month = [11, 11, 11, 11, 11, 10, 10, 9, 9, 8, 7, 5, 2]
@@ -82,6 +95,14 @@ end
     )
   )
 end
+
+notebook = Notebook.new(
+  title: "miles's notebook",
+  owner_id: 2
+)
+notebook.save
+user2.default_notebook_id = notebook.id
+user2.save
 
 # use Date.now() to get utc, then subtract a random number of
 # milliseconds  within a range of, say, the last 6 months (distributed

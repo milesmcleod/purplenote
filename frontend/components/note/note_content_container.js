@@ -11,10 +11,12 @@ import {
   enterFullscreen,
   exitFullscreen
 } from '../../actions/ui_actions';
+import values from 'lodash/values';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     note: state.entities.notes[ownProps.match.params.noteId],
+    notebooks: values(state.entities.notebooks),
     selectedNote: ownProps.match.params.noteId,
     fullscreen: state.ui.fullscreen,
     selectedNotebook: state.ui.selectedNotebook

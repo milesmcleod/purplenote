@@ -14,6 +14,13 @@ class Api::UsersController < ApplicationController
     end
     @user.username = @user.email.dup[0...idx]
     if @user.save
+      @notebook = Notebook.new(
+        title: "#{@user.username}'s notebook",
+        owner_id: @user.id
+      )
+      @notebook.save
+      @user.default_notebook_id = @notebook.id
+      @user.save
       login(@user)
       render :show
     else

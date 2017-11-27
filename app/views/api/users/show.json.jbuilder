@@ -1,5 +1,5 @@
 json.currentUser do
-  json.extract! @user, :id, :username, :email, :img_url
+  json.extract! @user, :id, :username, :email, :img_url, :default_notebook_id
 end
 
 json.notes do

@@ -35,7 +35,7 @@ class NotebooksNavItem extends React.Component {
            }}
            ></span>
          <p className='notebook-item-count'>{this.props.noteCount}{' '}
-           {(this.props.notebook.noteCount === 1) ? 'note' : 'notes'}</p>
+           {(this.props.noteCount === 1) ? 'note' : 'notes'}</p>
       </div>
     );
   }

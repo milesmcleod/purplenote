@@ -77,7 +77,7 @@ class NotesNav extends React.Component {
                 className="empty-trash"
                 >Empty Trash</button>
             </div>
-            <p>{props.notes.length} notes</p>
+            <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
@@ -99,7 +99,7 @@ class NotesNav extends React.Component {
         (
           <header className="plain-notes-header">
             <h4>NOTES</h4>
-            <p>{props.notes.length} notes</p>
+            <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
               className="sort-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
@@ -123,7 +123,7 @@ class NotesNav extends React.Component {
             <div className="notebook-notes-title">
               <h4>{props.selectedNotebookTitle}</h4>
             </div>
-            <p>{props.notes.length} notes</p>
+            <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
