@@ -44,13 +44,24 @@ const NotesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_TAGGING:
       newState = merge({}, state);
-      let note = newState[action.payload.noteId];
-      note.tagIds.push(action.payload.tagId);
+      let newIds = [action.payload.tagId];
+      newState[action.payload.noteId].tagIds.forEach(id => {
+        if (id !== action.payload.tagId) {
+          newIds.push(id);
+        }
+      });
+      newState[action.payload.noteId].tagIds = newIds;
       return newState;
     case REMOVE_TAGGING:
       newState = merge({}, state);
-      note = newState[action.payload.noteId];
-      note.tagIds = note.tagIds.filter(tagId => tagId !== action.payload.tagId);
+      let note = newState[action.payload.noteId];
+      newIds = [];
+      note.tagIds.forEach(id => {
+        if (id !== action.payload.tagId) {
+          newIds.push(id);
+        }
+      });
+      newState[action.payload.noteId].tagIds = newIds;
       return newState;
     case REMOVE_SESSION:
       return {};

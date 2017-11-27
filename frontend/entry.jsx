@@ -24,6 +24,10 @@ import {
   patchTag,
   deleteTag
 } from './actions/tag_actions';
+import {
+  postTagging,
+  deleteTagging
+} from './actions/tagging_actions';
 
 import {
   enterFullscreen,
@@ -59,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.postTag = postTag;
   window.patchTag = patchTag;
   window.deleteTag = deleteTag;
+  window.postTagging = postTagging;
+  window.deleteTagging = deleteTagging;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');

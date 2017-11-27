@@ -18,7 +18,7 @@ export const postTagging = (tagging) => (dispatch) => {
   .then(response => dispatch(receiveTagging(response)));
 };
 
-export const deleteTagging = (id) => (dispatch) => {
-  return TaggingsAPIUtil.deleteTagging(id)
+export const deleteTagging = (tagging) => (dispatch) => {
+  return TaggingsAPIUtil.deleteTagging(tagging)
   .then(response => dispatch(removeTagging(response)));
 };

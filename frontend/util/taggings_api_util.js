@@ -8,9 +8,12 @@ export const postTagging = (tagging) => {
   });
 };
 
-export const deleteTagging = (id) => {
+export const deleteTagging = (tagging) => {
   return $.ajax({
-    method: 'delete',
-    url: `api/taggings/${id}`
+    method: 'patch',
+    url: `api/taggings/`,
+    data: {
+      tagging
+    }
   });
 };
