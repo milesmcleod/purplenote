@@ -1763,6 +1763,32 @@ NewNotebookModal
   color: #5E5E5E;
 }
 
+.delete-query {
+  padding: 30px 0px;
+}
+
+.delete-notebook-modal {
+  padding: 15% 0;
+}
+
+.delete-notebook-modal h1 {
+  color: black;
+  font-family: 'Arvo', serif;
+  font-size: 30px;
+  display: inline;
+}
+
+.delete-notebook-modal p {
+  color: black;
+  font-family: 'Arvo', serif;
+  font-size: 30px;
+  display: inline;
+  font-weight: bold;
+}
+
+
+
+
 .new-notebook-modal hr, .delete-notebook-modal hr {
   margin-top: 25px;
   width: 128px;

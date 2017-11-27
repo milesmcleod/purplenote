@@ -3,6 +3,9 @@ import React from 'react';
 class DeleteNotebookModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      title: ""
+    };
   }
 
   exitModal(e) {
@@ -17,13 +20,24 @@ class DeleteNotebookModal extends React.Component {
     }, 400);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.title !== ""
+    ) {
+      this.setState ({
+        title: newProps.title
+      });
+    }
+  }
+
   render () {
     console.log(this.props.active);
     return (
       <div className="delete-notebook-modal">
         <h4>DELETE NOTEBOOK</h4>
         <hr></hr>
-        <h1>Are you sure you want to delete <p>{this.props.title}</p>?</h1>
+        <div className='delete-query'>
+          <h1>Are you sure you want to delete </h1><p>{this.state.title}</p><h1>?</h1>
+        </div>
           <div className='form-buttons'>
             <button
             onClick={(e) => {
