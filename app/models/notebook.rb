@@ -12,7 +12,7 @@
 
 class Notebook < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :owner_id,
-    message: "Notebook by that title already exists!" }
+    message: "Notebook by that title already exists." }
 
   belongs_to :owner,
   primary_key: :id,

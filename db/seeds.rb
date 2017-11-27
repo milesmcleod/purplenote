@@ -9,6 +9,8 @@
 User.destroy_all
 Note.destroy_all
 Notebook.destroy_all
+Tag.destroy_all
+Tagging.destroy_all
 
 user1 = User.new(username: 'demo_user', email: 'demo_user@demo.com', password: 'password', img_url: 'placeholder')
 user1.save
@@ -17,7 +19,7 @@ user2.save
 
 notebook = Notebook.new(
   title: "demo_user's notebook",
-  owner_id: 1
+  owner_id: user1.id
 )
 notebook.save
 user1.default_notebook_id = notebook.id
@@ -94,6 +96,19 @@ end
       second.sample
     )
   )
+end
+
+TAGS = ['work', 'play', 'music', 'food', 'todo', 'thoughs', 'ideas', 'quotes']
+
+8.times do
+  tag = Tag.new(title: TAGS.pop)
+  tag.owner_id = user1.id
+  tag.save!
+  4.times do
+    note = Note.all.sample
+    tagging = Tagging.new(note_id: note.id, tag_id: tag.id)
+    tagging.save!
+  end
 end
 
 notebook = Notebook.new(

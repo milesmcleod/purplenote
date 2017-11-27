@@ -2,14 +2,15 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string           not null
-#  username        :string           not null
-#  img_url         :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  email               :string           not null
+#  username            :string           not null
+#  img_url             :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  default_notebook_id :integer
 #
 
 class User < ApplicationRecord
@@ -26,6 +27,11 @@ class User < ApplicationRecord
   primary_key: :id,
   foreign_key: :owner_id,
   class_name: :Notebook
+
+  has_many :tags,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Tag
 
   attr_reader :password
 
