@@ -10,6 +10,10 @@ import {
 import {
   REMOVE_NOTEBOOK
 } from '../actions/notebook_actions';
+import {
+  RECEIVE_TAGGING,
+  REMOVE_TAGGING
+} from '../actions/tagging_actions';
 import merge from 'lodash/merge';
 import values from 'lodash/values';
 
@@ -37,6 +41,16 @@ const NotesReducer = (state = {}, action) => {
           newState[note.id] = note;
         }
       });
+      return newState;
+    case RECEIVE_TAGGING:
+      newState = merge({}, state);
+      let note = newState[action.payload.noteId];
+      note.tagIds.push(action.payload.tagId);
+      return newState;
+    case REMOVE_TAGGING:
+      newState = merge({}, state);
+      note = newState[action.payload.noteId];
+      note.tagIds = note.tagIds.filter(tagId => tagId !== action.payload.tagId);
       return newState;
     case REMOVE_SESSION:
       return {};
