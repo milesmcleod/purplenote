@@ -4,6 +4,9 @@ export const RECEIVE_NOTE_SORT_TYPE = 'RECEIVE_NOTE_SORT_TYPE';
 export const RECEIVE_SELECTED_NOTEBOOK = 'RECEIVE_SELECTED_NOTEBOOK';
 export const ENTER_NOTEBOOK_DELETION = 'ENTER_NOTEBOOK_DELETION';
 export const EXIT_NOTEBOOK_DELETION = 'EXIT_NOTEBOOK_DELETION';
+export const RECEIVE_SELECTED_TAG = 'RECEIVE_SELECTED_TAG';
+export const ENTER_TAG_DELETION = 'ENTER_TAG_DELETION';
+export const EXIT_TAG_DELETION = 'EXIT_TAG_DELETION';
 export const ENTER_FULLSCREEN = 'ENTER_FULLSCREEN';
 export const EXIT_FULLSCREEN = 'EXIT_FULLSCREEN';
 
@@ -37,6 +40,24 @@ export const enterNotebookDeletion = (notebookId) => {
 export const exitNotebookDeletion = () => {
   return {
     type: ENTER_NOTEBOOK_DELETION
+  };
+};
+
+export const receiveSelectedTag = (tagId) => ({
+  type: RECEIVE_SELECTED_TAG,
+  tagId
+});
+
+export const enterTagDeletion = (tagId) => {
+  return {
+    type: ENTER_TAG_DELETION,
+    tagId
+  };
+};
+
+export const exitTagDeletion = () => {
+  return {
+    type: ENTER_TAG_DELETION
   };
 };
 

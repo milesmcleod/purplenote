@@ -10,6 +10,33 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes();
+    document.addEventListener("keydown", (e) => this.handleKeypress(e));
+    document.addEventListener("click", (e) => this.handleClick(e));
+  }
+
+  handleClick(e) {
+    if (
+      !e.target.classList.contains("sort-options") &&
+      !e.target.classList.contains("select-notebook-options") &&
+      !e.target.classList.contains("sort-dropdown-link") &&
+      !e.target.classList.contains("select-notebook-dropdown-link")
+    ) {
+      const dropdown1 = document.getElementsByClassName("sort-options")[0];
+      dropdown1.classList.remove("show-sort-options");
+      const dropdown2 = document.getElementsByClassName("select-notebook-options")[0];
+      dropdown2.classList.remove("show-select-notebook-options");
+    }
+  }
+
+  handleKeypress(e) {
+    if (e.keyCode === 27 && this.props.fullscreen === true) {
+      this.props.exitFullscreen();
+    } else if (e.keyCode === 27) {
+      const dropdown1 = document.getElementsByClassName("sort-options")[0];
+      dropdown1.classList.remove("show-sort-options");
+      const dropdown2 = document.getElementsByClassName("select-notebook-options")[0];
+      dropdown2.classList.remove("show-select-notebook-options");
+    }
   }
 
   render() {

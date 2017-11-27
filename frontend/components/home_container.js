@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
   barNavType: state.ui.barNavType,
   selectedNote: ownProps.match.params.noteId,
   notebooks: values(state.entities.notebooks),
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  fullscreen: state.ui.fullscreen
 });
 
 const mapDispatchToProps = (dispatch) => ({

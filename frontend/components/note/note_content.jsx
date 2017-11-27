@@ -167,7 +167,9 @@ class NoteContent extends React.Component {
       notebook.id === this.state.notebook_id
     ))[0];
     const selectNotebook = (
-      <div className="notebook-dropdown-container">
+      <div
+        className="notebook-dropdown-container"
+        >
         <p
           className="select-notebook-dropdown-link"
           onClick={() => this.toggleDropdown()}>{`${currentNotebook.title}`} &#8623;</p>

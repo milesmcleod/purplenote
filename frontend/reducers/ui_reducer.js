@@ -5,6 +5,9 @@ import {
   RECEIVE_SELECTED_NOTEBOOK,
   ENTER_NOTEBOOK_DELETION,
   EXIT_NOTEBOOK_DELETION,
+  RECEIVE_SELECTED_TAG,
+  ENTER_TAG_DELETION,
+  EXIT_TAG_DELETION,
   ENTER_FULLSCREEN,
   EXIT_FULLSCREEN
 } from '../actions/ui_actions';
@@ -23,10 +26,10 @@ const defaultState = {
   barNavType: 'notes',
   selectedNote: undefined,
   selectedNotebook: undefined,
+  selectedTag: undefined,
   noteSortType: ['updatedAt', true],
   fullscreen: false,
-  notebookDeletion : false,
-  notebookEditing: false
+  notebookDeletion : false
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -59,7 +62,19 @@ const UIReducer = (state = defaultState, action) => {
       return newState;
     case EXIT_NOTEBOOK_DELETION:
       newState = merge({}, state);
-      newState['notebookDeletion'] = true;
+      newState['notebookDeletion'] = false;
+      return newState;
+    case RECEIVE_SELECTED_TAG:
+      newState = merge({}, state);
+      newState['selectedTag'] = action.tagId;
+      return newState;
+    case ENTER_TAG_DELETION:
+      newState = merge({}, state);
+      newState['tagDeletion'] = action.tagId;
+      return newState;
+    case EXIT_TAG_DELETION:
+      newState = merge({}, state);
+      newState['tagDeletion'] = false;
       return newState;
     case ENTER_FULLSCREEN:
       newState = merge({}, state);
