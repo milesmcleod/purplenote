@@ -23,6 +23,16 @@ class TagsNavItem extends React.Component {
     });
   }
 
+  showDeleteTagModal() {
+    const modalBackground = document.getElementById("modalBackground");
+    modalBackground.classList.add("secondary-nav-totality");
+    const modal = document.getElementsByClassName('delete-tag-modal')[0];
+    modal.classList.add("new-notebook-modal-show");
+    window.setTimeout(() => {
+      modal.classList.add("new-notebook-modal-fade-in");
+    }, 0);
+  }
+
   render() {
     return (
       <div className={
@@ -33,7 +43,15 @@ class TagsNavItem extends React.Component {
         </div>
         <span className='tag-icon-star'>S</span>
         <span className='tag-icon-edit'>E</span>
-        <span className='tag-icon-trash'>T</span>
+        <span
+          className='tag-icon-trash'
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.props.enterTagDeletion(this.props.tag.id);
+            this.showDeleteTagModal();
+          }}
+          >T</span>
         <input
           value={this.state.title}
           onChange={(e) => this.handleChange()}

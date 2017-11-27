@@ -1,9 +1,9 @@
 import React from 'react';
 import TagsNavItem from './tags_nav_item';
 import NewTagModalContainer from './new_tag_modal_container';
-// import DeleteTagModalContainer from './delete_tag_modal_container';
+import DeleteTagModalContainer from './delete_tag_modal_container';
 // import TagInfoModalContainer from './tag_info_modal_container';
-// <DeleteTagModalContainer />
+
 // <TagInfoModalContainer />
 
 class TagsNav extends React.Component {
@@ -129,6 +129,7 @@ class TagsNav extends React.Component {
           onClick={(e) => this.props.setBarNavType('notes')}
         ></div>
       <NewTagModalContainer />
+      <DeleteTagModalContainer />
       </div>
     );
   }

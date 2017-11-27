@@ -29,7 +29,8 @@ const defaultState = {
   selectedTag: undefined,
   noteSortType: ['updatedAt', true],
   fullscreen: false,
-  notebookDeletion : false
+  notebookDeletion: false,
+  tagDeletion: false
 };
 
 const UIReducer = (state = defaultState, action) => {

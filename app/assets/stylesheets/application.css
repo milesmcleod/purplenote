@@ -1861,7 +1861,8 @@ NewNotebookModal
 
 *****************************/
 
-.new-notebook-modal, .delete-notebook-modal, .new-tag-modal {
+.new-notebook-modal, .delete-notebook-modal, .new-tag-modal,
+.delete-tag-modal {
   transition: opacity 0.4s ease;
   opacity: 0;
   display: none;
@@ -1897,7 +1898,7 @@ NewNotebookModal
 }
 
 .new-notebook-modal h4, .delete-notebook-modal h4,
-.new-tag-modal h4 {
+.new-tag-modal h4, .delete-tag-modal h4 {
   color: #5E5E5E;
 }
 
@@ -1905,18 +1906,18 @@ NewNotebookModal
   padding: 30px 0px;
 }
 
-.delete-notebook-modal {
+.delete-notebook-modal, .delete-tag-modal {
   padding: 15% 0;
 }
 
-.delete-notebook-modal h1 {
+.delete-notebook-modal h1, .delete-tag-modal h1 {
   color: black;
   font-family: 'Arvo', serif;
   font-size: 30px;
   display: inline;
 }
 
-.delete-notebook-modal p {
+.delete-notebook-modal p, .delete-tag-modal p {
   color: black;
   font-family: 'Arvo', serif;
   font-size: 30px;
@@ -1928,7 +1929,7 @@ NewNotebookModal
 
 
 .new-notebook-modal hr, .delete-notebook-modal hr, .notebook-info-modal hr,
-.new-tag-modal hr {
+.new-tag-modal hr, .delete-tag-modal hr {
   margin-top: 25px;
   width: 128px;
   border: 1px solid  #e0e0e0;
