@@ -30,21 +30,43 @@ class DeleteNotebookModal extends React.Component {
   }
 
   render () {
+    console.log(this.props.active);
+    console.log(this.props.default);
+    let query;
+    query = (this.props.active === this.props.default) ? (
+      <div className='delete-query'>
+        <h1>Your default notebook cannot be deleted.</h1>
+      </div>
+    ) : (
+      <div className='delete-query'>
+        <h1>Are you sure you want to delete </h1><p>{this.state.title}</p><h1>?</h1>
+      </div>
+    );
     return (
       <div className="delete-notebook-modal">
         <h4>DELETE NOTEBOOK</h4>
         <hr></hr>
-        <div className='delete-query'>
-          <h1>Are you sure you want to delete </h1><p>{this.state.title}</p><h1>?</h1>
-        </div>
+          {query}
           <div className='form-buttons'>
             <button
             onClick={(e) => {
-              this.props.deleteNotebook(this.props.active);
-              this.props.exitNotebookDeletion();
-              this.exitModal(e);
+              if (this.props.active !== this.props.default) {
+                this.props.deleteNotebook(this.props.active);
+                if (this.props.selected === this.props.active) {
+                  this.props.history.push('/home');
+                  this.props.receiveSelectedNotebook(undefined);
+                }
+                this.props.exitNotebookDeletion();
+                this.exitModal(e);
+              }
             }}
-            className="modal-submit"
+            className={
+              (this.props.active === this.props.default) ? (
+                "modal-submit modal-submit-empty"
+              ) : (
+                "modal-submit"
+              )
+            }
              type="submit">Delete</button>
              <button
                value="Cancel"

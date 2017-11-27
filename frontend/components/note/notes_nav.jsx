@@ -64,6 +64,16 @@ class NotesNav extends React.Component {
     }
   }
 
+  showNotebookInfoModal() {
+    const modalBackground = document.getElementById("modalBackground");
+    modalBackground.classList.add("secondary-nav-totality");
+    const modal = document.getElementsByClassName('notebook-info-modal')[0];
+    modal.classList.add("notebook-info-modal-show");
+    window.setTimeout(() => {
+      modal.classList.add("notebook-info-modal-fade-in");
+    }, 0);
+  }
+
   setHeader(props) {
     let header;
     if (props.selectedNotebook === -1 ) { //trash header
@@ -122,6 +132,12 @@ class NotesNav extends React.Component {
           <header className="notebook-notes-header">
             <div className="notebook-notes-title">
               <h4>{props.selectedNotebookTitle}</h4>
+              <div
+                className="notebook-info-link"
+                onClick={() => {
+                  this.showNotebookInfoModal();
+                }}
+                >i</div>
             </div>
             <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p

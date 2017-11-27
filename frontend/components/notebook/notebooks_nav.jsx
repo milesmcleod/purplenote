@@ -2,6 +2,7 @@ import React from 'react';
 import NotebooksNavItem from './notebooks_nav_item';
 import NewNotebookModalContainer from './new_notebook_modal_container';
 import DeleteNotebookModalContainer from './delete_notebook_modal_container';
+import NotebookInfoModalContainer from './notebook_info_modal_container';
 
 class NotebooksNav extends React.Component {
   constructor(props) {
@@ -128,6 +129,7 @@ class NotebooksNav extends React.Component {
         ></div>
         <NewNotebookModalContainer />
         <DeleteNotebookModalContainer />
+        <NotebookInfoModalContainer />
       </div>
     );
   }

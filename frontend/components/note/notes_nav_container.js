@@ -33,7 +33,8 @@ const mapStateToProps = (state, ownProps) => {
     selectedNotebook: state.ui.selectedNotebook,
     selectedNotebookTitle: (
       state.ui.selectedNotebook &&
-      state.ui.selectedNotebook > -1
+      state.ui.selectedNotebook > -1 &&
+      state.entities.notebooks[state.ui.selectedNotebook]
     ) ? (
       state.entities.notebooks[state.ui.selectedNotebook].title
     ) : (

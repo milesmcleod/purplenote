@@ -1119,6 +1119,70 @@ NotesNav
   padding-bottom: 40px;
 }
 
+.notebook-info-link {
+  font-family: 'Arvo', serif;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  left: 370px;
+  top: 15px;
+  height: 27px;
+  width: 27px;
+  border: 2px solid white;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.notebook-info-link:hover {
+  cursor: pointer;
+}
+
+.notebook-info-modal {
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1500;
+}
+
+.notebook-info-modal-show {
+  display: flex;
+}
+
+.notebook-info-modal form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.notebook-info-modal li {
+  color: #7f00ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.notebook-info-modal-fade-in {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+.notebook-info-icon {
+}
+
+.notebook-info-modal h4 {
+  color: #5E5E5E;
+  padding-top: 14%;
+}
+
 .empty-trash {
   width: 120px;
   color: #7f00ff;
@@ -1685,6 +1749,7 @@ NotebookItem
 
 .new-notebook-button {
   position: relative;
+  width: 17px;
   left: 350px;
   top: -45px;
 }
@@ -1853,7 +1918,7 @@ NewNotebookModal
 
 
 
-.new-notebook-modal hr, .delete-notebook-modal hr {
+.new-notebook-modal hr, .delete-notebook-modal hr, .notebook-info-modal hr {
   margin-top: 25px;
   width: 128px;
   border: 1px solid  #e0e0e0;
