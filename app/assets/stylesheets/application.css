@@ -1245,7 +1245,7 @@ NotesNav
 }
 
 .notes-nav-item:hover .notes-nav-item-title {
-  width: 75%;
+  width: 53%;
 }
 
 .notes-nav-item:hover h3, .notes-nav-item:hover p {
@@ -1288,8 +1288,8 @@ NotesNav
   color: white;
   z-index: 5;
   position: relative;
-  top: -28px;
-  left: 260px;
+  top: -32px;
+  left: 220px;
   opacity: 0;
 }
 
@@ -1310,8 +1310,8 @@ NotesNav
   color: white;
   z-index: 5;
   position: relative;
-  top: -30px;
-  left: 245px;
+  top: -34px;
+  left: 200px;
   opacity: 0;
 }
 
@@ -1351,7 +1351,7 @@ NotesNav
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   position: relative;
-  top: -30px;
+  top: -33px;
   opacity: 0;
 }
 
@@ -1759,11 +1759,11 @@ NewNotebookModal
 .new-notebook-form-icon {
 }
 
-.new-notebook-modal h4 {
+.new-notebook-modal h4, .delete-notebook-modal h4 {
   color: #5E5E5E;
 }
 
-.new-notebook-modal hr {
+.new-notebook-modal hr, .delete-notebook-modal hr {
   margin-top: 25px;
   width: 128px;
   border: 1px solid  #e0e0e0;

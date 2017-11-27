@@ -30,7 +30,7 @@ class Api::NotebooksController < ApplicationController
   def destroy
     @notebook = current_user.notebooks.find(params[:id])
     if @notebook
-      @notebook.delete
+      @notebook.destroy
       render :show
     else
       render json: ['Could not find notebook.'], status: 404
