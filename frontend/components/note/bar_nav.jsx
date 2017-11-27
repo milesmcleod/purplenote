@@ -49,7 +49,7 @@ class BarNav extends React.Component {
             className="bar-nav-button-new-note"
             onClick={() => {
               this.renderNewNote();
-              this.props.enterFullscreen();
+              window.setTimeout(()=> this.props.enterFullscreen(), 20);
             }}><div className="hover-bar-nav-button-new-note"></div></li>
           <li className="bar-nav-button-search">
             <div className="hover-bar-nav-button-search"></div>

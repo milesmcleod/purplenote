@@ -1,40 +1,23 @@
-Monday, 11/20/17
+todo:
 
--session actions and session reducer all working 100%
+  -write the tags backend
 
--AuthRoute and ProtectedRoute written
+  -write the tags frontend
 
--login and signup forms work 100%
-
--complete session errors
-
-Tuesday, 11/21/17
-
--complete modals
-
--complete splash body
-
-Wednesday, 11/22/17
-
--i am done with auth and the splash and the transitions
-
--deployed to heroku
-
--completed notes backend
-
-notebooks gameplan:
-
+  -write search functionality once tags are implemented
 
   -write a popup function that alerts you that you have moved an item to the trash
-  -write the search functionality in a modal
 
   -new notebook icon
 
+  -notebook icon for note content form
+
   -fullscreen icon
+
+  -Quill
 
 
 don't forget to add whitespace to the bottom borders of the notes
-
 refactor json to use partials
 login modal animation
-extra special final touch: night mode. dark blues with white text.
+extra special final touch: night mode.

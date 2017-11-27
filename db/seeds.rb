@@ -27,7 +27,7 @@ i = 1
 3.times do
   notebook = Notebook.new(
     title: Faker::BossaNova.song,
-    owner_id: 1
+    owner_id: user1.id
   )
   notebook.save
   i += 1
@@ -37,7 +37,7 @@ end
   note = Note.new(
     title: Faker::StarWars.planet,
     content: Faker::Lorem.paragraph(4, true, 12),
-    owner_id: 1,
+    owner_id: user1.id,
     notebook_id: [1, 2, 3, 4].sample )
   note.save
   year = 2017
@@ -75,7 +75,7 @@ end
   note = Note.new(
     title: Faker::StarWars.planet,
     content: Faker::StarWars.wookiee_sentence,
-    owner_id: 1,
+    owner_id: user1.id,
     notebook_id: [1, 2, 3].sample )
   note.save
   year = 2017
