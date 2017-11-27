@@ -80,8 +80,6 @@ class NotebookInfoModal extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log(this.props.titles);
     let createdAt, updatedAt;
     if (this.state.createdAt) {
       createdAt = (

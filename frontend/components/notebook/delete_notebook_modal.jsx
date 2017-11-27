@@ -30,8 +30,6 @@ class DeleteNotebookModal extends React.Component {
   }
 
   render () {
-    console.log(this.props.active);
-    console.log(this.props.default);
     let query;
     query = (this.props.active === this.props.default) ? (
       <div className='delete-query'>

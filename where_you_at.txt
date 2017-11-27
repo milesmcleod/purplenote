@@ -24,17 +24,11 @@ Wednesday, 11/22/17
 
 notebooks gameplan:
 
-  -notebook info (for editing notebook titles)
-
-    -NoteInfoModalContainer
-    -NotebookInfoModalContainer
-      -set title
-      -set default notebook option
-      -date created
-      -link to delete notebook
 
   -write a popup function that alerts you that you have moved an item to the trash
   -write the search functionality in a modal
+
+  -new notebook icon
 
   -fullscreen icon
 
