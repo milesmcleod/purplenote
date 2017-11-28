@@ -100,7 +100,7 @@ class TagsNavItem extends React.Component {
         <section className='tags-item-container'>
           <div
             className='tags-nav-item-info' id={`title-${this.props.tag.id}`}>
-            <h4>{this.state.title}<p>{this.props.tagCount}</p></h4>
+            <article><h4>{this.state.title}</h4></article><p>{this.props.tagCount}</p>
           </div>
           <span className={`tag-icon-star tag-icon-${this.props.tag.id}`}>S</span>
           <span

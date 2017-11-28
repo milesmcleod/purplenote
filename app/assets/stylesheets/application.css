@@ -2037,12 +2037,24 @@ TagsNav
   color: #4d4d4d;
   display: inline-block;
   height: 21px;
-  max-width: 150px;
+  max-width: 175px;
   transition: max-width 0.5s ease,
   width 0.5s ease,
   background-color 0.3s ease-in;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.tags-nav-item-info h4 {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
+
+.tags-nav-item-info article {
+  display: inline-block;
 }
 
 .tags-nav-item-info:hover {
@@ -2082,18 +2094,27 @@ TagsNav
 .tags-nav-item-info p {
   margin-left: 20px;
   color: #7f00ff;
-  display: inline;
+  display: inline-block;
+  position: relative;
+  bottom: 1px;
 }
 
 .tags-nav-item-info:hover p {
   color: white;
+  display: inline;
 }
 
 .tags-nav-item-info-slide h4 {
   color: white;
+  display: inline;
+  max-width: 50px;
 }
 
 .tags-nav-item-info-slide p {
+  display: none;
+}
+
+.tags-nav-item-info-slide:hover p {
   display: none;
 }
 
