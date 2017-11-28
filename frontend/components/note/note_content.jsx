@@ -213,6 +213,12 @@ class NoteContent extends React.Component {
         </div>
       </div>
     );
+    let noteTagsContainer;
+    if (this.props.selectedNote !== 'new' ) {
+      noteTagsContainer = (<NoteTagsContainer />);
+    } else {
+      noteTagsContainer = (<div></div>);
+    }
 
     return (
       <section className="note-body">
@@ -233,7 +239,7 @@ class NoteContent extends React.Component {
         <section className="note-area">
           <div className="note-top">
             {selectNotebook}
-            <NoteTagsContainer />
+            {noteTagsContainer}
           </div>
           <form
             className='note-content-form'
