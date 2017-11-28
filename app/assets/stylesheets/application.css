@@ -1588,7 +1588,7 @@ NoteBody
   overflow-x: scroll;
 }
 
-.note-tags-ul li, .new-note-tag-form {
+.note-tags-li, .new-note-tag-form {
   flex: none;
   margin: 0 10px;
   font-family: 'Montserrat', sans-serif;
@@ -1602,13 +1602,23 @@ NoteBody
   max-width: 175px;
   transition:
   width 0.5s ease,
-  background-color 0.3s ease-in;
+  background-color 0.3s ease-in,
+  color 0.3s ease-in;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.note-tags-li:hover {
+  cursor:pointer;
+}
+
+.selected-note-tags-li {
+  background: #7f00ff;
+  color: white;
 }
 
 .new-note-tag-form {

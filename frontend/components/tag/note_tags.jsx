@@ -45,13 +45,28 @@ class NoteTags extends React.Component {
     }
   }
 
+  selectTag(e) {
+    const noteTags = document.getElementsByClassName("note-tags-li");
+    if (e.currentTarget.classList.contains('selected-note-tags-li')) {
+      e.currentTarget.classList.remove('selected-note-tags-li');
+    } else {
+      for (let i = 0; i < noteTags.length; i++){
+        noteTags[i].classList.remove('selected-note-tags-li');
+      }
+      e.currentTarget.classList.add('selected-note-tags-li');
+    }
+  }
+
   render() {
     return (
       <div className='secondary-note-top'>
         <ul className='note-tags-ul'>
           {
             this.props.ownTags.map(tag => (
-              <li>{tag.title}</li>
+              <li
+                className="note-tags-li"
+                onClick={(e) => this.selectTag(e)}
+                >{tag.title}</li>
             ))
           }
         </ul>

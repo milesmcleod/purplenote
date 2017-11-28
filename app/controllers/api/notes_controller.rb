@@ -15,7 +15,7 @@ class Api::NotesController < ApplicationController
   end
 
   def update
-    @note = current_user.notes.includes(tags: :taggings).find(params[:note][:id])
+    @note = current_user.notes.includes(:tags, :taggings).find(params[:note][:id])
     if @note
       if @note.update_attributes(note_params)
         render :show
