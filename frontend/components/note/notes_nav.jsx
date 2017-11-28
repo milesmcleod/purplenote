@@ -58,7 +58,6 @@ class NotesNav extends React.Component {
     } else {
       const previous = document.getElementsByClassName('sort-options-selected')[0];
       if (previous) previous.classList.remove('sort-options-selected');
-      console.log('hit');
       dropdown.classList.add("show-sort-options");
       const selectedSort = document.getElementById(`${this.props.noteSortType.join(" ")}`);
       selectedSort.classList.add("sort-options-selected");

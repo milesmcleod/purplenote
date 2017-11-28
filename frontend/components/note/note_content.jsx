@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import NoteTagsContainer from '../tag/note_tags_container';
 
 class NoteContent extends React.Component {
   constructor(props) {
@@ -229,28 +230,33 @@ class NoteContent extends React.Component {
           </div>
           {this.button}
         </header>
-        <form
-          className='note-content-form'
-          onSubmit={(e) => this.handleSubmit(e)}
-          >
-          {selectNotebook}
-          <input
-            type="text"
-            name="title"
-            className="note-content-form-title"
-            value={this.state.title}
-            id="title"
-            placeholder="Title your note"
-            onChange={(e) => this.handleChange(e)}
-            ></input>
-          <textarea
-            type="text"
-            name="content"
-            placeholder="Just start typing..."
-            value={this.state.content}
-            onChange={(e) => this.handleChange(e)}
-            ></textarea>
-        </form>
+        <section className="note-area">
+          <div className="note-top">
+            {selectNotebook}
+            <NoteTagsContainer />
+          </div>
+          <form
+            className='note-content-form'
+            onSubmit={(e) => this.handleSubmit(e)}
+            >
+            <input
+              type="text"
+              name="title"
+              className="note-content-form-title"
+              value={this.state.title}
+              id="title"
+              placeholder="Title your note"
+              onChange={(e) => this.handleChange(e)}
+              ></input>
+            <textarea
+              type="text"
+              name="content"
+              placeholder="Just start typing..."
+              value={this.state.content}
+              onChange={(e) => this.handleChange(e)}
+              ></textarea>
+          </form>
+        </section>
       </section>
     );
   }

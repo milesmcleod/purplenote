@@ -1511,7 +1511,6 @@ NoteBody
 
 .select-notebook-dropdown-link {
   position: relative;
-  top: -10px;
   color: #808080;
   font-size: 12px;
 }
@@ -1560,6 +1559,70 @@ NoteBody
 .select-notebook-options-selected span {
   display: inline-block;
 }
+
+.note-top {
+  position: relative;
+  top: 50px;
+  height: 30px;
+  margin: 0 10%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.secondary-note-top {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.note-tags-ul {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  top: -10px;
+  max-width: 600px;
+  overflow-x: scroll;
+}
+
+.note-tags-ul li, .new-note-tag-form {
+  flex: none;
+  margin: 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  border: 1px solid #cccccc;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  color: #4d4d4d;
+  padding: 1px 6px;
+  display: inline-block;
+  max-width: 175px;
+  transition:
+  width 0.5s ease,
+  background-color 0.3s ease-in;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-note-tag-form {
+  position: relative;
+  top: -10px;
+}
+
+.new-note-tag-input {
+  position: relative;
+  min-width: 10px;
+  padding: 5px 5px;
+  border: none;
+  background: none;
+  outline-style: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #4d4d4d;
+}
+
 
 .note-content-form-title {
   width: 100%;
