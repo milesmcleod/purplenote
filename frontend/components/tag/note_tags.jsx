@@ -29,6 +29,24 @@ class NoteTags extends React.Component {
     });
   }
 
+  handleDelete(e) {
+    const element = document.getElementsByClassName("selected-note-tags-li")[0];
+    if (element) {
+      console.log(element.id);
+      this.props.deleteTagging({note_id: this.props.selectedNote, tag_id: element.id});
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", (e) => this.handleKeypress(e));
+  }
+
+  handleKeypress(e) {
+    if (e.keyCode === 8) {
+      this.handleDelete(e);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -66,6 +84,8 @@ class NoteTags extends React.Component {
               <li
                 className="note-tags-li"
                 onClick={(e) => this.selectTag(e)}
+                key={tag.id}
+                id={tag.id}
                 >{tag.title}</li>
             ))
           }

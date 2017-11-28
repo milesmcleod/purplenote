@@ -9,7 +9,7 @@ import {
 import { postTag } from '../../actions/tag_actions';
 import {
   postTagging,
-  patchTagging
+  deleteTagging
 } from '../../actions/tagging_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     })));
   },
   postTagging: (tagging) => dispatch(postTagging(tagging)),
-  patchTagging: (tagging) => dispatch(patchTagging(tagging))
+  deleteTagging: (tagging) => dispatch(deleteTagging(tagging))
 });
 
 export default withRouter(connect(
