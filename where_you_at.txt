@@ -2,9 +2,12 @@ todo:
 
   -tags:
 
-    -delete tagging from the note-tag-list
     -adding a new tag from the note-tags list resets the url to the top
-    
+    -add tag input field is much too wide
+
+    note_tags: delete keybinding works but also redirects the user back to the first note in the index...
+    every modal tries to submit every time you press enter...
+
 
   autofocus on modals
 

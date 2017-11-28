@@ -215,7 +215,8 @@ class NoteContent extends React.Component {
     );
     let noteTagsContainer;
     if (this.props.selectedNote !== 'new' ) {
-      noteTagsContainer = (<NoteTagsContainer />);
+      noteTagsContainer = (<NoteTagsContainer
+        updateNote={() => this.props.patchNote(this.state)}/>);
     } else {
       noteTagsContainer = (<div></div>);
     }

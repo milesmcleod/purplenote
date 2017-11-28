@@ -30,8 +30,14 @@ class NoteTags extends React.Component {
   }
 
   handleDelete(e) {
+    e.preventDefault();
+    e.stopPropagation();
     const element = document.getElementsByClassName("selected-note-tags-li")[0];
-    if (element) {
+    if (
+      element &&
+      document.activeElement.nodeName !== 'INPUT' &&
+      document.activeElement.nodeName !== 'TEXTAREA'
+    ) {
       console.log(element.id);
       this.props.deleteTagging({note_id: this.props.selectedNote, tag_id: element.id});
     }
@@ -57,9 +63,11 @@ class NoteTags extends React.Component {
       this.props.postTagging({
         note_id: this.props.selectedNote,
         tag_id: selectedTag.id
-      });
+      })
+      .then(() => this.props.updateNote());
     } else {
       this.props.postTag(this.state.tag);
+      this.props.updateNote();
     }
   }
 
