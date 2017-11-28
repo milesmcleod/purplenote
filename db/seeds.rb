@@ -99,15 +99,16 @@ end
 end
 
 TAGS = ['work', 'play', 'music', 'food', 'todo', 'thoughts', 'ideas', 'quotes']
-
+i = 0
 8.times do
   tag = Tag.new(title: TAGS.pop)
   tag.owner_id = user1.id
   tag.save!
   4.times do
-    note = Note.all.sample
+    note = Note.all[i]
     tagging = Tagging.new(note_id: note.id, tag_id: tag.id)
     tagging.save!
+    i += 1
   end
 end
 

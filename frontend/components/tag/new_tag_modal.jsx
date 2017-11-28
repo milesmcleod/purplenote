@@ -15,6 +15,8 @@ class NewTagModal extends React.Component {
   handleKeypress(e) {
     if (e.keyCode === 27) {
       this.exitModal(e);
+    } else if (e.keyCode === 13) {
+      this.handleSubmit(e);
     }
   }
 
@@ -25,17 +27,17 @@ class NewTagModal extends React.Component {
     });
     window.setTimeout(() => {
       if (this.props.titles.includes(this.state.title)) {
-        const errors = document.getElementsByClassName("modal-form-errors")[0];
+        const errors = document.getElementsByClassName("modal-form-errors")[2];
         errors.classList.add("modal-form-errors-show");
-        const submit = document.getElementsByClassName("modal-submit")[0];
+        const submit = document.getElementsByClassName("new-tag-button")[0];
         submit.classList.add("modal-submit-empty");
       } else if (this.state.title === '') {
-        const submit = document.getElementsByClassName("modal-submit")[0];
+        const submit = document.getElementsByClassName("new-tag-button")[0];
         submit.classList.add("modal-submit-empty");
       } else {
-        const errors = document.getElementsByClassName("modal-form-errors")[0];
+        const errors = document.getElementsByClassName("modal-form-errors")[2];
         errors.classList.remove("modal-form-errors-show");
-        const submit = document.getElementsByClassName("modal-submit")[0];
+        const submit = document.getElementsByClassName("new-tag-button")[0];
         submit.classList.remove("modal-submit-empty");
       }
     }, 20);
@@ -46,9 +48,9 @@ class NewTagModal extends React.Component {
       e.preventDefault();
     } else if (this.props.titles.includes(this.state.title)) {
       e.preventDefault();
-      const errors = document.getElementsByClassName("modal-form-errors")[0];
+      const errors = document.getElementsByClassName("modal-form-errors")[2];
       errors.classList.add("modal-form-errors-show");
-      const submit = document.getElementsByClassName("modal-submit")[0];
+      const submit = document.getElementsByClassName("nte-tag-button")[0];
       submit.classList.add("modal-submit-empty");
     } else {
       e.preventDefault();
@@ -104,8 +106,8 @@ class NewTagModal extends React.Component {
             <input
               className={
                 (this.state.title === "") ?
-                "modal-submit modal-submit-empty" :
-                "modal-submit"
+                "modal-submit modal-submit-empty new-tag-button" :
+                "modal-submit new-tag-button"
               }
              type="submit" value="Create Tag"></input>
              <button

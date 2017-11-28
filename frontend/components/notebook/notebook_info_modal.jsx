@@ -17,6 +17,8 @@ class NotebookInfoModal extends React.Component {
   handleKeypress(e) {
     if (e.keyCode === 27) {
       this.exitModal(e);
+    } else if (e.keyCode === 13) {
+      this.handleSubmit(e);
     }
   }
 
