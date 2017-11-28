@@ -15,7 +15,7 @@ class NoteTags extends React.Component {
     e.preventDefault();
     this.setState({
       tag: {
-        title: e.value
+        title: e.target.value
       }
     });
   }
@@ -43,15 +43,6 @@ class NoteTags extends React.Component {
     } else {
       this.props.postTag(this.state.tag);
     }
-  }
-
-  componentDidMount() {
-    console.log('listening');
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode === 13) {
-        this.handleSubmit(e);
-      }
-    });
   }
 
   render() {
