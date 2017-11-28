@@ -1,8 +1,10 @@
 todo:
 
   -tags:
-    -add tag to note!!!!!!!!
-    -when modals fade out, the background should fade with them
+
+    -delete tagging from the note-tag-list
+    -adding a new tag from the note-tags list resets the url to the top
+
 
   keybind RETURN to submit deletion and createNew on the modals
 

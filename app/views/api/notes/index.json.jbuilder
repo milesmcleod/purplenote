@@ -3,8 +3,10 @@
 json.notes do
   @user.notes.each do |note|
     tag_ids = []
-    note.tags.each do |tag|
-      tag_ids.push(tag.id)
+    @user.tags.each do |tag|
+      if tag.note_ids.include?(note.id)
+        tag_ids.push(tag.id)
+      end
     end
     json.set! note.id do
       json.id note.id

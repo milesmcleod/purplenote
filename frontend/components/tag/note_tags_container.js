@@ -13,12 +13,17 @@ import {
 } from '../../actions/tagging_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  const note = state.entities.notes[ownProps.match.params.noteId];
+  const ownTags = values(state.entities.tags).filter(tag =>(
+    note.tagIds.includes(tag.id)
+  ));
   const tagTitles = [];
   const tags = values(state.entities.tags);
   tags.forEach(tag => tagTitles.push(tag.title));
   return {
     selectedNote: ownProps.match.params.noteId,
-    note: state.entities.notes[ownProps.match.params.noteId],
+    note,
+    ownTags,
     tags,
     tagTitles
   };

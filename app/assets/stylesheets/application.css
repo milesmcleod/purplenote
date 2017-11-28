@@ -1142,7 +1142,7 @@ NotesNav
 }
 
 .notebook-info-modal {
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   opacity: 0;
   display: none;
   position: fixed;
@@ -1496,6 +1496,10 @@ NoteBody
   left: 0px;
 }
 
+.note-area {
+  height: 95%;
+}
+
 .note-content-form {
   height: 100%;
   width: 80%;
@@ -1513,6 +1517,7 @@ NoteBody
   position: relative;
   color: #808080;
   font-size: 12px;
+  min-width: 100px;
 }
 
 .select-notebook-dropdown-link:hover {
@@ -1927,7 +1932,7 @@ NewNotebookModal
 
 .new-notebook-modal, .delete-notebook-modal, .new-tag-modal,
 .delete-tag-modal {
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   opacity: 0;
   display: none;
   position: fixed;

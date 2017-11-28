@@ -46,14 +46,11 @@ class NoteTags extends React.Component {
   }
 
   render() {
-    const noteTags = this.props.tags.filter(tag =>(
-      this.props.note.tagIds.includes(tag.id)
-    ));
     return (
       <div className='secondary-note-top'>
         <ul className='note-tags-ul'>
           {
-            noteTags.map(tag => (
+            this.props.ownTags.map(tag => (
               <li>{tag.title}</li>
             ))
           }
