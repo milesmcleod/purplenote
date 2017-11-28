@@ -18,6 +18,7 @@
  modals
  *******************************************/
 
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -2017,47 +2018,82 @@ TagsNav
   font-size: 12px;
 }
 
-[class*='tags-nav-item'] div, [class*='tags-nav-item'] input {
-  margin: 10px 30px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  border: 1px solid #cccccc;
-  background: whitesmoke;
-  border-radius: 5px;
-  padding: 8px;
-  color: #4d4d4d;
-  display: inline-block;
+.tags-nav-item, .tags-nav-item-selected  {
+  display: block;
 }
 
 .tags-nav-item-selected div {
   border: 1px solid #7f00ff;
 }
 
-[class*='tags-nav-item'] div h4 {
-  display: inline;
+.tags-nav-item-info {
+  margin: 10px 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  border: 1px solid #cccccc;
+  background: whitesmoke;
+  border-radius: 5px;
+  padding: 8px 8px 0 8px;
+  color: #4d4d4d;
+  display: inline-block;
+  height: 21px;
+  max-width: 100px;
+  transition: max-width 0.5s ease;
 }
 
-[class*='tags-nav-item'] div p {
-  display: inline;
-  margin-left: 20px;
-  color: #7f00ff;
+.tags-nav-item-info:hover {
+  color: white;
+  background-color: #7f00ff;
 }
 
-.tags-nav-item input, .tags-nav-item-selected input {
+.edit-tag-form {
+  margin: 10px 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  border: 1px solid #cccccc;
+  background: whitesmoke;
+  border-radius: 5px;
+  padding: 0 8px;
+  line-height: 1;
+  color: #4d4d4d;
+  height: 29px;
+  width: 340px;
   display: none;
 }
 
-.tags-nav-item:hover {
-  cursor: pointer;
+.edit-tag-form:focus {
+  outline: none;
 }
 
-.tags-nav-item:hover span, .tags-nav-item-selected:hover span {
+.edit-tag-form-show {
+  display: inline-block
+}
+
+.tags-nav-item-info-slide {
+  max-width: 340px;
+  width: 340px;
+}
+
+.tags-nav-item-info p {
+  margin-left: 20px;
+  color: #7f00ff;
   display: inline;
 }
 
-.tags-nav-item, .tags-nav-item-selected  {
-  display: inline-block;
-  padding-right: 50px;
+.tags-nav-item-info:hover p {
+  color: white;
+}
+
+.tags-nav-item-info:hover {
+  cursor: pointer;
+}
+
+.tags-nav-item:hover span {
+  display: inline;
+}
+
+.tags-no-show-on-hover:hover span {
+  display: none;
 }
 
 [class*='tag-icon-'] {
@@ -2066,13 +2102,17 @@ TagsNav
 }
 
 .tag-icon-star {
-  left: -20px;
+  left: 5px;
 }
 
 .tag-icon-edit {
-  left: 0px;
+  left: 20px;
 }
 
 .tag-icon-trash {
-  left: 20px;
+  left: 35px;
+}
+
+.hide-tag-elements {
+  display: none;
 }

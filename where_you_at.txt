@@ -1,20 +1,8 @@
 todo:
 
-  left off: tags_nag and tags_nav container have been build;
-  need to add the container back into the sidebar once done fixing other things (and comment it back in too)
-  build all of the tags_nav dependency components;
-
-
-
-
-
-
-
-
-
-
-
-
+  -tags:
+    -tag edit!!!!!!!
+    -add tag to note!!!!!!!!
 
   -write search functionality once tags are implemented
 
