@@ -8,6 +8,16 @@ class NewNotebookModal extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", (e) => this.handleKeypress(e));
+  }
+
+  handleKeypress(e) {
+    if (e.keyCode === 27) {
+      this.exitModal(e);
+    }
+  }
+
   handleChange(e) {
     e.preventDefault();
     this.setState({

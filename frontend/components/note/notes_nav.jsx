@@ -47,17 +47,18 @@ class NotesNav extends React.Component {
   handleSort(notes, e) {
     e.stopPropagation();
     const arr = e.target.id.split(" ");
-    this.toggleDropdown();
+    this.toggleDropdown(e);
     this.props.receiveNoteSortType(arr);
   }
 
   toggleDropdown() {
-    const dropdown = document.getElementsByClassName("sort-options")[0];
+    let dropdown = document.getElementsByClassName("sort-options")[0];
     if (dropdown.classList.contains("show-sort-options")) {
       dropdown.classList.remove("show-sort-options");
     } else {
       const previous = document.getElementsByClassName('sort-options-selected')[0];
       if (previous) previous.classList.remove('sort-options-selected');
+      console.log('hit');
       dropdown.classList.add("show-sort-options");
       const selectedSort = document.getElementById(`${this.props.noteSortType.join(" ")}`);
       selectedSort.classList.add("sort-options-selected");
@@ -89,6 +90,7 @@ class NotesNav extends React.Component {
             </div>
             <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
+              className="alt-dropdown-link"
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
             <div className="sort-options" id="alt-sort-options">
@@ -133,6 +135,7 @@ class NotesNav extends React.Component {
             <div className="notebook-notes-title">
               <h4>{props.selectedNotebookTitle}</h4>
               <div
+                className="alt-dropdown-link"
                 className="notebook-info-link"
                 onClick={() => {
                   this.showNotebookInfoModal();
@@ -141,6 +144,7 @@ class NotesNav extends React.Component {
             </div>
             <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
+              className="alt-dropdown-link"
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
             <div className="sort-options" id="alt-sort-options">
@@ -165,6 +169,7 @@ class NotesNav extends React.Component {
             </div>
             <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p
+              className="alt-dropdown-link"
               id="alt-dropdown-link"
               onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
             <div className="sort-options" id="alt-sort-options">

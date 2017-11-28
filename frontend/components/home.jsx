@@ -19,6 +19,7 @@ class Home extends React.Component {
       !e.target.classList.contains("sort-options") &&
       !e.target.classList.contains("select-notebook-options") &&
       !e.target.classList.contains("sort-dropdown-link") &&
+      !e.target.classList.contains("alt-dropdown-link") &&
       !e.target.classList.contains("select-notebook-dropdown-link")
     ) {
       const dropdown1 = document.getElementsByClassName("sort-options")[0];

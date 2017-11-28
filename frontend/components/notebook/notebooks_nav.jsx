@@ -117,7 +117,9 @@ class NotebooksNav extends React.Component {
               className="notebook-trash"
               >
               <p>Trash</p>
-              <p>*trashcount*</p>
+              <p>{
+                  this.props.notes.filter(n => n.trashBoolean === true).length
+                }</p>
             </div>
           </div>
 

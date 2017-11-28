@@ -8,6 +8,16 @@ class DeleteTagModal extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", (e) => this.handleKeypress(e));
+  }
+
+  handleKeypress(e) {
+    if (e.keyCode === 27) {
+      this.exitModal(e);
+    }
+  }
+
   exitModal(e) {
     if (e) e.preventDefault();
     if (e) e.stopPropagation();

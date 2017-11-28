@@ -2031,14 +2031,18 @@ TagsNav
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   border: 1px solid #cccccc;
-  background: whitesmoke;
+  background-color: whitesmoke;
   border-radius: 5px;
   padding: 8px 8px 0 8px;
   color: #4d4d4d;
   display: inline-block;
   height: 21px;
-  max-width: 100px;
-  transition: max-width 0.5s ease;
+  max-width: 150px;
+  transition: max-width 0.5s ease,
+  width 0.5s ease,
+  background-color 0.3s ease-in;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .tags-nav-item-info:hover {
@@ -2072,6 +2076,7 @@ TagsNav
 .tags-nav-item-info-slide {
   max-width: 340px;
   width: 340px;
+  background-color: #7f00ff;
 }
 
 .tags-nav-item-info p {
@@ -2082,6 +2087,14 @@ TagsNav
 
 .tags-nav-item-info:hover p {
   color: white;
+}
+
+.tags-nav-item-info-slide h4 {
+  color: white;
+}
+
+.tags-nav-item-info-slide p {
+  display: none;
 }
 
 .tags-nav-item-info:hover {
@@ -2099,6 +2112,7 @@ TagsNav
 [class*='tag-icon-'] {
   display: none;
   position: relative;
+  top: -20px;
 }
 
 .tag-icon-star {
@@ -2115,4 +2129,27 @@ TagsNav
 
 .hide-tag-elements {
   display: none;
+}
+
+.submit-tag-edit {
+  height: 20px;
+  width: 20px;
+  display: none;
+  position: relative;
+  background: #BDBDBD;
+  left: 400px;
+  top: -34px;
+  border-radius: 50%;
+}
+
+.submit-tag-edit:hover {
+  cursor: pointer;
+}
+
+.show-submit-tag-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 12px;
 }
