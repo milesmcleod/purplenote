@@ -2011,6 +2011,10 @@ TagsNav
 
 *****************************/
 
+.tags-nav {
+  overflow-y: scroll;
+}
+
 .tags-nav h3 {
   margin-top: 30px;
   margin-left: 30px;
@@ -2022,18 +2026,22 @@ TagsNav
   display: block;
 }
 
+.tags-nav-item form {
+  position: relative;
+}
+
 .tags-nav-item-selected div {
   border: 1px solid #7f00ff;
 }
 
 .tags-nav-item-info {
-  margin: 10px 30px;
+  margin: 10px 20px 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   border: 1px solid #cccccc;
   background-color: whitesmoke;
   border-radius: 5px;
-  padding: 8px 8px 0 8px;
+  padding: 8px 12px 0 8px;
   color: #4d4d4d;
   display: inline-block;
   height: 21px;
@@ -2047,10 +2055,11 @@ TagsNav
 
 .tags-nav-item-info h4 {
   max-width: 150px;
-  overflow: hidden;
+  overflow-x: hidden;
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
+  padding-bottom: 2px;
 }
 
 .tags-nav-item-info article {
@@ -2091,12 +2100,17 @@ TagsNav
   background-color: #7f00ff;
 }
 
+.tags-nav-item-info-slide-back {
+  min-width: 100px;
+  background-color: whitesmoke;
+}
+
 .tags-nav-item-info p {
   margin-left: 20px;
   color: #7f00ff;
   display: inline-block;
   position: relative;
-  bottom: 1px;
+  bottom: 3px;
 }
 
 .tags-nav-item-info:hover p {
@@ -2114,6 +2128,17 @@ TagsNav
   display: none;
 }
 
+/*.tags-nav-item-info-slide-back p {
+  margin-left: 20px;
+  color: #7f00ff;
+  display: inline-block;
+  position: relative;
+}*/
+
+.tags-nav-item-info-slide-back h4 {
+  color: #4d4d4d;
+}
+
 .tags-nav-item-info-slide:hover p {
   display: none;
 }
@@ -2124,6 +2149,11 @@ TagsNav
 
 .tags-nav-item:hover span {
   display: inline;
+}
+
+.tags-nav-item span:hover {
+  display: inline;
+  cursor: pointer;
 }
 
 .tags-no-show-on-hover:hover span {
@@ -2148,18 +2178,24 @@ TagsNav
   left: 35px;
 }
 
-.hide-tag-elements {
+.hide-tag-elements span {
+  display: none;
+}
+
+.hide-tag-title {
   display: none;
 }
 
 .submit-tag-edit {
+  transition: opacity 0.9s ease;
+  opacity: 1;
   height: 20px;
   width: 20px;
   display: none;
-  position: relative;
+  position: absolute;
   background: #BDBDBD;
   left: 400px;
-  top: -34px;
+  top: 14px;
   border-radius: 50%;
 }
 
@@ -2173,4 +2209,14 @@ TagsNav
   justify-content: center;
   color: black;
   font-size: 12px;
+}
+
+.submit-tag-edit-color {
+  background: #7f00ff;
+  color: white;
+  top: -38px;
+}
+
+.submit-tag-edit-fade {
+  opacity: 0;
 }

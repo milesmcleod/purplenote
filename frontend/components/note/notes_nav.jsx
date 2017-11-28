@@ -106,6 +106,28 @@ class NotesNav extends React.Component {
           </header>
         )
       );
+    } else if (props.selectedTag) {
+      header = (
+        (
+          <header className="plain-notes-header">
+            <h4>TAG: {props.selectedTagTitle.toUpperCase()}</h4>
+            <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
+            <p
+              className="sort-dropdown-link"
+              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
+            <div className="sort-options">
+              <ul onClick={(e) => this.handleSort(props.notes, e)}>
+                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+                <li id="title">Title (ascending)<span>&#10004;</span></li>
+                <li id="title true">Title (descending)<span>&#10004;</span></li>
+              </ul>
+            </div>
+          </header>
+        )
+      );
     } else if (!props.selectedNotebook) {
       header = (
         (
@@ -141,31 +163,6 @@ class NotesNav extends React.Component {
                   this.showNotebookInfoModal();
                 }}
                 >i</div>
-            </div>
-            <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
-            <p
-              className="alt-dropdown-link"
-              id="alt-dropdown-link"
-              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
-            <div className="sort-options" id="alt-sort-options">
-              <ul onClick={(e) => this.handleSort(props.notes, e)}>
-                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
-                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
-                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
-                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
-                <li id="title">Title (ascending)<span>&#10004;</span></li>
-                <li id="title true">Title (descending)<span>&#10004;</span></li>
-              </ul>
-            </div>
-          </header>
-        )
-      );
-    } else if (props.selectedTag) {
-      header = (
-        (
-          <header className="notebook-notes-header">
-            <div className="notebook-notes-title">
-              <h4>{props.selectedTagTitle}</h4>
             </div>
             <p>{props.notes.length}{(props.notes.length === 1) ? " note" : " notes"}</p>
             <p

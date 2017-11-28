@@ -93,16 +93,12 @@ class TagsNav extends React.Component {
                   <h3>{letter}</h3>
                   {
                     alphabet[letter].map(tag => (
-                      <div
-                        key={tag.title}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          this.props.selectTag(tag.id);
-                        }}>
+                      <div key={tag.title}>
                         <TagsNavItem
                           enterTagDeletion={this.props.enterTagDeletion}
                           patchTag={this.props.patchTag}
                           tag={tag}
+                          selectTag={() => this.props.selectTag(tag.id)}
                           selected={(
                             this.props.selectedTag === tag.id
                           ) ? 'true' : false}

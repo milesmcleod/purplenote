@@ -43,17 +43,15 @@ class TagsNavItem extends React.Component {
   }
 
   showEditForm() {
+    const tagArea = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
+    tagArea.classList.add('hide-tag-elements');
     window.setTimeout(() => {
       const tagInfo = document.getElementById(`title-${this.props.tag.id}`);
-      const icons = document.getElementsByClassName(`tag-icon-${this.props.tag.id}`);
-      for (let i = 0; i < icons.length; i ++) {
-        icons[i].classList.add('hide-tag-elements');
-      }
       const container = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
       container.classList.add('tags-no-show-on-hover');
-      tagInfo.classList.add('hide-tag-elements');
       const tagForm = document.getElementById(`form-${this.props.tag.id}`);
       tagForm.classList.add('edit-tag-form-show');
+      tagInfo.classList.add('hide-tag-title');
       tagForm.focus();
       const value = tagForm.value;
       tagForm.value = '';
@@ -64,17 +62,27 @@ class TagsNavItem extends React.Component {
   }
 
   closeEditForm() {
+    const tagArea = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
+    tagArea.classList.remove('hide-tag-elements');
     const tagForm = document.getElementById(`form-${this.props.tag.id}`);
     tagForm.classList.remove('edit-tag-form-show');
     const submit = document.getElementById(`submit-tag-edit-${this.props.tag.id}`);
-    submit.classList.remove('show-submit-tag-edit');
-    const tagInfo = document.getElementById(`title-${this.props.tag.id}`);
-    tagInfo.classList.remove('hide-tag-elements');
+    submit.classList.add('submit-tag-edit-color');
+    const icons = document.getElementsByClassName(`tag-icon-${this.props.tag.id}`);
+    for (let i = 0; i < icons.length; i ++) {
+      icons[i].classList.remove('hide-tag-elements');
+    }
     window.setTimeout(() => {
-      const icons = document.getElementsByClassName(`tag-icon-${this.props.tag.id}`);
-      for (let i = 0; i < icons.length; i ++) {
-        icons[i].classList.remove('hide-tag-elements');
-      }
+      submit.classList.add('submit-tag-edit-fade');
+    }, 1000);
+    window.setTimeout(() => {
+      submit.classList.remove('submit-tag-edit-fade');
+      submit.classList.remove('submit-tag-edit-color');
+      submit.classList.remove('show-submit-tag-edit');
+    }, 2000);
+    const tagInfo = document.getElementById(`title-${this.props.tag.id}`);
+    tagInfo.classList.remove('hide-tag-title');
+    window.setTimeout(() => {
       const container = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
       container.classList.remove('tags-no-show-on-hover');
     }, 501);
@@ -83,9 +91,9 @@ class TagsNavItem extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    this.props.patchTag(this.state);
-    window.setTimeout(()=> this.slideBackEditTitle(), 0);
     this.closeEditForm();
+    this.props.patchTag(this.state);
+    window.setTimeout(() => this.slideBackEditTitle());
   }
 
 
@@ -99,6 +107,10 @@ class TagsNavItem extends React.Component {
         >
         <section className='tags-item-container'>
           <div
+            onClick={(e) => {
+              e.preventDefault();
+              this.props.selectTag();
+            }}
             className='tags-nav-item-info' id={`title-${this.props.tag.id}`}>
             <article><h4>{this.state.title}</h4></article><p>{this.props.tagCount}</p>
           </div>

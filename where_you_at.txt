@@ -1,7 +1,7 @@
 todo:
 
   -tags:
-    -tag edit: finish the animations. it should slide back in when it is saved, and the little circle should become a little purple checkmark. also, long tags should have ellipses.
+    -tag edit: finish the animations. it should slide back in when it is saved, and the little circle should become a little purple checkmark.
     -add tag to note!!!!!!!!
     -when modals fade out, the background should fade with them
 
