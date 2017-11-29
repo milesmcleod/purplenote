@@ -50,7 +50,8 @@ const mapStateToProps = (state, ownProps) => {
     ) : (
       undefined
     ),
-    noteSortType: state.ui.noteSortType
+    noteSortType: state.ui.noteSortType,
+    fullscreen: state.ui.fullscreen
   };
 };
 

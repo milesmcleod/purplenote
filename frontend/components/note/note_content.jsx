@@ -60,6 +60,13 @@ class NoteContent extends React.Component {
     }
   }
 
+  selectNote(selectedId) {
+    this.props.history.push(`/home&n=${selectedId}`);
+    this.setState({
+      selectedId
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.note) {
@@ -67,11 +74,24 @@ class NoteContent extends React.Component {
       .then(() => this.props.exitFullscreen());
     } else {
       this.props.postNote(this.state)
+      .then((r) => this.selectNote(r.payload.id))
       .then(() => this.props.exitFullscreen());
     }
   }
 
+  componentWillMount() {
+    if (this.props.notebooks.length === 0 && this.props.match.params.noteId === 'new') {
+      this.props.history.push('/home');
+    }
+  }
+
   componentWillReceiveProps(newProps) {
+    if (
+      this.props.selectedNote !== 'new' &&
+      (newProps.selectedNote === 'new' || this.props.note.id !== newProps.note.id)
+    ) {
+      this.props.patchNote(this.state);
+    }
     if (newProps.selectedNote !== 'new') {
       if (this.state.id === newProps.note.id) {
         this.setState(this.state);
@@ -92,15 +112,6 @@ class NoteContent extends React.Component {
         notebook_id: newProps.defaultNotebook
       };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
-    }
-    if (
-      this.state &&
-      this.props.note &&
-      this.props.selectedNote !== 'new' &&
-      this.props.selectedNote !== newProps.selectedNote &&
-      (this.props.note.title !== this.state.title || this.props.note.content !== this.state.content)
-    ) {
-      this.props.patchNote(this.state);
     }
   }
 
@@ -132,6 +143,9 @@ class NoteContent extends React.Component {
   }
 
   render() {
+    if (this.props.notebooks.length === 0 && this.props.match.params.noteId === 'new') {
+      return <div></div>;
+    }
     if (
       this.props.match.params.noteId === 'new' &&
       this.state.title !== ''
@@ -152,8 +166,8 @@ class NoteContent extends React.Component {
         <span
           className="exit-fullscreen-button"
           onClick={() => {
-            this.props.history.goBack();
             this.props.exitFullscreen();
+            this.props.history.goBack();
           }}
           value="Cancel"
           >Cancel</span>
@@ -163,7 +177,7 @@ class NoteContent extends React.Component {
         <span
           className="exit-fullscreen-button"
           onClick={() => {
-            // this.props.patchNote(this.state);
+            this.props.patchNote(this.state);
             this.props.exitFullscreen();
           }}
           value="Done"
@@ -174,7 +188,7 @@ class NoteContent extends React.Component {
         <span
           className="fullscreen-button"
           onClick={() => {
-            // this.props.patchNote(this.state);
+            this.props.patchNote(this.state);
             this.props.enterFullscreen();
           }}
           value="Fullscreen"
@@ -230,7 +244,7 @@ class NoteContent extends React.Component {
               className="note-header-trash"
               onClick={(e) => {
                 e.stopPropagation();
-                this.props.deleteNote(this.props.selectedNote);
+                this.props.trashNote(this.props.note);
                 this.props.history.push('/home');
               }}
               ></div>

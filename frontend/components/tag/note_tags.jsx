@@ -47,11 +47,11 @@ class NoteTags extends React.Component {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
   }
 
-  // handleKeypress(e) {
-  //   if (e.keyCode === 8) {
-  //     this.handleDelete(e);
-  //   }
-  // }
+  handleKeypress(e) {
+    // if (e.keyCode === 8) {
+    //   this.handleDelete(e);
+    // }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -92,7 +92,7 @@ class NoteTags extends React.Component {
               <li
                 className="note-tags-li"
                 onClick={(e) => this.selectTag(e)}
-                key={tag.id}
+                key={`tag-${tag.title}`}
                 id={tag.id}
                 >{tag.title}</li>
             ))

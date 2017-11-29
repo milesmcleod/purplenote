@@ -4,6 +4,7 @@ import {
   postNote,
   patchNote,
   fetchNotes,
+  trashNote,
   deleteNote
  } from '../../actions/note_actions';
 import { withRouter } from 'react-router-dom';
@@ -26,6 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   deleteNote: (id) => dispatch(deleteNote(id)),
+  trashNote: (id) => dispatch(trashNote(id)),
   postNote: (note) => dispatch(postNote(note)),
   patchNote: (note) => dispatch(patchNote(note)),
   fetchNotes: (note) => dispatch(fetchNotes(note)),

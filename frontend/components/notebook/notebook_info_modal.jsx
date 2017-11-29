@@ -10,17 +10,17 @@ class NotebookInfoModal extends React.Component {
     });
   }
 
-  componentDidMount() {
-    document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  }
-
-  handleKeypress(e) {
-    if (e.keyCode === 27) {
-      this.exitModal(e);
-    // } else if (e.keyCode === 13) {
-    //   this.handleSubmit(e);
-    }
-  }
+  // componentDidMount() {
+  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
+  // }
+  //
+  // handleKeypress(e) {
+  //   if (e.keyCode === 27) {
+  //     this.exitModal(e);
+  //   // } else if (e.keyCode === 13) {
+  //   //   this.handleSubmit(e);
+  //   }
+  // }
 
   handleChange(e) {
     e.preventDefault();

@@ -3,6 +3,9 @@ import React from 'react';
 class NotesNavItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selected: false
+    };
   }
 
   setDateDisplayValue() {

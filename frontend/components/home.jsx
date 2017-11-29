@@ -43,7 +43,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className='home'>
-        <SideBarContainer />
+        <Route path='/home' component={SideBarContainer}/>
+        <Route path='/home&n=:noteId' component={SideBarContainer}/>
         <Route exact path='/home&n=:noteId' component={NoteBodyContainer}/>
       </div>
     );

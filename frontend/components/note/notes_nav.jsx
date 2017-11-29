@@ -183,47 +183,59 @@ class NotesNav extends React.Component {
       );
     }
     this.setState({ header });
-  } //refactor the select into a dropdown so that you can recall search type on refresh from UI state
+  }
 
   componentDidMount() {
     this.sortNotes(this.props.notes, ...this.props.noteSortType);
     this.setHeader(this.props);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.barNavType === 'notes') {
-      this.sortNotes(newProps.notes, "updatedAt", true);
-      if (newProps.notes.length > this.props.notes.length) {
-        this.selectNote(newProps.notes[0].id);
-        this.sortNotes(newProps.notes, ...newProps.noteSortType);
-        this.setHeader(newProps);
-      } else {
-        this.sortNotes(newProps.notes, ...newProps.noteSortType);
-        if (
-          !this.props.selectedNote &&
-          this.props.noteSortType === newProps.noteSortType
-        ) {
-          if (newProps.notes[0]) {
-            this.selectNote(newProps.notes[0].id);
-          }
-        }
-        this.setHeader(newProps);
-      }
-    } else {
-      this.setHeader(newProps);
+  componentWillReceiveProps (newProps) {
+    this.sortNotes(newProps.notes, ...newProps.noteSortType);
+    if (!newProps.selectedNote && newProps.notes[0]) {
+      this.selectNote(newProps.notes[0].id);
     }
-    if (newProps.notes.length === 0) {
-      this.selectNote(undefined);
-    }
+
+    this.setState({
+      notes: newProps.notes,
+      selectedId: this.props.selectedNote
+    });
+    this.setHeader(newProps);
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   console.log(newProps);
+  //   if (newProps.barNavType === 'notes') {
+  //     this.sortNotes(newProps.notes, "updatedAt", true);
+  //     if (newProps.notes.length > this.props.notes.length) {
+  //       this.selectNote(newProps.notes[0].id);
+  //       this.sortNotes(newProps.notes, ...newProps.noteSortType);
+  //       this.setHeader(newProps);
+  //     } else {
+  //       this.sortNotes(newProps.notes, ...newProps.noteSortType);
+  //       if (
+  //         !this.props.selectedNote &&
+  //         this.props.noteSortType === newProps.noteSortType
+  //       ) {
+  //         if (newProps.notes[0]) {
+  //           this.selectNote(newProps.notes[0].id);
+  //         }
+  //       }
+  //       this.setHeader(newProps);
+  //     }
+  //   } else {
+  //     this.setHeader(newProps);
+  //   }
+  //   if (newProps.notes.length === 0) {
+  //     this.selectNote(undefined);
+  //   }
+  // }
+
   selectNote(selectedId) {
-    if (selectedId !== this.state.selectedId) {
-      this.props.history.push(`/home&n=${selectedId}`);
-      this.setState({
-        selectedId
-      });
-    }
+    this.props.history.push(`/home&n=${selectedId}`);
+    this.setState({
+      selectedId
+    });
   }
 
 
@@ -245,8 +257,8 @@ class NotesNav extends React.Component {
                   trashView={(this.props.selectedNotebook === -1 ) ? true : false}
                   note={note}
                   selected={(
-                    this.state.selectedId === note.id
-                  ) ? 'true' : false}
+                    this.props.match.params.noteId == note.id
+                  ) ? true : false}
                   id={note.id}
                 />
               </div>

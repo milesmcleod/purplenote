@@ -2,11 +2,33 @@ todo:
 
   -tags:
 
+  fullscreen patch on new note throws errors
+
+
+    -trash can in note header deletes and doesn't add to trash
+
     -adding a new tag from the note-tags list resets the url to the top
+
+    -an error when submitting a duplicate tag should show up
+      -could be the exact same as the one in the modal
+
+
+
+
+
+
     -add tag input field is much too wide
 
-    note_tags: delete keybinding works but also redirects the user back to the first note in the index...
-    every modal tries to submit every time you press enter...
+    -note_tags: delete keybinding does not work
+
+    -every modal tries to submit every time you press enter...
+    -modal background fadeouts are not working...use ids instead of class to select these.
+
+  -new notebook icon
+
+  -notebook icon for note content form
+
+  -fullscreen icon
 
 
   autofocus on modals
@@ -14,12 +36,6 @@ todo:
   -write search functionality once tags are implemented
 
   -write a popup function that alerts you that you have moved an item to the trash
-
-  -new notebook icon
-
-  -notebook icon for note content form
-
-  -fullscreen icon
 
   -Quill
 

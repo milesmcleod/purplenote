@@ -89,11 +89,11 @@ class TagsNav extends React.Component {
           <div id='tags-nav' className='tags-nav'>
             {
               Object.keys(alphabet).map(letter => (
-                <div className='tag-letter'>
+                <ul className='tag-letter' key={`tag-letter-${letter}`}>
                   <h3>{letter}</h3>
                   {
                     alphabet[letter].map(tag => (
-                      <div key={tag.title}>
+                      <li key={`tags${tag.id}`}>
                         <TagsNavItem
                           enterTagDeletion={this.props.enterTagDeletion}
                           patchTag={this.props.patchTag}
@@ -110,10 +110,10 @@ class TagsNav extends React.Component {
                           }
                           id={tag.id}
                         />
-                      </div>
+                    </li>
                     ))
                   }
-                </div>
+                </ul>
               ))
             }
           </div>
