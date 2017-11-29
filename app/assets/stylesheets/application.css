@@ -1683,79 +1683,9 @@ em {
   font-style: italic;
 }
 
-.ql-editor {
-
+.note-top-collapse {
+  display: none;
 }
-
-/*.quill-editor.ql-container.ql-snow {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  color: #4d4d4d;
-  outline-style: none;
-  box-sizing: border-box;
-  margin-bottom: 100px;
-  border: 1px solid white;
-  display: relative;
-  top: -60px;
-}
-
-.ql-editor {
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.quill-editor {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-#quill-editor {
-  margin-bottom: 20px;
-  margin-top: 15px;
-  height: 70%;
-  border: 1px solid white;
-  padding: 0;
-}
-
-.ql-toolbar.ql-snow {
-  position: relative;
-  top: -135px;
-  left: 100px;
-  border: none;
-  opacity: .7;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.ql-editor:active .ql-toolbar.ql-snow {
-  display: flex;
-}
-
-.ql-toolbar.ql-snow:hover {
-  cursor: pointer;
-}*/
-
-/* 1639: 2 levels, 1128: 3 levels, 871: 4 levels */
-
-/*@media all and (max-width: 1639px) {
-  .ql-toolbar.ql-snow {
-    top: -106px;
-  }
-}
-
-@media all and (max-width: 1128px) {
-  .ql-toolbar.ql-snow {
-    top: -126px;
-  }
-}
-
-@media all and (max-width: 871px) {
-  .ql-toolbar.ql-snow {
-    top: -148px;
-  }
-}*/
 
 /************************************
 

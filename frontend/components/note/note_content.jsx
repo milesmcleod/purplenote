@@ -156,6 +156,38 @@ class NoteContent extends React.Component {
     }
   }
 
+  collapseTagAndNotebookLinks() {
+    const notebookLink = document.getElementsByClassName("select-notebook-dropdown-link")[0];
+    const noteTags = document.getElementsByClassName("secondary-note-top")[0];
+    notebookLink.classList.add("note-top-collapse");
+    noteTags.classList.add("note-top-collapse");
+  }
+
+  showTagAndNotebookLinks() {
+    const notebookLink = document.getElementsByClassName("select-notebook-dropdown-link")[0];
+    const noteTags = document.getElementsByClassName("secondary-note-top")[0];
+    notebookLink.classList.remove("note-top-collapse");
+    noteTags.classList.remove("note-top-collapse");
+  }
+
+  showToolbar() {
+
+  }
+
+  hideToolbar() {
+
+  }
+
+  focusEditor() {
+    this.collapseTagAndNotebookLinks();
+    // this.showToolbar();
+  }
+
+  blurEditor() {
+    // this.hideToolbar();
+    this.showTagAndNotebookLinks();
+  }
+
   render() {
     if (this.props.notebooks.length === 0 && this.props.match.params.noteId === 'new') {
       return <div></div>;
@@ -307,7 +339,9 @@ class NoteContent extends React.Component {
               onChange={(delta, oldDelta, source, editor) => {
                 this.handleQuillChange(editor);
               }}
-              defaultValue={this.state.content}
+              onFocus={() => this.focusEditor()}
+              onBlur={() => this.blurEditor()}
+              value={this.state.content}
               theme="snow"
               id="quill-editor"
               autoFocus={false}
