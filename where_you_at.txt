@@ -2,12 +2,11 @@ todo:
 
   -tags:
 
-  fullscreen patch on new note throws errors
+  deleting note_tags
 
+  -every modal tries to submit every time you press enter...
+  -modal background fadeouts are not working...use ids instead of class to select these.
 
-    -trash can in note header deletes and doesn't add to trash
-
-    -adding a new tag from the note-tags list resets the url to the top
 
     -an error when submitting a duplicate tag should show up
       -could be the exact same as the one in the modal
@@ -20,9 +19,6 @@ todo:
     -add tag input field is much too wide
 
     -note_tags: delete keybinding does not work
-
-    -every modal tries to submit every time you press enter...
-    -modal background fadeouts are not working...use ids instead of class to select these.
 
   -new notebook icon
 

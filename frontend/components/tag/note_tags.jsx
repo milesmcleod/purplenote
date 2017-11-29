@@ -9,6 +9,8 @@ class NoteTags extends React.Component {
       },
       selectedTag: undefined
     };
+    this.deselectTag = this.deselectTag.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(e) {
@@ -29,28 +31,39 @@ class NoteTags extends React.Component {
     });
   }
 
+  selectTag(e) {
+    const noteTags = document.getElementsByClassName("note-tags-li");
+    if (e.currentTarget.classList.contains('selected-note-tags-li')) {
+      e.currentTarget.classList.remove('selected-note-tags-li');
+    } else {
+      for (let i = 0; i < noteTags.length; i++){
+        noteTags[i].classList.remove('selected-note-tags-li');
+      }
+      e.currentTarget.classList.add('selected-note-tags-li');
+      document.addEventListener('click', this.deselectTag);
+      document.addEventListener('keydown', this.handleDelete);
+      this.setState({selectedTag: e.currentTarget});
+    }
+  }
+
+  deselectTag(e) {
+    if (e.target !== this.state.selectedTag) {
+      const noteTags = document.getElementsByClassName("note-tags-li");
+      for (let i = 0; i < noteTags.length; i++){
+        noteTags[i].classList.remove('selected-note-tags-li');
+      }
+      document.removeEventListener("click", this.deselectTag);
+      document.removeEventListener("keydown", this.handleDelete);
+    }
+  }
+
   handleDelete(e) {
     e.preventDefault();
     e.stopPropagation();
     const element = document.getElementsByClassName("selected-note-tags-li")[0];
-    if (
-      element &&
-      document.activeElement.nodeName !== 'INPUT' &&
-      document.activeElement.nodeName !== 'TEXTAREA'
-    ) {
-      console.log(element.id);
-      this.props.deleteTagging({note_id: this.props.selectedNote, tag_id: element.id});
+    if (e.keyCode === 8) {
+      this.props.deleteTagging({note_id: this.props.selectedNote, tag_id: this.state.selectedTag.id});
     }
-  }
-
-  componentDidMount() {
-    document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  }
-
-  handleKeypress(e) {
-    // if (e.keyCode === 8) {
-    //   this.handleDelete(e);
-    // }
   }
 
   handleSubmit(e) {
@@ -68,18 +81,6 @@ class NoteTags extends React.Component {
     } else {
       this.props.postTag(this.state.tag);
       this.props.updateNote();
-    }
-  }
-
-  selectTag(e) {
-    const noteTags = document.getElementsByClassName("note-tags-li");
-    if (e.currentTarget.classList.contains('selected-note-tags-li')) {
-      e.currentTarget.classList.remove('selected-note-tags-li');
-    } else {
-      for (let i = 0; i < noteTags.length; i++){
-        noteTags[i].classList.remove('selected-note-tags-li');
-      }
-      e.currentTarget.classList.add('selected-note-tags-li');
     }
   }
 
