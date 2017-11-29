@@ -2,9 +2,6 @@ import React from 'react';
 import TagsNavItem from './tags_nav_item';
 import NewTagModalContainer from './new_tag_modal_container';
 import DeleteTagModalContainer from './delete_tag_modal_container';
-// import TagInfoModalContainer from './tag_info_modal_container';
-
-// <TagInfoModalContainer />
 
 class TagsNav extends React.Component {
   constructor(props) {
@@ -55,6 +52,7 @@ class TagsNav extends React.Component {
   }
 
   showNewTagModal() {
+    this.props.activateModal('newTag');
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.add("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-tag-modal')[0];
@@ -96,6 +94,7 @@ class TagsNav extends React.Component {
                       <li key={`tags${tag.id}`}>
                         <TagsNavItem
                           enterTagDeletion={this.props.enterTagDeletion}
+                          activateModal={this.props.activateModal}
                           patchTag={this.props.patchTag}
                           tag={tag}
                           selectTag={() => this.props.selectTag(tag.id)}

@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { deleteTag } from '../../actions/tag_actions';
 import {
   exitTagDeletion,
-  receiveSelectedTag
+  receiveSelectedTag,
+  deactivateModal
  } from '../../actions/ui_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
   }
   return {
     selected: state.ui.selectedTag,
+    activeModal: state.ui.activeModal,
     active: state.ui.tagDeletion,
     title
   };
@@ -23,7 +25,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   deleteTag: (id) => dispatch(deleteTag(id)),
   receiveSelectedTag: (id) => dispatch(receiveSelectedTag(id)),
-  exitTagDeletion: () =>dispatch(exitTagDeletion())
+  exitTagDeletion: () =>dispatch(exitTagDeletion()),
+  deactivateModal: () => dispatch(deactivateModal())
 });
 
 export default withRouter (connect(

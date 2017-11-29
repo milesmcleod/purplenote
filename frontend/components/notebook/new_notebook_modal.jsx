@@ -12,6 +12,8 @@ class NewNotebookModal extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.activeModal === 'newNotebook') {
       document.addEventListener("keydown", this.handleKeypress);
+    } else {
+      document.removeEventListener("keydown", this.handleKeypress);
     }
   }
 
@@ -77,7 +79,6 @@ class NewNotebookModal extends React.Component {
 
   exitModal(e) {
     if (e) e.preventDefault();
-    document.removeEventListener("keydown", this.handleKeypress);
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.remove("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-notebook-modal')[0];

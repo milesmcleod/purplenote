@@ -10,7 +10,6 @@ class DeleteNotebookModal extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     if (newProps.activeModal === 'deleteNotebook') {
       document.addEventListener("keydown", this.handleKeypress);
     } else {

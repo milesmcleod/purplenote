@@ -6,23 +6,36 @@ class DeleteTagModal extends React.Component {
     this.state = {
       title: ""
     };
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
-  // 
-  // componentDidMount() {
-  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  // }
-  //
-  // handleKeypress(e) {
-  //   if (e.keyCode === 27) {
-  //     this.exitModal(e);
-  //   // } else if (e.keyCode === 13) {
-  //   //   this.handleSubmit(e);
-  //   }
-  // }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.activeModal === 'deleteTag') {
+      document.addEventListener("keydown", this.handleKeypress);
+    } else {
+      document.removeEventListener("keydown", this.handleKeypress);
+    }
+    if (newProps.title !== ""
+    ) {
+      this.setState ({
+        title: newProps.title
+      });
+    }
+  }
+
+  handleKeypress(e) {
+    const modalBackground = document.getElementById("modalBackground");
+    if (modalBackground.classList.contains("secondary-nav-totality")) {
+      if (e.keyCode === 27) {
+        this.exitModal(e);
+      } else if (e.keyCode === 13) {
+        this.handleSubmit(e);
+      }
+    }
+  }
 
   exitModal(e) {
-    if (e) e.preventDefault();
-    if (e) e.stopPropagation();
+    this.props.deactivateModal();
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.remove("secondary-nav-totality");
     const modal = document.getElementsByClassName('delete-tag-modal')[0];
@@ -30,15 +43,6 @@ class DeleteTagModal extends React.Component {
     window.setTimeout(() => {
       modal.classList.remove("new-notebook-modal-show");
     }, 400);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.title !== ""
-    ) {
-      this.setState ({
-        title: newProps.title
-      });
-    }
   }
 
   render () {

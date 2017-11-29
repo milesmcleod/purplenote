@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import NotesNav from './notes_nav';
 import values from 'lodash/values';
-import { receiveNoteSortType } from '../../actions/ui_actions';
+import { receiveNoteSortType, activateModal } from '../../actions/ui_actions';
 import {
   trashNote,
   deleteNote,
@@ -60,6 +60,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   trashNote: (note) => dispatch(trashNote(note)),
   restoreNote: (note) => dispatch(restoreNote(note)),
   deleteNote: (id) => dispatch(deleteNote(id)),
+  activateModal: (modalType) => dispatch(activateModal(modalType)),
   emptyTrash: (e, notes) => {
     e.preventDefault();
     notes.forEach(note => {

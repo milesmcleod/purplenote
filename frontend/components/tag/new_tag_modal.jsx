@@ -6,19 +6,28 @@ class NewTagModal extends React.Component {
     this.state = {
       title: ""
     };
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  // }
-  //
-  // handleKeypress(e) {
-  //   if (e.keyCode === 27) {
-  //     this.exitModal(e);
-  //   // } else if (e.keyCode === 13) {
-  //   //   this.handleSubmit(e);
-  //   }
-  // }
+  componentWillReceiveProps(newProps) {
+    if (newProps.activeModal === 'newTag') {
+      document.addEventListener("keydown", this.handleKeypress);
+    } else {
+      document.removeEventListener("keydown", this.handleKeypress);
+    }
+  }
+
+  handleKeypress(e) {
+    const modalBackground = document.getElementById("modalBackground");
+    if (modalBackground.classList.contains("secondary-nav-totality")) {
+      if (e.keyCode === 27) {
+        this.exitModal(e);
+      } else if (e.keyCode === 13 && this.state.title !== "") {
+        this.handleSubmit(e);
+      }
+    }
+  }
+
 
   handleChange(e) {
     e.preventDefault();

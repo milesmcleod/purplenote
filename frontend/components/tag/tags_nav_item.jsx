@@ -130,6 +130,7 @@ class TagsNavItem extends React.Component {
               e.preventDefault();
               e.stopPropagation();
               this.props.enterTagDeletion(this.props.tag.id);
+              this.props.activateModal('deleteTag');
               this.showDeleteTagModal();
             }}
             >T</span>

@@ -8,19 +8,30 @@ class NotebookInfoModal extends React.Component {
       createdAt: undefined,
       updatedAt: undefined
     });
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  // }
-  //
-  // handleKeypress(e) {
-  //   if (e.keyCode === 27) {
-  //     this.exitModal(e);
-  //   // } else if (e.keyCode === 13) {
-  //   //   this.handleSubmit(e);
-  //   }
-  // }
+  componentWillReceiveProps(newProps) {
+    this.setState(newProps.notebook);
+    if (newProps.activeModal === 'notebookInfo') {
+      document.addEventListener("keydown", this.handleKeypress);
+    } else {
+      document.removeEventListener("keydown", this.handleKeypress);
+    }
+  }
+
+  handleKeypress(e) {
+    const modalBackground = document.getElementById("modalBackground");
+    if (modalBackground.classList.contains("secondary-nav-totality")) {
+      if (e.keyCode === 27) {
+        console.log('exited notebook info');
+        this.exitModal(e);
+      } else if (e.keyCode === 13 && this.state.title !== "") {
+        console.log('edited notebook info');
+        this.handleSubmit(e);
+      }
+    }
+  }
 
   handleChange(e) {
     e.preventDefault();
@@ -45,13 +56,11 @@ class NotebookInfoModal extends React.Component {
     }, 20);
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState(newProps.notebook);
-  }
-
   handleSubmit(e) {
     if (this.state.title === "") {
       e.preventDefault();
+    } else if (this.props.notebook.title === this.state.title) {
+      this.exitModal(e);
     } else if (this.props.titles.includes(this.state.title)) {
       e.preventDefault();
       const errors = document.getElementsByClassName("modal-form-errors")[0];
@@ -67,6 +76,7 @@ class NotebookInfoModal extends React.Component {
   }
 
   exitModal(e, savedExit) {
+    this.props.deactivateModal();
     if (e) e.preventDefault();
     if (!savedExit) window.setTimeout(() => {
       this.setState(this.props.notebook);

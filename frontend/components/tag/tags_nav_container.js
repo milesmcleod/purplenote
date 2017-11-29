@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 import {
   receiveBarNavType,
   receiveSelectedTag,
-  enterTagDeletion
+  enterTagDeletion,
+  activateModal
 } from '../../actions/ui_actions';
 import {
   patchTag
@@ -23,6 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   enterTagDeletion: (id) => dispatch(enterTagDeletion(id)),
   patchTag: (tag) => dispatch(patchTag(tag)),
+  activateModal: (modalType) => dispatch(activateModal(modalType)),
   selectTag: (id) => {
     dispatch(receiveSelectedTag(id));
     dispatch(receiveBarNavType('notes'));

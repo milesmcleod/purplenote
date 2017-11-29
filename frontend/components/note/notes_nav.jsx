@@ -159,6 +159,7 @@ class NotesNav extends React.Component {
                 className="alt-dropdown-link"
                 className="notebook-info-link"
                 onClick={() => {
+                  this.props.activateModal('notebookInfo');
                   this.showNotebookInfoModal();
                 }}
                 >i</div>
