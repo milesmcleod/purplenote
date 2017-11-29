@@ -1,4 +1,5 @@
 import React from 'react';
+import Parser from 'html-react-parser';
 
 class NotesNavItem extends React.Component {
   constructor(props) {
@@ -85,7 +86,7 @@ class NotesNavItem extends React.Component {
           {options}
         </div>
         <p className="notes-nav-item-date">{date}</p>
-        <p className="notes-nav-item-content">{this.props.note.content}</p>
+        <div className="notes-nav-item-content">{Parser(this.props.note.content)}</div>
     </div>
     );
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import NoteTagsContainer from '../tag/note_tags_container';
-// import Quill from '../../quill/quill';
+import ReactQuill from 'react-quill';
+import Parser from 'html-react-parser';
 
 class NoteContent extends React.Component {
   constructor(props) {
@@ -11,13 +12,13 @@ class NoteContent extends React.Component {
     } else if (this.props.selectedNotebook) {
       this.state = {
         title: "",
-        content: "",
+        content: {},
         notebook_id: this.props.selectedNotebook
       };
     } else {
       this.state = {
         title: "",
-        content: "",
+        content: {},
         notebook_id: this.props.defaultNotebook
       };
     }
@@ -28,34 +29,6 @@ class NoteContent extends React.Component {
 
   componentDidMount() {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
-    const container = document.getElementById('quill-editor');
-    const toolbarOptions = [
-      [{ 'font': [] }],
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      ['blockquote', 'code-block'],
-      [{ 'align': [] }],
-
-      // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      // [{ 'direction': 'rtl' }],                         // text direction
-      //
-      // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      //
-      // ['clean']                                         // remove formatting button
-    ];
-    const options = {
-      placeholder: 'Just start typing...',
-      theme: 'snow',
-      modules: {
-        toolbar: toolbarOptions
-      }
-    };
-    const editor = new Quill('#quill-editor', options);
   }
 
 
@@ -81,6 +54,18 @@ class NoteContent extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    e.currentTarget.focus();
+    if (this.props.note) {
+      clearTimeout(this.debounceTimer);
+      this.debounceTimer = setTimeout(() => {
+        this.props.patchNote(this.state);
+      }, 4000);
+    }
+  }
+
+  handleQuillChange(editor) {
+    const html = editor.getHTML();
+    this.setState({content: html});
     if (this.props.note) {
       clearTimeout(this.debounceTimer);
       this.debounceTimer = setTimeout(() => {
@@ -130,14 +115,14 @@ class NoteContent extends React.Component {
     } else if (newProps.selectedNotebook) {
       this.state = {
         title: "",
-        content: "",
+        content: {},
         notebook_id: newProps.selectedNotebook
       };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     } else {
       this.state = {
         title: "",
-        content: "",
+        content: {},
         notebook_id: newProps.defaultNotebook
       };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
@@ -264,6 +249,26 @@ class NoteContent extends React.Component {
       noteTagsContainer = (<div></div>);
     }
 
+    const toolbarOptions = [
+      [{ 'font': [] }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      ['blockquote', 'code-block'],
+      [{ 'align': [] }],
+
+      // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      // [{ 'direction': 'rtl' }],                         // text direction
+      //
+      // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      //
+      // ['clean']                                         // remove formatting button
+    ];
+
     return (
       <section className="note-body">
         <header className="note-header-container">
@@ -298,9 +303,19 @@ class NoteContent extends React.Component {
               placeholder="Title your note"
               onChange={(e) => this.handleChange(e)}
               ></input>
-            <section id="quill-editor">
+            <ReactQuill
+              onChange={(delta, oldDelta, source, editor) => {
+                this.handleQuillChange(editor);
+              }}
+              defaultValue={this.state.content}
+              theme="snow"
+              id="quill-editor"
+              autoFocus={false}
+              modules={{toolbar: toolbarOptions}}
+              placeholder="Click and start typing...">
+            </ReactQuill>
 
-            </section>
+
           </form>
         </section>
       </section>
@@ -308,7 +323,6 @@ class NoteContent extends React.Component {
   }
 }
 
-// the textarea goes right below the input for the note-area form
 // <textarea
 //   type="text"
 //   name="content"
@@ -316,5 +330,9 @@ class NoteContent extends React.Component {
 //   value={this.state.content}
 //   onChange={(e) => this.handleChange(e)}
 //   ></textarea>
+
+
+// the textarea goes right below the input for the note-area form
+
 
 export default NoteContent;
