@@ -29,7 +29,15 @@ class DeleteTagModal extends React.Component {
       if (e.keyCode === 27) {
         this.exitModal(e);
       } else if (e.keyCode === 13) {
-        this.handleSubmit(e);
+        if (this.props.active !== this.props.default) {
+          this.props.deleteTag(this.props.active);
+          if (this.props.selected === this.props.active) {
+            this.props.history.push('/home');
+            this.props.receiveSelectedTag(undefined);
+          }
+          this.props.exitTagDeletion();
+          this.exitModal(e);
+        }
       }
     }
   }

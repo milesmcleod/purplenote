@@ -1,6 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import NoteTagsContainer from '../tag/note_tags_container';
+// import Quill from '../../quill/quill';
 
 class NoteContent extends React.Component {
   constructor(props) {
@@ -27,6 +28,34 @@ class NoteContent extends React.Component {
 
   componentDidMount() {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
+    const container = document.getElementById('quill-editor');
+    const toolbarOptions = [
+      [{ 'font': [] }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      ['blockquote', 'code-block'],
+      [{ 'align': [] }],
+
+      // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      // [{ 'direction': 'rtl' }],                         // text direction
+      //
+      // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      //
+      // ['clean']                                         // remove formatting button
+    ];
+    const options = {
+      placeholder: 'Just start typing...',
+      theme: 'snow',
+      modules: {
+        toolbar: toolbarOptions
+      }
+    };
+    const editor = new Quill('#quill-editor', options);
   }
 
 
@@ -269,18 +298,23 @@ class NoteContent extends React.Component {
               placeholder="Title your note"
               onChange={(e) => this.handleChange(e)}
               ></input>
-            <textarea
-              type="text"
-              name="content"
-              placeholder="Just start typing..."
-              value={this.state.content}
-              onChange={(e) => this.handleChange(e)}
-              ></textarea>
+            <section id="quill-editor">
+
+            </section>
           </form>
         </section>
       </section>
     );
   }
 }
+
+// the textarea goes right below the input for the note-area form
+// <textarea
+//   type="text"
+//   name="content"
+//   placeholder="Just start typing..."
+//   value={this.state.content}
+//   onChange={(e) => this.handleChange(e)}
+//   ></textarea>
 
 export default NoteContent;
