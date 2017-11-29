@@ -6,8 +6,10 @@ json.notes do
   @user.notes.each do |note|
     tag_ids = []
     @user.tags.each do |tag|
-      if tag.note_ids.include?(note.id)
-        tag_ids.push(tag.id)
+      tag.taggings.each do |tagging|
+        if tagging.note_id === note.id
+          tag_ids.push(tagging.tag_id)
+        end
       end
     end
     json.set! note.id do

@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
   def create
-    @user = User.includes(:notes, :notebooks, :tags, :taggings).find_by_credentials(
+    @user = User.includes(:notes, :notebooks, tags: :taggings).find_by_credentials(
       params[:user][:name],
       params[:user][:password]
     )
