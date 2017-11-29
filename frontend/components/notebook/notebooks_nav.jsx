@@ -87,7 +87,7 @@ class NotebooksNav extends React.Component {
             <div
               className="new-notebook-button"
               onClick={() => this.showNewNotebookModal()}
-              >N</div>
+              ></div>
             {this.state.notebooksModal}
           </header>
           <div id='notebooks-nav' className='notebooks-nav'>

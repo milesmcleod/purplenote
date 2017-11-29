@@ -79,9 +79,9 @@ class TagsNav extends React.Component {
           <header className='notebooks-header'>
             <h4>TAGS</h4>
             <div
-              className="new-notebook-button"
+              className="tag-creation-button"
               onClick={() => this.showNewTagModal()}
-              >N</div>
+              ></div>
             {this.state.notebooksModal}
           </header>
           <div id='tags-nav' className='tags-nav'>

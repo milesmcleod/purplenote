@@ -1838,9 +1838,30 @@ NotebookItem
 
 .new-notebook-button {
   position: relative;
-  width: 17px;
+  width: 38px;
+  height: 38px;
   left: 350px;
   top: -45px;
+  background-image: url('adding-icons.png');
+  background-size: 130%;
+  background-position-x: -12px;
+  background-position-y: 3px;
+}
+
+.tag-creation-button {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  left: 350px;
+  top: -45px;
+  background-image: url('adding-icons.png');
+  background-size: 130%;
+  background-position-x: -12px;
+  background-position-y: -46px;
+}
+
+.new-notebook-button:hover, .tag-creation-button:hover {
+  cursor: pointer;
 }
 
 .selected-notebook {
@@ -2232,11 +2253,11 @@ TagsNav
 }
 
 .tags-nav-item:hover span {
-  display: inline;
+  display: inline-block;
 }
 
 .tags-nav-item span:hover {
-  display: inline;
+  display: inline-block;
   cursor: pointer;
 }
 
@@ -2247,19 +2268,27 @@ TagsNav
 [class*='tag-icon-'] {
   display: none;
   position: relative;
-  top: -20px;
+  top: -16px;
+  background-image: url('tag-sprite.png');
+  background-size: 200%;
+  min-height: 25px;
+  min-width: 25px;
+  background-position-x: -9px;
 }
 
 .tag-icon-star {
   left: 5px;
+  background-position-y: -80px;
 }
 
 .tag-icon-edit {
   left: 20px;
+  background-position-y: -38px;
 }
 
 .tag-icon-trash {
   left: 35px;
+  background-position-y: 0px;
 }
 
 .hide-tag-elements span {

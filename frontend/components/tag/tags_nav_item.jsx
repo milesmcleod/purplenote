@@ -47,8 +47,6 @@ class TagsNavItem extends React.Component {
     tagArea.classList.add('hide-tag-elements');
     window.setTimeout(() => {
       const tagInfo = document.getElementById(`title-${this.props.tag.id}`);
-      const container = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
-      container.classList.add('tags-no-show-on-hover');
       const tagForm = document.getElementById(`form-${this.props.tag.id}`);
       tagForm.classList.add('edit-tag-form-show');
       tagInfo.classList.add('hide-tag-title');
@@ -114,16 +112,22 @@ class TagsNavItem extends React.Component {
             className='tags-nav-item-info' id={`title-${this.props.tag.id}`}>
             <article><h4>{this.state.title}</h4></article><p>{this.props.tagCount}</p>
           </div>
-          <span className={`tag-icon-star tag-icon-${this.props.tag.id}`}>S</span>
+          <span className={`tag-icon-star tag-icon-${this.props.tag.id}`}></span>
           <span
             className={`tag-icon-edit tag-icon-${this.props.tag.id}`}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
+              const container = document.getElementById(`tags-nav-item-${this.props.tag.id}`);
+              container.classList.add('tags-no-show-on-hover');
+              const icons = document.getElementsByClassName(`tag-icon-${this.props.tag.id}`);
+              for (let i = 0; i < icons.length; i ++) {
+                icons[i].classList.add('hide-tag-elements');
+              }
               this.showEditForm();
               this.slideEditTitle();
             }}
-            >E</span>
+            ></span>
           <span
             className={`tag-icon-trash tag-icon-${this.props.tag.id}`}
             onClick={(e) => {
@@ -133,7 +137,7 @@ class TagsNavItem extends React.Component {
               this.props.activateModal('deleteTag');
               this.showDeleteTagModal();
             }}
-            >T</span>
+            ></span>
         </section>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
