@@ -2,8 +2,7 @@ todo:
 
   -tags:
 
-  -every modal tries to submit every time you press enter...
-  -modal background fadeouts are not working...use ids instead of class to select these.
+  -modal background fadeouts are not working...use ids instead of class to select these?
 
 
     -an error when submitting a duplicate tag should show up
