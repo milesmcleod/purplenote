@@ -47,11 +47,11 @@ class NoteTags extends React.Component {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
   }
 
-  handleKeypress(e) {
-    if (e.keyCode === 8) {
-      this.handleDelete(e);
-    }
-  }
+  // handleKeypress(e) {
+  //   if (e.keyCode === 8) {
+  //     this.handleDelete(e);
+  //   }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
