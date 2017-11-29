@@ -6,19 +6,27 @@ class NewNotebookModal extends React.Component {
     this.state = {
       title: ""
     };
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  // }
-  //
-  // handleKeypress(e) {
-  //   if (e.keyCode === 27) {
-  //     this.exitModal(e);
-  //   // } else if (e.keyCode === 13) {
-  //   //   this.handleSubmit(e);
-  //   }
-  // }
+  componentWillReceiveProps(newProps) {
+    if (newProps.activeModal === 'newNotebook') {
+      document.addEventListener("keydown", this.handleKeypress);
+    }
+  }
+
+  handleKeypress(e) {
+    const modalBackground = document.getElementById("modalBackground");
+    if (modalBackground.classList.contains("secondary-nav-totality")) {
+      if (e.keyCode === 27) {
+        console.log('exited new notebook modal');
+        this.exitModal(e);
+      } else if (e.keyCode === 13 && this.state.title !== "") {
+        console.log('submitted new notebook');
+        this.handleSubmit(e);
+      }
+    }
+  }
 
   handleChange(e) {
     e.preventDefault();
@@ -54,6 +62,8 @@ class NewNotebookModal extends React.Component {
       submit.classList.add("modal-submit-empty");
     } else {
       e.preventDefault();
+      this.props.deactivateModal();
+      document.addEventListener("keydown", this.handleKeypress);
       const notebook = Object.assign({}, this.state);
       this.props.postNotebook(notebook);
       this.exitModal(0);
@@ -67,6 +77,7 @@ class NewNotebookModal extends React.Component {
 
   exitModal(e) {
     if (e) e.preventDefault();
+    document.removeEventListener("keydown", this.handleKeypress);
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.remove("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-notebook-modal')[0];

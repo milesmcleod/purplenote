@@ -66,6 +66,7 @@ class NotebooksNav extends React.Component {
   }
 
   showNewNotebookModal() {
+    this.props.activateModal('newNotebook');
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.add("secondary-nav-totality");
     const modal = document.getElementsByClassName('new-notebook-modal')[0];

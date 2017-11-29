@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import {
   receiveBarNavType,
   receiveSelectedNotebook,
-  enterNotebookDeletion
+  enterNotebookDeletion,
+  activateModal,
+  deactivateModal
  } from '../../actions/ui_actions';
 import values from 'lodash/values';
 import NotebooksNav from './notebooks_nav';
@@ -22,7 +24,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   selectNotebook: (id) => {
     dispatch(receiveSelectedNotebook(id));
     dispatch(receiveBarNavType('notes'));
-  }
+  },
+  activateModal: (modalType) => dispatch(activateModal(modalType))
 });
 
 export default connect(

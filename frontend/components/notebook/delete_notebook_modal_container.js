@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
   return {
     selected: state.ui.selectedNotebook,
     active: state.ui.notebookDeletion,
+    activeModal: state.ui.activeModal,
     default: state.session.currentUser.default_notebook_id,
     title
   };
@@ -24,10 +25,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   deleteNotebook: (id) => dispatch(deleteNotebook(id)),
   receiveSelectedNotebook: (id) => dispatch(receiveSelectedNotebook(id)),
-  exitNotebookDeletion: () =>dispatch(exitNotebookDeletion())
+  exitNotebookDeletion: () => dispatch(exitNotebookDeletion())
 });
 
-export default withRouter (connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(DeleteNotebookModal));

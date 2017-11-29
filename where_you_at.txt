@@ -2,8 +2,6 @@ todo:
 
   -tags:
 
-  deleting note_tags
-
   -every modal tries to submit every time you press enter...
   -modal background fadeouts are not working...use ids instead of class to select these.
 
@@ -17,8 +15,6 @@ todo:
 
 
     -add tag input field is much too wide
-
-    -note_tags: delete keybinding does not work
 
   -new notebook icon
 

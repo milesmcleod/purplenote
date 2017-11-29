@@ -9,7 +9,9 @@ import {
   ENTER_TAG_DELETION,
   EXIT_TAG_DELETION,
   ENTER_FULLSCREEN,
-  EXIT_FULLSCREEN
+  EXIT_FULLSCREEN,
+  ACTIVATE_MODAL,
+  DEACTIVATE_MODAL
 } from '../actions/ui_actions';
 import {
   RECEIVE_NOTE
@@ -28,9 +30,10 @@ const defaultState = {
   selectedNotebook: undefined,
   selectedTag: undefined,
   noteSortType: ['updatedAt', true],
-  fullscreen: false,
-  notebookDeletion: false,
-  tagDeletion: false
+  fullscreen: undefined,
+  notebookDeletion: undefined,
+  tagDeletion: undefined,
+  activeModal: undefined
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -61,10 +64,12 @@ const UIReducer = (state = defaultState, action) => {
     case ENTER_NOTEBOOK_DELETION:
       newState = merge({}, state);
       newState['notebookDeletion'] = action.notebookId;
+      newState['activeModal'] = 'deleteNotebook';
       return newState;
     case EXIT_NOTEBOOK_DELETION:
       newState = merge({}, state);
-      newState['notebookDeletion'] = false;
+      newState['notebookDeletion'] = undefined;
+      newState['activeModal'] = undefined;
       return newState;
     case RECEIVE_SELECTED_TAG:
       newState = merge({}, state);
@@ -77,7 +82,7 @@ const UIReducer = (state = defaultState, action) => {
       return newState;
     case EXIT_TAG_DELETION:
       newState = merge({}, state);
-      newState['tagDeletion'] = false;
+      newState['tagDeletion'] = undefined;
       return newState;
     case ENTER_FULLSCREEN:
       newState = merge({}, state);
@@ -85,7 +90,15 @@ const UIReducer = (state = defaultState, action) => {
       return newState;
     case EXIT_FULLSCREEN:
       newState = merge({}, state);
-      newState['fullscreen'] = false;
+      newState['fullscreen'] = undefined;
+      return newState;
+    case ACTIVATE_MODAL:
+      newState = merge({}, state);
+      newState['activeModal'] = action.modalType;
+      return newState;
+    case DEACTIVATE_MODAL:
+      newState = merge({}, state);
+      newState['activeModal'] = undefined;
       return newState;
     default:
       return state;

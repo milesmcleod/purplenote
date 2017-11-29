@@ -6,23 +6,50 @@ class DeleteNotebookModal extends React.Component {
     this.state = {
       title: ""
     };
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("keydown", (e) => this.handleKeypress(e));
-  // }
-  //
-  // handleKeypress(e) {
-  //   if (e.keyCode === 27) {
-  //     this.exitModal(e);
-  //   // } else if (e.keyCode === 13) {
-  //   //   this.handleSubmit(e);
-  //   }
-  // }
+  componentWillReceiveProps(newProps) {
+    console.log(newProps);
+    if (newProps.activeModal === 'deleteNotebook') {
+      document.addEventListener("keydown", this.handleKeypress);
+    } else {
+      document.removeEventListener("keydown", this.handleKeypress);
+    }
+    if (newProps.title !== ""
+    ) {
+      this.setState ({
+        title: newProps.title
+      });
+    }
+  }
+
+  handleKeypress(e) {
+    const modalBackground = document.getElementById("modalBackground");
+    if (modalBackground.classList.contains("secondary-nav-totality")) {
+      if (e.keyCode === 27) {
+        console.log('exited delete notebook modal');
+        this.exitModal(e);
+      } else if (e.keyCode === 13) {
+        console.log('deleted notebook');
+        this.handleSubmit(e);
+      }
+    }
+  }
+
+  handleSubmit(e) {
+    if (this.props.active !== this.props.default) {
+      this.props.deleteNotebook(this.props.active);
+      if (this.props.selected === this.props.active) {
+        this.props.history.push('/home');
+        this.props.receiveSelectedNotebook(undefined);
+      }
+      this.props.exitNotebookDeletion();
+      this.exitModal(e);
+    }
+  }
 
   exitModal(e) {
-    if (e) e.preventDefault();
-    if (e) e.stopPropagation();
     const modalBackground = document.getElementById("modalBackground");
     modalBackground.classList.remove("secondary-nav-totality");
     const modal = document.getElementsByClassName('delete-notebook-modal')[0];
@@ -30,15 +57,6 @@ class DeleteNotebookModal extends React.Component {
     window.setTimeout(() => {
       modal.classList.remove("new-notebook-modal-show");
     }, 400);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.title !== ""
-    ) {
-      this.setState ({
-        title: newProps.title
-      });
-    }
   }
 
   render () {

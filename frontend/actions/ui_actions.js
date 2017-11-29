@@ -9,6 +9,8 @@ export const ENTER_TAG_DELETION = 'ENTER_TAG_DELETION';
 export const EXIT_TAG_DELETION = 'EXIT_TAG_DELETION';
 export const ENTER_FULLSCREEN = 'ENTER_FULLSCREEN';
 export const EXIT_FULLSCREEN = 'EXIT_FULLSCREEN';
+export const ACTIVATE_MODAL = 'ACTIVATE_MODAL';
+export const DEACTIVATE_MODAL = 'DEACTIVATE_MODAL';
 
 export const receiveSplashNavType = (splashNavType) => ({
   type: RECEIVE_SPLASH_NAV_TYPE,
@@ -39,7 +41,7 @@ export const enterNotebookDeletion = (notebookId) => {
 
 export const exitNotebookDeletion = () => {
   return {
-    type: ENTER_NOTEBOOK_DELETION
+    type: EXIT_NOTEBOOK_DELETION
   };
 };
 
@@ -86,3 +88,12 @@ export const exitFullscreen = () => {
     type: EXIT_FULLSCREEN
   };
 };
+
+export const activateModal = (modalType) => ({
+  type: ACTIVATE_MODAL,
+  modalType
+});
+
+export const deactivateModal = () => ({
+  type: DEACTIVATE_MODAL
+});
