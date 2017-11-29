@@ -192,7 +192,7 @@ class NoteContent extends React.Component {
             this.props.enterFullscreen();
           }}
           value="Fullscreen"
-          >Fullscreen</span>
+          ></span>
       );
     }
     let currentNotebook = this.props.notebooks.filter(notebook => (

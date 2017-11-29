@@ -1747,6 +1747,15 @@ NotesHeader
   margin-right: 10px;
 }
 
+.fullscreen-button {
+  background: none;
+  background-image: url('fullscreen.png');
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  margin-top: 10px;
+}
+
 .fullscreen-button:hover, .exit-fullscreen-button:hover, .save-note-button:hover {
   cursor: pointer;
 }
