@@ -12,6 +12,8 @@ class NewNotebookModal extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.activeModal === 'newNotebook') {
       document.addEventListener("keydown", this.handleKeypress);
+      const input = document.getElementsByClassName("notebook-form-title")[0];
+      input.focus();
     } else {
       document.removeEventListener("keydown", this.handleKeypress);
     }
@@ -103,7 +105,6 @@ class NewNotebookModal extends React.Component {
           <input
             type="text"
             name="title"
-            autoFocus
             className={
               (this.state.title === "") ?
               "notebook-form-title notebook-form-title-empty" :

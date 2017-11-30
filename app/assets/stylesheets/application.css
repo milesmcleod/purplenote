@@ -1498,6 +1498,7 @@ NoteBody
 
 .note-area {
   height: 95%;
+  min-width: 767px;
 }
 
 .note-content-form {
@@ -1518,6 +1519,7 @@ NoteBody
   color: #808080;
   font-size: 12px;
   min-width: 100px;
+  left: 5px;
 }
 
 .select-notebook-dropdown-link:hover {
@@ -1596,7 +1598,9 @@ NoteBody
   box-sizing: border-box;
   padding-bottom: 15px;
   position: relative;
-  top: -6px;
+  top: -7px;
+  left: 10px;
+  margin-right: 10px;
 }
 
 .tiny-icon-tag:hover, .tiny-icon-notebook:hover {
@@ -1613,7 +1617,7 @@ NoteBody
   flex-wrap: nowrap;
   position: relative;
   top: -10px;
-  max-width: 100%;
+  max-width: 400px;
   overflow-x: scroll;
 }
 
@@ -1731,7 +1735,7 @@ em {
   z-index: 500;
 }
 
-.toolbar-regular {
+/*.toolbar-regular {
 
 }
 
@@ -1747,7 +1751,7 @@ em {
     top: -162px;
     width: 85%;
   }
-}
+}*/
 
 #quill-editor.quill {
   width: 100%;

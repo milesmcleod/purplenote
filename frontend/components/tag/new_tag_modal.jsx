@@ -12,6 +12,8 @@ class NewTagModal extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.activeModal === 'newTag') {
       document.addEventListener("keydown", this.handleKeypress);
+      const input = document.getElementsByClassName("notebook-form-title")[2];
+      input.focus();
     } else {
       document.removeEventListener("keydown", this.handleKeypress);
     }

@@ -10,6 +10,8 @@
 #
 
 class Tagging < ApplicationRecord
+  validates :tag, uniqueness: { scope: :note,
+    message: "This note already has this tag." }
 
   belongs_to :tag,
   primary_key: :id,
