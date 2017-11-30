@@ -78,9 +78,19 @@ class ShortcutsNav extends React.Component {
             this.props.shortcuts.map(shortcut => (
               <article key={shortcut.id} onClick={() => this.selectElement(shortcut)}>
                 <span className={`shortcut-icon-${shortcut.type.toLowerCase()}`}></span>
-                  <p>{(this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id]) ?
-                      this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id].title : null
-                    }</p>
+                <p>{(this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id]) ?
+                    this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id].title : null
+                  }</p>
+                <span
+                  className='delete-shortcut'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    this.props.patchShortcut({
+                      shortcuttable_id: shortcut.shortcut_element_id,
+                      shortcuttable_type: shortcut.type
+                    });
+                  }}
+                  ></span>
               </article>
             ))
           }

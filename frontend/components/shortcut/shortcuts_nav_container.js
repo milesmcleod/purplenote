@@ -6,7 +6,7 @@ import {
   receiveSelectedTag
 } from '../../actions/ui_actions';
 import {
-  deleteShortcut
+  patchShortcut
 } from '../../actions/shortcut_actions';
 import values from 'lodash/values';
 import ShortcutsNav from './shortcuts_nav';
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
-  deleteShortcut: (id) => dispatch(deleteShortcut(id)),
+  patchShortcut: (id) => dispatch(patchShortcut(id)),
   selectTag: (id) => {
     dispatch(receiveSelectedTag(id));
     dispatch(receiveBarNavType('notes'));
