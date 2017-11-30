@@ -17,12 +17,20 @@ import values from 'lodash/values';
 import TagsNav from './tags_nav';
 import { deleteTag } from '../../actions/tag_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  tags: values(state.entities.tags),
-  notes: values(state.entities.notes),
-  barNavType: state.ui.barNavType,
-  selectedTag: state.ui.selectedTag
-});
+const mapStateToProps = (state, ownProps) => {
+  const tagShortcuts = values(state.entities.shortcuts).filter((s) => (
+    s.type = 'Tag'
+  ));
+  let shortcutTagIds = [];
+  tagShortcuts.forEach(s => shortcutTagIds.push(s.shortcut_element_id));
+  return {
+    tags: values(state.entities.tags),
+    notes: values(state.entities.notes),
+    barNavType: state.ui.barNavType,
+    selectedTag: state.ui.selectedTag,
+    shortcutTagIds
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),

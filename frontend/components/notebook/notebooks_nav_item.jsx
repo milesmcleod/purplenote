@@ -20,18 +20,31 @@ class NotebooksNavItem extends React.Component {
   }
 
   render() {
+    console.log(this.props.shortcutted);
     return (
       <div className={(this.props.selected) ?
            "notebook-item selected-notebook" : "notebook-item"}>
          <p className='notebook-item-title'>{this.props.notebook.title}</p>
          <span
-           className="notebook-item-shortcut"
+           className={
+             (this.props.shortcutted) ? (
+               "notebook-item-shortcut-alt"
+             ) : (
+               "notebook-item-shortcut"
+             )}
            onClick={(e) => {
              e.stopPropagation();
-             this.props.postShortcut({
-               shortcuttable_id: this.props.notebook.id,
-               shortcuttable_type: "Notebook"
-             });
+             if (this.props.shortcutted) {
+               this.props.patchShortcut({
+                 shortcuttable_id: this.props.notebook.id,
+                 shortcuttable_type: "Notebook"
+               });
+             } else {
+               this.props.postShortcut({
+                 shortcuttable_id: this.props.notebook.id,
+                 shortcuttable_type: "Notebook"
+               });
+             }
            }}
            ></span>
          <span

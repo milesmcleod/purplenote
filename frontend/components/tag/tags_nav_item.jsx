@@ -114,15 +114,27 @@ class TagsNavItem extends React.Component {
           </div>
           <span
             className={`tag-icon-star tag-icon-${this.props.tag.id}`}
+            className={
+              (this.props.shortcutted) ? (
+                `tag-icon-star-alt tag-icon-${this.props.tag.id}`
+              ) : (
+                `tag-icon-star tag-icon-${this.props.tag.id}`
+              )}
             onClick={(e) => {
               e.stopPropagation();
-              this.props.postShortcut({
-                shortcuttable_id: this.props.tag.id,
-                shortcuttable_type: "Tag"
-              });
+              if (this.props.shortcutted) {
+                this.props.patchShortcut({
+                  shortcuttable_id: this.props.tag.id,
+                  shortcuttable_type: "Tag"
+                });
+              } else {
+                this.props.postShortcut({
+                  shortcuttable_id: this.props.tag.id,
+                  shortcuttable_type: "Tag"
+                });
+              }
             }}
             >
-
           </span>
           <span
             className={`tag-icon-edit tag-icon-${this.props.tag.id}`}

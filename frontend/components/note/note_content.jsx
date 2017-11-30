@@ -13,13 +13,15 @@ class NoteContent extends React.Component {
       this.state = {
         title: "",
         content: {},
-        notebook_id: this.props.selectedNotebook
+        notebook_id: this.props.selectedNotebook,
+        id: null
       };
     } else {
       this.state = {
         title: "",
         content: {},
-        notebook_id: this.props.defaultNotebook
+        notebook_id: this.props.defaultNotebook,
+        id: null
       };
     }
     this.debounceTimer = undefined;
@@ -118,14 +120,16 @@ class NoteContent extends React.Component {
       this.state = {
         title: "",
         content: {},
-        notebook_id: newProps.selectedNotebook
+        notebook_id: newProps.selectedNotebook,
+        id: null
       };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     } else {
       this.state = {
         title: "",
         content: {},
-        notebook_id: newProps.defaultNotebook
+        notebook_id: newProps.defaultNotebook,
+        id: null
       };
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
@@ -306,12 +310,37 @@ class NoteContent extends React.Component {
       //
       // ['clean']                                         // remove formatting button
     ];
-
+    console.log(this.props.shortcutNoteIds);
+    console.log(this.props.shortcuts);
     return (
       <section className="note-body">
         <header className="note-header-container">
           <div className="note-options">
-            <div className="note-header-shortcut"></div>
+            <div
+              className={
+                (this.props.shortcutNoteIds.includes(this.state.id)) ? (
+                  "note-header-shortcut-alt"
+                ) : (
+                  "note-header-shortcut"
+                )}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (this.props.shortcutNoteIds.includes(this.state.id)) {
+                  this.props.patchShortcut({
+                    shortcuttable_id: this.state.id,
+                    shortcuttable_type: "Note"
+                  });
+                  this.forceUpdate();
+                } else {
+                  this.props.postShortcut({
+                    shortcuttable_id: this.state.id,
+                    shortcuttable_type: "Note"
+                  });
+                  this.forceUpdate();
+                }
+              }}
+
+              ></div>
             <div
               className="note-header-trash"
               onClick={(e) => {

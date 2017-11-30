@@ -77,6 +77,7 @@ class NotebooksNav extends React.Component {
   }
 
   render () {
+    console.log(this.props.shortcutNotebookIds);
     return (
       <div>
         <div
@@ -101,6 +102,13 @@ class NotebooksNav extends React.Component {
                     notebook={notebook}
                     postShortcut={this.props.postShortcut}
                     patchShortcut={this.props.patchShortcut}
+                    shortcutted={
+                      (this.props.shortcutNotebookIds.includes(notebook.id)) ? (
+                        true
+                      ) : (
+                        false
+                      )
+                    }
                     noteCount={
                       this.props.notes.filter(note => (
                         note.notebook_id === notebook.id &&

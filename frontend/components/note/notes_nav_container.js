@@ -34,6 +34,11 @@ const mapStateToProps = (state, ownProps) => {
       note.trashBoolean === false
     ));
   }
+  const noteShortcuts = values(state.entities.shortcuts).filter((s) => (
+    s.type = 'Note'
+  ));
+  let shortcutNoteIds = [];
+  noteShortcuts.forEach(s => shortcutNoteIds.push(s.shortcut_element_id));
   return {
     notes,
     barNavType: state.ui.barNavType,
@@ -55,7 +60,8 @@ const mapStateToProps = (state, ownProps) => {
       undefined
     ),
     noteSortType: state.ui.noteSortType,
-    fullscreen: state.ui.fullscreen
+    fullscreen: state.ui.fullscreen,
+    shortcutNoteIds
   };
 };
 

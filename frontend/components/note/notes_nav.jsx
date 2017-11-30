@@ -204,34 +204,6 @@ class NotesNav extends React.Component {
     this.setHeader(newProps);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   console.log(newProps);
-  //   if (newProps.barNavType === 'notes') {
-  //     this.sortNotes(newProps.notes, "updatedAt", true);
-  //     if (newProps.notes.length > this.props.notes.length) {
-  //       this.selectNote(newProps.notes[0].id);
-  //       this.sortNotes(newProps.notes, ...newProps.noteSortType);
-  //       this.setHeader(newProps);
-  //     } else {
-  //       this.sortNotes(newProps.notes, ...newProps.noteSortType);
-  //       if (
-  //         !this.props.selectedNote &&
-  //         this.props.noteSortType === newProps.noteSortType
-  //       ) {
-  //         if (newProps.notes[0]) {
-  //           this.selectNote(newProps.notes[0].id);
-  //         }
-  //       }
-  //       this.setHeader(newProps);
-  //     }
-  //   } else {
-  //     this.setHeader(newProps);
-  //   }
-  //   if (newProps.notes.length === 0) {
-  //     this.selectNote(undefined);
-  //   }
-  // }
-
   selectNote(selectedId) {
     this.props.history.push(`/home&n=${selectedId}`);
     this.setState({
@@ -241,6 +213,7 @@ class NotesNav extends React.Component {
 
 
   render() {
+    console.log(this.props.shortcutNoteIds);
     return (
       <div className='notes-nav-container'>
         {this.state.header}
@@ -256,6 +229,13 @@ class NotesNav extends React.Component {
                   restoreNote={this.props.restoreNote}
                   postShortcut={this.props.postShortcut}
                   patchShortcut={this.props.patchShortcut}
+                  shortcutted={
+                    (this.props.shortcutNoteIds.includes(note.id)) ? (
+                      true
+                    ) : (
+                      false
+                    )
+                  }
                   history={this.props.history}
                   trashView={(this.props.selectedNotebook === -1 ) ? true : false}
                   note={note}

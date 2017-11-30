@@ -98,6 +98,13 @@ class TagsNav extends React.Component {
                           patchTag={this.props.patchTag}
                           postShortcut={this.props.postShortcut}
                           patchShortcut={this.props.patchShortcut}
+                          shortcutted={
+                            (this.props.shortcutTagIds.includes(tag.id)) ? (
+                              true
+                            ) : (
+                              false
+                            )
+                          }
                           tag={tag}
                           selectTag={() => this.props.selectTag(tag.id)}
                           selected={(

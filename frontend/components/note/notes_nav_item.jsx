@@ -66,13 +66,25 @@ class NotesNavItem extends React.Component {
   ) : (
     <div>
       <div
-        className="notes-nav-item-shortcut"
+        className={
+          (this.props.shortcutted) ? (
+            "notes-nav-item-shortcut-alt"
+          ) : (
+            "notes-nav-item-shortcut"
+          )}
         onClick={(e) => {
           e.stopPropagation();
-          this.props.postShortcut({
-            shortcuttable_id: this.props.note.id,
-            shortcuttable_type: "Note"
-          });
+          if (this.props.shortcutted) {
+            this.props.patchShortcut({
+              shortcuttable_id: this.props.note.id,
+              shortcuttable_type: "Note"
+            });
+          } else {
+            this.props.postShortcut({
+              shortcuttable_id: this.props.note.id,
+              shortcuttable_type: "Note"
+            });
+          }
         }}
         ></div>
       <div

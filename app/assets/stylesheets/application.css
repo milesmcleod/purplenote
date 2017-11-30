@@ -1374,7 +1374,7 @@ NotesNav
   background-position-y: -37px;
 }
 
-.notes-nav-item-shortcut {
+[class*="notes-nav-item-shortcut"] {
   transition: opacity 0.4s ease;
   background-image: url(sprite.png);
   width: 25px;
@@ -1392,11 +1392,16 @@ NotesNav
   opacity: 0;
 }
 
+.notes-nav-item-shortcut-alt {
+  background-position-y: -180px;
+}
+
 .notes-nav-item-shortcut:hover {
   background-position-y: -180px;
 }
 
-.notes-nav-item:hover .notes-nav-item-shortcut {
+.notes-nav-item:hover .notes-nav-item-shortcut,
+.notes-nav-item:hover .notes-nav-item-shortcut-alt {
   display: inline-block;
   opacity: 1;
 }
@@ -1807,7 +1812,7 @@ NotesHeader
 }
 
 
-.note-header-shortcut {
+[class*="note-header-shortcut"] {
   transition: opacity 0.4s ease;
   width: 25px;
   height: 25px;
@@ -1823,6 +1828,11 @@ NotesHeader
   transition: opacity 0.8s ease;
   position: relative;
   display: flex;
+}
+
+.note-header-shortcut-alt {
+  background-position-x: -59px;
+  cursor: pointer;
 }
 
 .note-header-shortcut:hover {
@@ -2016,7 +2026,7 @@ NotebookItem
   padding-bottom: 5px
 }
 
-.notebook-item-shortcut {
+[class*="notebook-item-shortcut"] {
   height: 25px;
   width: 25px;
   display: none;
@@ -2027,6 +2037,10 @@ NotebookItem
   background-size: 180%;
   background-position-y: -143px;
   background-position-x: -5px;
+}
+
+.notebook-item-shortcut-alt {
+  background-position-y: -180px;
 }
 
 .notebook-item-trash {
@@ -2051,7 +2065,8 @@ NotebookItem
 }
 
 .notebook-item:hover .notebook-item-trash,
-.notebook-item:hover .notebook-item-shortcut {
+.notebook-item:hover .notebook-item-shortcut,
+.notebook-item:hover .notebook-item-shortcut-alt {
   display: block;
 }
 
@@ -2390,6 +2405,11 @@ TagsNav
 .tag-icon-star {
   left: 5px;
   background-position-y: -80px;
+}
+
+.tag-icon-star-alt {
+  left: 5px;
+  background-position-y: -122px;
 }
 
 .tag-icon-edit {
