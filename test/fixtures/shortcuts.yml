@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: shortcuts
+#
+#  id                 :integer          not null, primary key
+#  owner_id           :integer          not null
+#  shortcuttable_type :string
+#  shortcuttable_id   :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  shortcuttable_id: 1
+  shortcuttable_type: MyString
+
+two:
+  owner_id: 1
+  shortcuttable_id: 1
+  shortcuttable_type: MyString

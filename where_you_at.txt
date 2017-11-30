@@ -1,34 +1,17 @@
 todo:
 
-  -tags:
+  -write shortcuts
+    -model
+    -controller
+    -api util
+    -actions
+    -reducers
+    -components
+      -shortcuts nav + container
+      -shortcuts nav item
+    -enable links
 
-  -modal background fadeouts are not working...use ids instead of class to select these?
-
-
-    -an error when submitting a duplicate tag should show up
-      -could be the exact same as the one in the modal
-
-
-
-
-
-
-    -add tag input field is much too wide
-
-  -new notebook icon
-
-  -notebook icon for note content form
-
-  -fullscreen icon
-
-
-  autofocus on modals
-
-  -write search functionality once tags are implemented
-
-  -write a popup function that alerts you that you have moved an item to the trash
-
-  -Quill
+  -write search functionality
 
 
 don't forget to add whitespace to the bottom borders of the notes

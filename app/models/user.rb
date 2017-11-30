@@ -37,6 +37,26 @@ class User < ApplicationRecord
   through: :notes,
   source: :taggings
 
+  has_many :shortcuts,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Shortcut
+
+  has_many :shortcut_notes,
+  through: :shortcuts,
+  source: :shortcuttable,
+  source_type: :Note
+
+  has_many :shortcut_notebooks,
+  through: :shortcuts,
+  source: :shortcuttable,
+  source_type: :Notebook
+
+  has_many :shortcut_tags,
+  through: :shortcuts,
+  source: :shortcuttable,
+  source_type: :Tag
+
   attr_reader :password
 
   before_validation :ensure_session_token

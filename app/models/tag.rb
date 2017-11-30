@@ -27,4 +27,6 @@ class Tag < ApplicationRecord
   through: :taggings,
   source: :note
 
+  has_many :shortcuts, as: :shortcuttable
+
 end

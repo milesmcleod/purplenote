@@ -35,6 +35,6 @@ class Note < ApplicationRecord
   through: :taggings,
   source: :tag
 
-  # has_one :shortcut, as: :shortcuttable
+  has_many :shortcuts, as: :shortcuttable
 
 end

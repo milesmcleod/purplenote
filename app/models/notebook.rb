@@ -25,4 +25,6 @@ class Notebook < ApplicationRecord
   class_name: :Note,
   dependent: :destroy
 
+  has_many :shortcuts, as: :shortcuttable
+
 end
