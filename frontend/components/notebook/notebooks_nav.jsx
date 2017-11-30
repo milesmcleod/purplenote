@@ -12,7 +12,8 @@ class NotebooksNav extends React.Component {
       notebooksModal: (<div></div>),
       newNotebook: {
         title: ""
-      }
+      },
+      searchQuery: ''
     };
   }
 
@@ -24,13 +25,17 @@ class NotebooksNav extends React.Component {
         const modal = document.getElementById('modalBackground');
         modal.classList.add('secondary-nav-background-show');
       }
-      this.sortNotebooks(this.props.notebooks);
+      this.sortNotebooks(newProps.notebooks);
+      if (this.state.searchQuery) {
+        this.handleSearchQuery(this.state.searchQuery);
+      }
     } else {
       const nav = document.getElementById('notebooksNav');
       nav.classList.remove('secondary-nav-container-show');
       if (newProps.barNavType === 'notes') {
         const modal = document.getElementById('modalBackground');
         modal.classList.remove('secondary-nav-background-show');
+        this.setState({searchQuery: ""});
       }
     }
   }
@@ -76,6 +81,15 @@ class NotebooksNav extends React.Component {
     }, 0);
   }
 
+  handleSearchQuery (query) {
+    this.setState({
+      searchQuery: query,
+      notebooks: this.props.notebooks.filter(notebook => (
+        notebook.title.toLowerCase().match(query.toLowerCase())
+      ))
+    });
+  }
+
   render () {
     return (
       <div>
@@ -88,11 +102,17 @@ class NotebooksNav extends React.Component {
               className="new-notebook-button"
               onClick={() => this.showNewNotebookModal()}
               ></div>
+            <input
+              className='notebook-search'
+              value={this.state.searchQuery}
+              placeholder="Find a notebook"
+              onChange={(e) => this.handleSearchQuery(e.target.value)}
+              ></input>
             {this.state.notebooksModal}
           </header>
           <div id='notebooks-nav' className='notebooks-nav'>
             {
-              this.props.notebooks.map(notebook => (
+              this.state.notebooks.map(notebook => (
                 <div
                   key={notebook.title}
                   onClick={() => this.props.selectNotebook(notebook.id)}>

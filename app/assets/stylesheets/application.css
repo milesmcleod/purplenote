@@ -1958,6 +1958,25 @@ NotebookItem
   color: #949494;
 }
 
+.notebook-search {
+  border: 1px solid #BABABA;
+  width: 90%;
+  border-radius: 2px;
+  padding: 5px;
+  height: 25px;
+  position: relative;
+  top: -35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  outline-style: none;
+}
+
+.notebook-search::placeholder {
+  color: #BABABA;
+  text-align: center;
+
+}
+
 .new-notebook-button {
   position: relative;
   width: 38px;
