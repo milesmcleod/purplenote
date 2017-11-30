@@ -3,6 +3,7 @@ import BarNavContainer from './bar_nav_container';
 import NotesNavContainer from './notes_nav_container';
 import NotebooksNavContainer from '../notebook/notebooks_nav_container';
 import TagsNavContainer from '../tag/tags_nav_container';
+import ShortcutsNavContainer from '../shortcut/shortcuts_nav_container';
 
 class SideBar extends React.Component {
   constructor(props){
@@ -16,6 +17,7 @@ class SideBar extends React.Component {
         <NotesNavContainer />
         <NotebooksNavContainer />
         <TagsNavContainer />
+        <ShortcutsNavContainer />
       </div>
     );
   }

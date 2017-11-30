@@ -1,11 +1,6 @@
 todo:
 
   -write shortcuts
-    -model
-    -controller
-    -api util
-    -actions
-    -reducers
     -components
       -shortcuts nav + container
       -shortcuts nav item
