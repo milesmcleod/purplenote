@@ -15,7 +15,12 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   let notes;
-  if (state.ui.selectedTag) {
+  if (state.ui.searchQuery) {
+    notes = values(state.entities.notes).filter(note => (
+      note.title.toLowerCase().match(state.ui.searchQuery.toLowerCase()) ||
+      (note.content && note.content.toLowerCase().match(state.ui.searchQuery.toLowerCase()))
+    ));
+  } else if (state.ui.selectedTag) {
     notes = values(state.entities.notes).filter(note => (
       note.tagIds.includes(state.ui.selectedTag) &&
       note.trashBoolean === false
@@ -59,7 +64,8 @@ const mapStateToProps = (state, ownProps) => {
     ),
     noteSortType: state.ui.noteSortType,
     fullscreen: state.ui.fullscreen,
-    shortcutNoteIds
+    shortcutNoteIds,
+    searchQuery: state.ui.searchQuery
   };
 };
 

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   patch '/api/taggings', to: 'api/taggings#update'
   post '/api/taggings', to: 'api/taggings#create'
+
   patch '/api/shortcuts', to: 'api/shortcuts#update'
   post '/api/shortcuts', to: 'api/shortcuts#create'
 

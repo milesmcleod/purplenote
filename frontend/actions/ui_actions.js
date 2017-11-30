@@ -11,6 +11,7 @@ export const ENTER_FULLSCREEN = 'ENTER_FULLSCREEN';
 export const EXIT_FULLSCREEN = 'EXIT_FULLSCREEN';
 export const ACTIVATE_MODAL = 'ACTIVATE_MODAL';
 export const DEACTIVATE_MODAL = 'DEACTIVATE_MODAL';
+export const RECEIVE_SEARCH_QUERY = 'RECEIVE_SEARCH_QUERY';
 
 export const receiveSplashNavType = (splashNavType) => ({
   type: RECEIVE_SPLASH_NAV_TYPE,
@@ -96,4 +97,9 @@ export const activateModal = (modalType) => ({
 
 export const deactivateModal = () => ({
   type: DEACTIVATE_MODAL
+});
+
+export const receiveSearchQuery = (query) => ({
+  type: RECEIVE_SEARCH_QUERY,
+  query
 });

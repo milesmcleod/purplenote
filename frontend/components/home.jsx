@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBarContainer from './note/side_bar_container';
 import NoteBodyContainer from './note/note_body_container';
+import SearchContainer from './search/search_container';
 import { Route, Switch } from 'react-router-dom';
 
 class Home extends React.Component {
@@ -43,9 +44,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className='home'>
-        <Route path='/home' component={SideBarContainer}/>
         <Route path='/home&n=:noteId' component={SideBarContainer}/>
         <Route exact path='/home&n=:noteId' component={NoteBodyContainer}/>
+        <Route path='/home&n=search' component={SearchContainer}/>
+        <Route path='/home&n=search&q=:query' component={SearchContainer}/>
       </div>
     );
   }

@@ -11,7 +11,8 @@ import {
   ENTER_FULLSCREEN,
   EXIT_FULLSCREEN,
   ACTIVATE_MODAL,
-  DEACTIVATE_MODAL
+  DEACTIVATE_MODAL,
+  RECEIVE_SEARCH_QUERY
 } from '../actions/ui_actions';
 import {
   RECEIVE_NOTE
@@ -33,7 +34,8 @@ const defaultState = {
   fullscreen: undefined,
   notebookDeletion: undefined,
   tagDeletion: undefined,
-  activeModal: undefined
+  activeModal: undefined,
+  searchQuery: undefined
 };
 
 const UIReducer = (state = defaultState, action) => {
@@ -47,6 +49,7 @@ const UIReducer = (state = defaultState, action) => {
     case RECEIVE_BAR_NAV_TYPE:
       newState = merge({}, state);
       newState['barNavType'] = action.barNavType;
+      newState['searchQuery'] = undefined;
       return newState;
     case RECEIVE_NOTE_SORT_TYPE:
       newState = merge({}, state);
@@ -99,6 +102,12 @@ const UIReducer = (state = defaultState, action) => {
     case DEACTIVATE_MODAL:
       newState = merge({}, state);
       newState['activeModal'] = undefined;
+      return newState;
+    case RECEIVE_SEARCH_QUERY:
+      newState = merge({}, state);
+      newState['searchQuery'] = action.query;
+      newState['selectedTag'] = undefined;
+      newState['selectedNotebook'] = undefined;
       return newState;
     default:
       return state;

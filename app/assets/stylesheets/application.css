@@ -1326,7 +1326,8 @@ NotesNav
 }
 
 .notes-nav-item:hover h3, .notes-nav-item:hover p,
-.notes-nav-item:hover strong, .notes-nav-item:hover em {
+.notes-nav-item:hover strong, .notes-nav-item:hover em,
+.notes-nav-item:hover .notes-nav-item-content {
   color: white;
 }
 
@@ -2551,4 +2552,35 @@ ShortcutsNav
   background-size: 120%;
   background-position-y: -123px;
   background-position-x: -2px;
+}
+
+/*****************************
+
+SearchBody
+
+*****************************/
+
+.search-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 50px;
+  z-index: 5;
+  background: white;
+}
+
+.main-search-input {
+  font-size: 52px;
+  width: 90%;
+  border: none;
+  font-family: 'Arvo', serif;
+  color: #8c8c8c;
+  outline-style: none;
+  margin-top: 98px;
+  margin-left: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.main-search-input::placeholder {
+  color: #e0e0e0;
 }

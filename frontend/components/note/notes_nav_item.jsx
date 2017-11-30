@@ -107,7 +107,11 @@ class NotesNavItem extends React.Component {
           {options}
         </div>
         <p className="notes-nav-item-date">{date}</p>
-        <div className="notes-nav-item-content">{Parser(this.props.note.content)}</div>
+        <div className="notes-nav-item-content">{
+            (this.props.note.content) ?
+            Parser(this.props.note.content) :
+            this.props.note.content
+          }</div>
     </div>
     );
   }

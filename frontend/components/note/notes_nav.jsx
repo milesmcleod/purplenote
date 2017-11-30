@@ -76,7 +76,29 @@ class NotesNav extends React.Component {
 
   setHeader(props) {
     let header;
-    if (props.selectedNotebook === -1 ) { //trash header
+    if (props.searchQuery) {
+      header = (
+        (
+          <header className="plain-notes-header">
+            <h4>SEARCH: {props.searchQuery}</h4>
+            <p>{props.notes.length}{(props.notes.length === 1) ? " result" : " results"}</p>
+            <p
+              className="sort-dropdown-link"
+              onClick={() => this.toggleDropdown()}>Sort By &#8623;</p>
+            <div className="sort-options">
+              <ul onClick={(e) => this.handleSort(props.notes, e)}>
+                <li id="createdAt">Date created (oldest first)<span>&#10004;</span></li>
+                <li id="createdAt true">Date created (newest first)<span>&#10004;</span></li>
+                <li id="updatedAt">Date updated (oldest first)<span>&#10004;</span></li>
+                <li id="updatedAt true">Date updated (newest first)<span>&#10004;</span></li>
+                <li id="title">Title (ascending)<span>&#10004;</span></li>
+                <li id="title true">Title (descending)<span>&#10004;</span></li>
+              </ul>
+            </div>
+          </header>
+        )
+      );
+    } else if (props.selectedNotebook === -1 ) { //trash header
       header = (
         (
           <header className="trash-notes-header">
@@ -192,6 +214,7 @@ class NotesNav extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
+    console.log(newProps.match.params);
     this.sortNotes(newProps.notes, ...newProps.noteSortType);
     if (!newProps.selectedNote && newProps.notes[0]) {
       this.selectNote(newProps.notes[0].id);

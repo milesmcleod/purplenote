@@ -31,6 +31,11 @@ class BarNav extends React.Component {
     this.props.history.push('/home&n=new');
   }
 
+  renderSearch() {
+    this.props.setBarNavType('notes');
+    this.props.history.push('home&n=search');
+  }
+
   componentWillReceiveProps(newProps) {
     let selectedIcon = document.getElementsByClassName(`bar-nav-button-${this.props.barNavType}`)[0];
     if (selectedIcon.classList.contains("selected-nav-button")) {
@@ -59,7 +64,10 @@ class BarNav extends React.Component {
               window.setTimeout(()=> this.props.enterFullscreen(), 20);
             }}><div className="hover-bar-nav-button-new-note"></div></li>
           <li className="bar-nav-button-search">
-            <div className="hover-bar-nav-button-search"></div>
+            <div
+              className="hover-bar-nav-button-search"
+              onClick={() => this.renderSearch()}
+              ></div>
           </li>
         </ul>
         <ul className='bar-nav-button-list-2'>
