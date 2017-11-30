@@ -9,8 +9,13 @@ class Api::ShortcutsController < ApplicationController
     end
   end
 
-  def destroy
-    @shortcut = current_user.shortcuts.find(params[:id])
+  def update
+    id = params[:shortcut][:shortcuttable_id]
+    type = params[:shortcut][:shortcuttable_type]
+    relation = Shortcut.where(
+      ["shortcuttable_id = :x and shortcuttable_type = :y", { x: id, y: type }]
+    )
+    @shortcut = relation.first
     if @shortcut
       @shortcut.destroy
       render :show

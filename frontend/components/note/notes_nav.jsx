@@ -254,6 +254,8 @@ class NotesNav extends React.Component {
                   trashNote={this.props.trashNote}
                   deleteNote={this.props.deleteNote}
                   restoreNote={this.props.restoreNote}
+                  postShortcut={this.props.postShortcut}
+                  patchShortcut={this.props.patchShortcut}
                   history={this.props.history}
                   trashView={(this.props.selectedNotebook === -1 ) ? true : false}
                   note={note}

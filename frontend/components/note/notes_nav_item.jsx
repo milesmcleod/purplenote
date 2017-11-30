@@ -65,7 +65,16 @@ class NotesNavItem extends React.Component {
       </div>
   ) : (
     <div>
-      <div className="notes-nav-item-shortcut"></div>
+      <div
+        className="notes-nav-item-shortcut"
+        onClick={(e) => {
+          e.stopPropagation();
+          this.props.postShortcut({
+            shortcuttable_id: this.props.note.id,
+            shortcuttable_type: "Note"
+          });
+        }}
+        ></div>
       <div
         className="notes-nav-item-trash"
         onClick={(e) => {

@@ -8,9 +8,12 @@ export const postShortcut = (shortcut) => {
   });
 };
 
-export const deleteShortcut = (id) => {
+export const patchShortcut = (shortcut) => {
   return $.ajax({
-    method: 'delete',
-    url: `api/shortcuts/${id}`,
+    method: 'patch',
+    url: `api/shortcuts`,
+    data: {
+      shortcut
+    }
   });
 };

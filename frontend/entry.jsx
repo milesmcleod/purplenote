@@ -30,7 +30,7 @@ import {
 } from './actions/tagging_actions';
 import {
   postShortcut,
-  deleteShortcut
+  patchShortcut
 } from './actions/shortcut_actions';
 
 import {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.postTagging = postTagging;
   window.deleteTagging = deleteTagging;
   window.postShortcut = postShortcut;
-  window.deleteShortcut = deleteShortcut;
+  window.patchShortcut = patchShortcut;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');

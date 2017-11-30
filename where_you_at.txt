@@ -1,10 +1,8 @@
 todo:
 
   -write shortcuts
-    -components
-      -shortcuts nav + container
-      -shortcuts nav item
     -enable links
+    -css
 
   -write search functionality
 

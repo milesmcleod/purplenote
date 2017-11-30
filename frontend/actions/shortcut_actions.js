@@ -19,7 +19,7 @@ export const postShortcut = (shortcut) => (dispatch) => {
   .then(response => dispatch(receiveShortcut(response)));
 };
 
-export const deleteShortcut = (id) => (dispatch) => {
-  return ShortcutAPIUtil.deleteShortcut(id)
+export const patchShortcut = (shortcut) => (dispatch) => {
+  return ShortcutAPIUtil.patchShortcut(shortcut)
   .then(response => dispatch(removeShortcut(response)));
 };

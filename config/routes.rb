@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   patch '/api/taggings', to: 'api/taggings#update'
   post '/api/taggings', to: 'api/taggings#create'
+  patch '/api/shortcuts', to: 'api/shortcuts#update'
+  post '/api/shortcuts', to: 'api/shortcuts#create'
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show]
@@ -12,6 +14,5 @@ Rails.application.routes.draw do
     resources :notes, only: [:index, :create, :update, :destroy]
     resources :notebooks, only: [:index, :create, :update, :destroy]
     resources :tags, only: [:index, :create, :update, :destroy]
-    resources :shortcuts, only: [:create, :destroy]
   end
 end

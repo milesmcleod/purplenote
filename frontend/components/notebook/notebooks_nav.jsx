@@ -99,6 +99,8 @@ class NotebooksNav extends React.Component {
                   <NotebooksNavItem
                     enterNotebookDeletion={this.props.enterNotebookDeletion}
                     notebook={notebook}
+                    postShortcut={this.props.postShortcut}
+                    patchShortcut={this.props.patchShortcut}
                     noteCount={
                       this.props.notes.filter(note => (
                         note.notebook_id === notebook.id &&

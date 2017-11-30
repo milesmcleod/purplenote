@@ -96,6 +96,8 @@ class TagsNav extends React.Component {
                           enterTagDeletion={this.props.enterTagDeletion}
                           activateModal={this.props.activateModal}
                           patchTag={this.props.patchTag}
+                          postShortcut={this.props.postShortcut}
+                          patchShortcut={this.props.patchShortcut}
                           tag={tag}
                           selectTag={() => this.props.selectTag(tag.id)}
                           selected={(

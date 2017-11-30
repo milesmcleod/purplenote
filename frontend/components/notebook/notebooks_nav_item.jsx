@@ -24,7 +24,16 @@ class NotebooksNavItem extends React.Component {
       <div className={(this.props.selected) ?
            "notebook-item selected-notebook" : "notebook-item"}>
          <p className='notebook-item-title'>{this.props.notebook.title}</p>
-         <span className="notebook-item-shortcut"></span>
+         <span
+           className="notebook-item-shortcut"
+           onClick={(e) => {
+             e.stopPropagation();
+             this.props.postShortcut({
+               shortcuttable_id: this.props.notebook.id,
+               shortcuttable_type: "Notebook"
+             });
+           }}
+           ></span>
          <span
            className="notebook-item-trash"
            onClick={(e) => {

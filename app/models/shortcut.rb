@@ -11,8 +11,7 @@
 #
 
 class Shortcut < ApplicationRecord
-  validates :shortcuttable_type, uniqueness: { scope: :shortcuttable_id,
-    message: "This shortcut already exists." }
+  validates :shortcuttable_id, uniqueness: { scope: [:owner_id, :shortcuttable_type] }
 
   belongs_to :shortcuttable, polymorphic: true
 

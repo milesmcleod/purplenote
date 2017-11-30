@@ -7,6 +7,10 @@ import {
   activateModal
 } from '../../actions/ui_actions';
 import {
+  postShortcut,
+  patchShortcut
+ } from '../../actions/shortcut_actions';
+import {
   patchTag
 } from '../../actions/tag_actions';
 import values from 'lodash/values';
@@ -23,6 +27,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   enterTagDeletion: (id) => dispatch(enterTagDeletion(id)),
+  postShortcut: (shortcut) => dispatch(postShortcut(shortcut)),
+  patchShortcut: (shortcut) => dispatch(patchShortcut(shortcut)),
   patchTag: (tag) => dispatch(patchTag(tag)),
   activateModal: (modalType) => dispatch(activateModal(modalType)),
   selectTag: (id) => {

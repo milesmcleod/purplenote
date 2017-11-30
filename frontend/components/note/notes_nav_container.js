@@ -6,7 +6,11 @@ import {
   trashNote,
   deleteNote,
   restoreNote
- } from '../../actions/note_actions';
+} from '../../actions/note_actions';
+import {
+  postShortcut,
+  patchShortcut
+ } from '../../actions/shortcut_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
@@ -58,6 +62,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   receiveNoteSortType: (sortType) => dispatch(receiveNoteSortType(sortType)),
   trashNote: (note) => dispatch(trashNote(note)),
+  postShortcut: (shortcut) => dispatch(postShortcut(shortcut)),
+  patchShortcut: (shortcut) => dispatch(patchShortcut(shortcut)),
   restoreNote: (note) => dispatch(restoreNote(note)),
   deleteNote: (id) => dispatch(deleteNote(id)),
   activateModal: (modalType) => dispatch(activateModal(modalType)),

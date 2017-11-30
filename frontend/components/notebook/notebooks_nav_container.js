@@ -7,6 +7,10 @@ import {
   activateModal,
   deactivateModal
  } from '../../actions/ui_actions';
+ import {
+   postShortcut,
+   patchShortcut
+  } from '../../actions/shortcut_actions';
 import values from 'lodash/values';
 import NotebooksNav from './notebooks_nav';
 import { deleteNotebook } from '../../actions/notebook_actions';
@@ -21,6 +25,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setBarNavType: (type) => dispatch(receiveBarNavType(type)),
   enterNotebookDeletion: (id) => dispatch(enterNotebookDeletion(id)),
+  postShortcut: (shortcut) => dispatch(postShortcut(shortcut)),
+  patchShortcut: (shortcut) => dispatch(patchShortcut(shortcut)),
   selectNotebook: (id) => {
     dispatch(receiveSelectedNotebook(id));
     dispatch(receiveBarNavType('notes'));
