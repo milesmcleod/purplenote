@@ -18,9 +18,7 @@ import TagsNav from './tags_nav';
 import { deleteTag } from '../../actions/tag_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const tagShortcuts = values(state.entities.shortcuts).filter((s) => (
-    s.type = 'Tag'
-  ));
+  const tagShortcuts = values(state.entities.shortcuts).filter(s => (s.type === 'Tag'));
   let shortcutTagIds = [];
   tagShortcuts.forEach(s => shortcutTagIds.push(s.shortcut_element_id));
   return {

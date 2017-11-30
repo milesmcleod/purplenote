@@ -19,9 +19,7 @@ import {
 import values from 'lodash/values';
 
 const mapStateToProps = (state, ownProps) => {
-  const noteShortcuts = values(state.entities.shortcuts).filter((s) => (
-    s.type = 'Note'
-  ));
+  const noteShortcuts = values(state.entities.shortcuts).filter(s => s.type === 'Note');
   let shortcutNoteIds = [];
   noteShortcuts.forEach(s => shortcutNoteIds.push(s.shortcut_element_id));
   return {

@@ -34,9 +34,7 @@ const mapStateToProps = (state, ownProps) => {
       note.trashBoolean === false
     ));
   }
-  const noteShortcuts = values(state.entities.shortcuts).filter((s) => (
-    s.type = 'Note'
-  ));
+  const noteShortcuts = values(state.entities.shortcuts).filter(s => s.type === 'Note');
   let shortcutNoteIds = [];
   noteShortcuts.forEach(s => shortcutNoteIds.push(s.shortcut_element_id));
   return {

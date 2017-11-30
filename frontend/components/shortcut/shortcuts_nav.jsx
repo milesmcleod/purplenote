@@ -68,7 +68,6 @@ class ShortcutsNav extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div id='shortcutsNav' className="secondary-nav-container">
         <header className='notebooks-header'>
@@ -76,10 +75,12 @@ class ShortcutsNav extends React.Component {
         </header>
         <div className='shortcuts-nav'>
           {
-            this.state.shortcuts.map(shortcut => (
+            this.props.shortcuts.map(shortcut => (
               <article key={shortcut.id} onClick={() => this.selectElement(shortcut)}>
-                <span className={`${shortcut.type.toLowerCase()}-shortcut-icon`}></span>
-                  <p>{this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id].title}</p>
+                <span className={`shortcut-icon-${shortcut.type.toLowerCase()}`}></span>
+                  <p>{(this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id]) ?
+                      this.props[`${shortcut.type.toLowerCase()}s`][shortcut.shortcut_element_id].title : null
+                    }</p>
               </article>
             ))
           }

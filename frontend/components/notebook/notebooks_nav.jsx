@@ -77,7 +77,6 @@ class NotebooksNav extends React.Component {
   }
 
   render () {
-    console.log(this.props.shortcutNotebookIds);
     return (
       <div>
         <div

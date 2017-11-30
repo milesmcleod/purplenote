@@ -16,9 +16,7 @@ import NotebooksNav from './notebooks_nav';
 import { deleteNotebook } from '../../actions/notebook_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const notebookShortcuts = values(state.entities.shortcuts).filter((s) => (
-    s.type = 'Notebook'
-  ));
+  const notebookShortcuts = values(state.entities.shortcuts).filter(s => s.type === 'Notebook');
   let shortcutNotebookIds = [];
   notebookShortcuts.forEach(s => shortcutNotebookIds.push(s.shortcut_element_id));
   return {

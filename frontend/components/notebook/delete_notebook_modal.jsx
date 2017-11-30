@@ -27,10 +27,8 @@ class DeleteNotebookModal extends React.Component {
     const modalBackground = document.getElementById("modalBackground");
     if (modalBackground.classList.contains("secondary-nav-totality")) {
       if (e.keyCode === 27) {
-        console.log('exited delete notebook modal');
         this.exitModal(e);
       } else if (e.keyCode === 13) {
-        console.log('deleted notebook');
         this.handleSubmit(e);
       }
     }

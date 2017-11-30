@@ -213,7 +213,6 @@ class NotesNav extends React.Component {
 
 
   render() {
-    console.log(this.props.shortcutNoteIds);
     return (
       <div className='notes-nav-container'>
         {this.state.header}

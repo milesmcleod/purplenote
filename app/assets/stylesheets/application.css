@@ -2359,12 +2359,6 @@ TagsNav
   display: none;
 }
 
-/*.tags-nav-item-info-slide-back p {
-  margin-left: 20px;
-  color: #7f00ff;
-  display: inline-block;
-  position: relative;
-}*/
 
 .tags-nav-item-info-slide-back h4 {
   color: #4d4d4d;
@@ -2463,4 +2457,58 @@ TagsNav
 
 .submit-tag-edit-fade {
   opacity: 0;
+}
+
+/*****************************
+
+ShortcutsNav
+
+*****************************/
+
+.shortcuts-nav {
+  margin: 20px;
+}
+
+.shortcuts-nav article {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  background: white;
+  color: #4d4d4d;
+  padding: 7px 10px;
+  display: flex;
+}
+
+.shortcuts-nav p {
+  padding-left: 8px;
+}
+
+.shortcuts-nav article:hover {
+  background: #7f00ff;
+  color: white;
+  cursor: pointer;
+}
+
+[class*="shortcut-icon-"] {
+  background-image: url("shortcut-icons.png");
+  background-size: cover;
+  padding-right: 8px;
+  height: 20px;
+  width: 20px;
+}
+
+.shortcut-icon-note {
+  background-position-y: -29px;
+}
+
+.shortcuts-nav article:hover .shortcut-icon-note {
+  background-color: #7f00ff;
+  background-position-y: 0px;
+}
+
+.shortcut-icon-notebook {
+  background-position-y: -57px;
+}
+
+.shortcut-icon-tag {
+  background-position-y: -86px;
 }

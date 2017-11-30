@@ -20,7 +20,6 @@ class NotebooksNavItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.shortcutted);
     return (
       <div className={(this.props.selected) ?
            "notebook-item selected-notebook" : "notebook-item"}>

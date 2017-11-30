@@ -310,33 +310,29 @@ class NoteContent extends React.Component {
       //
       // ['clean']                                         // remove formatting button
     ];
-    console.log(this.props.shortcutNoteIds);
-    console.log(this.props.shortcuts);
     return (
       <section className="note-body">
         <header className="note-header-container">
           <div className="note-options">
             <div
               className={
-                (this.props.shortcutNoteIds.includes(this.state.id)) ? (
+                (this.props.shortcutNoteIds.includes(this.props.note.id)) ? (
                   "note-header-shortcut-alt"
                 ) : (
                   "note-header-shortcut"
                 )}
               onClick={(e) => {
                 e.stopPropagation();
-                if (this.props.shortcutNoteIds.includes(this.state.id)) {
+                if (this.props.shortcutNoteIds.includes(this.props.note.id)) {
                   this.props.patchShortcut({
-                    shortcuttable_id: this.state.id,
+                    shortcuttable_id: this.props.note.id,
                     shortcuttable_type: "Note"
                   });
-                  this.forceUpdate();
                 } else {
                   this.props.postShortcut({
-                    shortcuttable_id: this.state.id,
+                    shortcuttable_id: this.props.note.id,
                     shortcuttable_type: "Note"
                   });
-                  this.forceUpdate();
                 }
               }}
 

@@ -24,10 +24,8 @@ class NotebookInfoModal extends React.Component {
     const modalBackground = document.getElementById("modalBackground");
     if (modalBackground.classList.contains("secondary-nav-totality")) {
       if (e.keyCode === 27) {
-        console.log('exited notebook info');
         this.exitModal(e);
       } else if (e.keyCode === 13 && this.state.title !== "") {
-        console.log('edited notebook info');
         this.handleSubmit(e);
       }
     }

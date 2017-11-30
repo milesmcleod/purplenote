@@ -23,10 +23,8 @@ class NewNotebookModal extends React.Component {
     const modalBackground = document.getElementById("modalBackground");
     if (modalBackground.classList.contains("secondary-nav-totality")) {
       if (e.keyCode === 27) {
-        console.log('exited new notebook modal');
         this.exitModal(e);
       } else if (e.keyCode === 13 && this.state.title !== "") {
-        console.log('submitted new notebook');
         this.handleSubmit(e);
       }
     }
