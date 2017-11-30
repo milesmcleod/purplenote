@@ -25,10 +25,18 @@ class NoteContent extends React.Component {
     this.debounceTimer = undefined;
     this.focus = undefined;
     this.button = undefined;
+    this.toolbarFlag = false;
   }
 
   componentDidMount() {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
+    this.hideToolbar();
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains('ql-picker-label')) {
+        const editor = document.getElementsByClassName('ql-editor')[0];
+        editor.focus();
+      }
+    });
   }
 
 
@@ -170,21 +178,25 @@ class NoteContent extends React.Component {
     noteTags.classList.remove("note-top-collapse");
   }
 
-  showToolbar() {
-
+  hideToolbar() {
+    const toolbar = document.getElementsByClassName("ql-toolbar")[0];
+    toolbar.classList.add("note-top-collapse");
+    this.toolbarFlag = false;
   }
 
-  hideToolbar() {
-
+  showToolbar() {
+    const toolbar = document.getElementsByClassName("ql-toolbar")[0];
+    toolbar.classList.remove("note-top-collapse");
+    this.toolbarFlag = true;
   }
 
   focusEditor() {
     this.collapseTagAndNotebookLinks();
-    // this.showToolbar();
+    this.showToolbar();
   }
 
   blurEditor() {
-    // this.hideToolbar();
+    this.hideToolbar();
     this.showTagAndNotebookLinks();
   }
 
@@ -319,7 +331,13 @@ class NoteContent extends React.Component {
         </header>
         <section className="note-area">
           <div className="note-top">
+            <div className="tiny-icon-notebook"
+              onClick={() => this.blurEditor()}
+              ></div>
             {selectNotebook}
+            <div className="tiny-icon-tag"
+              onClick={() => this.blurEditor()}
+              ></div>
             {noteTagsContainer}
           </div>
           <form
@@ -340,13 +358,12 @@ class NoteContent extends React.Component {
                 this.handleQuillChange(editor);
               }}
               onFocus={() => this.focusEditor()}
-              onBlur={() => this.blurEditor()}
               value={this.state.content}
               theme="snow"
               id="quill-editor"
               autoFocus={false}
               modules={{toolbar: toolbarOptions}}
-              placeholder="Click and start typing...">
+              placeholder="...">
             </ReactQuill>
 
 
@@ -361,7 +378,7 @@ class NoteContent extends React.Component {
 //   type="text"
 //   name="content"
 //   placeholder="Just start typing..."
-//   value={this.state.content}
+//   value={this.state.note.content}
 //   onChange={(e) => this.handleChange(e)}
 //   ></textarea>
 
