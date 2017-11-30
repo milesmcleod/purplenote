@@ -45,3 +45,15 @@ json.tags do
     end
   end
 end
+
+json.shortcuts do
+  @user.shortcuts.each do |shortcut|
+    json.set! shortcut.id do
+      json.id shortcut.id
+      json.type shortcut.shortcuttable_type
+      json.shortcut_element_id shortcut.shortcuttable_id
+      json.createdAt shortcut.created_at
+      json.updatedAt shortcut.updated_at
+    end
+  end
+end

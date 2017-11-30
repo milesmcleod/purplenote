@@ -28,6 +28,10 @@ import {
   postTagging,
   deleteTagging
 } from './actions/tagging_actions';
+import {
+  postShortcut,
+  deleteShortcut
+} from './actions/shortcut_actions';
 
 import {
   enterFullscreen,
@@ -65,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deleteTag = deleteTag;
   window.postTagging = postTagging;
   window.deleteTagging = deleteTagging;
+  window.postShortcut = postShortcut;
+  window.deleteShortcut = deleteShortcut;
   window.getState= store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');

@@ -36,3 +36,26 @@ json.notebooks do
     end
   end
 end
+
+json.tags do
+  @user.tags.each do |tag|
+    json.set! tag.id do
+      json.id tag.id
+      json.title tag.title
+      json.updatedAt tag.updated_at
+      json.createdAt tag.created_at
+    end
+  end
+end
+
+json.shortcuts do
+  @user.shortcuts.each do |shortcut|
+    json.set! shortcut.id do
+      json.id shortcut.id
+      json.type shortcut.shortcuttable_type
+      json.shortcut_element_id shortcut.shortcuttable_id
+      json.createdAt shortcut.created_at
+      json.updatedAt shortcut.updated_at
+    end
+  end
+end
