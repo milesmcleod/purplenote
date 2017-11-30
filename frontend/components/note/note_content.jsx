@@ -316,19 +316,19 @@ class NoteContent extends React.Component {
           <div className="note-options">
             <div
               className={
-                (this.props.note && this.props.shortcutNoteIds.includes(this.props.note.id)) ? (
+                (this.state.id && this.props.shortcutNoteIds.includes(this.props.note.id)) ? (
                   "note-header-shortcut-alt"
                 ) : (
                   "note-header-shortcut"
                 )}
               onClick={(e) => {
                 e.stopPropagation();
-                if (this.props.note && this.props.shortcutNoteIds.includes(this.props.note.id)) {
+                if (this.state.id && this.props.shortcutNoteIds.includes(this.props.note.id)) {
                   this.props.patchShortcut({
                     shortcuttable_id: this.props.note.id,
                     shortcuttable_type: "Note"
                   });
-                } else if (this.props.note) {
+                } else if (this.state.id) {
                   this.props.postShortcut({
                     shortcuttable_id: this.props.note.id,
                     shortcuttable_type: "Note"
