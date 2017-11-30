@@ -11,7 +11,8 @@ class TagsNav extends React.Component {
       tagsModal: (<div></div>),
       newTag: {
         title: ""
-      }
+      },
+      searchQuery: ""
     };
   }
 
@@ -41,6 +42,10 @@ class TagsNav extends React.Component {
         modal.classList.add('secondary-nav-background-show');
       }
       this.sortTags(newProps.tags, 'title');
+      this.setState({tags: newProps.tags});
+      if (this.state.searchQuery) {
+        this.handleSearchQuery(this.state.searchQuery);
+      }
     } else {
       const nav = document.getElementById('tagsNav');
       nav.classList.remove('secondary-nav-container-show');
@@ -48,6 +53,7 @@ class TagsNav extends React.Component {
         const modal = document.getElementById('modalBackground');
         modal.classList.remove('secondary-nav-background-show');
       }
+      this.setState({searchQuery:""});
     }
   }
 
@@ -62,9 +68,18 @@ class TagsNav extends React.Component {
     }, 0);
   }
 
+  handleSearchQuery (query) {
+    this.setState({
+      searchQuery: query,
+      tags: this.props.tags.filter(tag => (
+        tag.title.toLowerCase().match(query.toLowerCase())
+      ))
+    });
+  }
+
   render () {
     const alphabet = {};
-    this.props.tags.forEach(tag => {
+    this.state.tags.forEach(tag => {
       if (alphabet[tag.title[0].toUpperCase()]) {
         alphabet[tag.title[0].toUpperCase()].push(tag);
       } else {
@@ -82,6 +97,12 @@ class TagsNav extends React.Component {
               className="tag-creation-button"
               onClick={() => this.showNewTagModal()}
               ></div>
+            <input
+              className='nav-search'
+              value={this.state.searchQuery}
+              placeholder="Find a tag"
+              onChange={(e) => this.handleSearchQuery(e.target.value)}
+              ></input>
             {this.state.notebooksModal}
           </header>
           <div id='tags-nav' className='tags-nav'>

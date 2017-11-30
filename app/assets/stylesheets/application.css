@@ -1958,7 +1958,7 @@ NotebookItem
   color: #949494;
 }
 
-.notebook-search {
+.nav-search {
   border: 1px solid #BABABA;
   width: 90%;
   border-radius: 2px;
@@ -1971,7 +1971,7 @@ NotebookItem
   outline-style: none;
 }
 
-.notebook-search::placeholder {
+.nav-search::placeholder {
   color: #BABABA;
   text-align: center;
 

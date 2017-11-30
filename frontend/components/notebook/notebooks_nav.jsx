@@ -35,8 +35,8 @@ class NotebooksNav extends React.Component {
       if (newProps.barNavType === 'notes') {
         const modal = document.getElementById('modalBackground');
         modal.classList.remove('secondary-nav-background-show');
-        this.setState({searchQuery: ""});
       }
+      this.setState({searchQuery: ""});
     }
   }
 
@@ -103,7 +103,7 @@ class NotebooksNav extends React.Component {
               onClick={() => this.showNewNotebookModal()}
               ></div>
             <input
-              className='notebook-search'
+              className='nav-search'
               value={this.state.searchQuery}
               placeholder="Find a notebook"
               onChange={(e) => this.handleSearchQuery(e.target.value)}
