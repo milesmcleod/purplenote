@@ -1,9 +1,5 @@
 todo:
 
-  -write shortcuts
-    -enable links
-    -css
-
   -write search functionality
 
 

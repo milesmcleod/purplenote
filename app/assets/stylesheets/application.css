@@ -1325,7 +1325,8 @@ NotesNav
   width: 53%;
 }
 
-.notes-nav-item:hover h3, .notes-nav-item:hover p {
+.notes-nav-item:hover h3, .notes-nav-item:hover p,
+.notes-nav-item:hover strong, .notes-nav-item:hover em {
   color: white;
 }
 
