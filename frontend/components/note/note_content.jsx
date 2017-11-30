@@ -31,12 +31,6 @@ class NoteContent extends React.Component {
   componentDidMount() {
     document.addEventListener("keydown", (e) => this.handleKeypress(e));
     this.hideToolbar();
-    document.addEventListener("click", (e) => {
-      if (e.target.classList.contains('ql-picker-label')) {
-        const editor = document.getElementsByClassName('ql-editor')[0];
-        editor.focus();
-      }
-    });
   }
 
 
@@ -300,7 +294,7 @@ class NoteContent extends React.Component {
 
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      // [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
       [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
       ['blockquote', 'code-block'],
       [{ 'align': [] }],
