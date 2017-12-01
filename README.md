@@ -1,8 +1,8 @@
 # README
-
-<img style="margin: 0 auto;" src="https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon_purple2.png">
-
-<a href="https://purplenote.herokuapp.com" style="margin: 0 auto;">Purplenote Heroku</div>
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+<img src="https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon_purple2.png">
+<a href="https://purplenote.herokuapp.com" style="margin-top: 30px; font-size: 22px; color: #7f00ff;">Purplenote Heroku</a></div>
+</div>
 
 ## What is Purplenote?
 
@@ -105,11 +105,11 @@ The frontend was built utilizing the React and Redux JavaScript libraries. The r
 
 ## Demo
 
-
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
 <img style="margin: 0 auto;" src="https://media.giphy.com/media/xUOxf4ftMSPHFHplDO/giphy.gif">
+</div>
 
-### Try it out:
-
-[Purplenote Heroku](https://purplenote.herokuapp.com)
-
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+<a href="https://purplenote.herokuapp.com" style="margin: 30px 0; font-size: 22px; color: #7f00ff;">Purplenote Heroku</a>
 <img style="margin: 0 auto;" src="https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon2.png">
+</div>
