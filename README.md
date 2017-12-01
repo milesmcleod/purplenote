@@ -1,8 +1,8 @@
 # README
 
-![Purplenote Branding](https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon_purple2.png)
+<img style="margin: 0 auto;" src="https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon_purple2.png">
 
-[Purplenote Heroku](https://purplenote.herokuapp.com)
+<a href="https://purplenote.herokuapp.com" style="margin: 0 auto;">Purplenote Heroku</div>
 
 ## What is Purplenote?
 
@@ -105,10 +105,11 @@ The frontend was built utilizing the React and Redux JavaScript libraries. The r
 
 ## Demo
 
-![Demo Gif](https://media.giphy.com/media/xUOxf4ftMSPHFHplDO/giphy.gif)
+
+<img style="margin: 0 auto;" src="https://media.giphy.com/media/xUOxf4ftMSPHFHplDO/giphy.gif">
 
 ### Try it out:
 
 [Purplenote Heroku](https://purplenote.herokuapp.com)
 
-![Purplenote Branding](https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon2.png)
+<img style="margin: 0 auto;" src="https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/purplenote_icon2.png">
