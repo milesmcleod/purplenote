@@ -135,6 +135,15 @@ class NoteContent extends React.Component {
       });
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
+    if (newProps.selectedNote !== 'new' && !this.shortcutNoteIds.includes(this.state.id)) {
+      const star = document.getElementById('note-star');
+      if (star) star.classList.add('note-header-shortcut');
+      if (star) star.classList.remove('note-header-shortcut-alt');
+    } else if (newProps.selectedNote !== 'new' && this.shortcutNoteIds.includes(this.state.id)) {
+      const star = document.getElementById('note-star');
+      if (star) star.classList.add('note-header-shortcut-alt');
+      if (star) star.classList.remove('note-header-shortcut');
+    }
   }
 
   handleSelect(e, notebook_id) {
@@ -317,17 +326,19 @@ class NoteContent extends React.Component {
       //
       // ['clean']                                         // remove formatting button
     ];
+    let starClass;
+    if (this.state.id && this.shortcutNoteIds.includes(this.state.id)) {
+      starClass = "note-header-shortcut-alt";
+    } else if (this.state.id) {
+      starClass = "note-header-shortcut";
+    }
     return (
       <section className="note-body">
         <header className="note-header-container">
           <div className="note-options">
             <div
-              className={
-                (this.state.id && this.shortcutNoteIds.includes(this.state.id)) ? (
-                  "note-header-shortcut-alt"
-                ) : (
-                  "note-header-shortcut"
-                )}
+              id="note-star"
+              className="note-header-shortcut"
               onClick={(e) => {
                 e.stopPropagation();
                 if (this.state.id && this.shortcutNoteIds.includes(this.state.id)) {

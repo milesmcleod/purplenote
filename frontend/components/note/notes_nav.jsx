@@ -250,6 +250,7 @@ class NotesNav extends React.Component {
                   restoreNote={this.props.restoreNote}
                   postShortcut={this.props.postShortcut}
                   patchShortcut={this.props.patchShortcut}
+                  patchNote={this.props.patchNote}
                   shortcutted={
                     (this.props.shortcutNoteIds.includes(note.id)) ? (
                       true

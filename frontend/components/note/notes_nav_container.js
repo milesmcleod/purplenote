@@ -5,6 +5,7 @@ import { receiveNoteSortType, activateModal } from '../../actions/ui_actions';
 import {
   trashNote,
   deleteNote,
+  patchNote,
   restoreNote
 } from '../../actions/note_actions';
 import {
@@ -74,6 +75,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   trashNote: (note) => dispatch(trashNote(note)),
   postShortcut: (shortcut) => dispatch(postShortcut(shortcut)),
   patchShortcut: (shortcut) => dispatch(patchShortcut(shortcut)),
+  patchNote: (note) => dispatch(patchNote(note)),
   restoreNote: (note) => dispatch(restoreNote(note)),
   deleteNote: (id) => dispatch(deleteNote(id)),
   activateModal: (modalType) => dispatch(activateModal(modalType)),
