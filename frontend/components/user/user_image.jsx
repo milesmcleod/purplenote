@@ -14,7 +14,7 @@ class UserImage extends React.Component {
       } else {
         logout.classList.add('show-logout');
       }
-    } else {
+    } else if (!e.target.classList.contain("logout-button")) {
       logout.classList.remove('show-logout');
     }
   }
