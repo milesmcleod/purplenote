@@ -57,7 +57,7 @@ class BarNav extends React.Component {
     return (
       <nav className='bar-nav'>
         <div
-          className='splash-nav-branding-img'></div>
+          className='splash-nav-branding-img bar-gecko'></div>
         <ul className='bar-nav-button-list-1'>
           <li
             className="bar-nav-button-new-note"
