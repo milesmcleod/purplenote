@@ -1605,6 +1605,29 @@ NoteBody
   justify-content: flex-start;
 }
 
+.note-top-tag-errors {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  background: #FF6C5C;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  min-height: 18px;
+  border-radius: 18px;
+  margin-top: 10px;
+  padding: 10px 50px 8px 50px;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  left: 150px;
+  top: -90px;
+  margin: 10px auto;
+  opacity: 0;
+}
+
+.note-top-tag-errors-show {
+  opacity: 1;
+}
+
 .note-tags-ul {
   display: flex;
   flex-wrap: nowrap;
@@ -2231,7 +2254,7 @@ NewNotebookModal
   height: 18px;
   border-radius: 18px;
   margin-top: 10px;
-  padding: 10px 50px 8px 50px;;
+  padding: 10px 50px 8px 50px;
 }
 
 .modal-form-errors-show {

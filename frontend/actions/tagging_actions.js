@@ -15,7 +15,8 @@ const removeTagging = (payload) => ({
 
 export const postTagging = (tagging) => (dispatch) => {
   return TaggingsAPIUtil.postTagging(tagging)
-  .then(response => dispatch(receiveTagging(response)));
+  .then(
+    response => dispatch(receiveTagging(response)));
 };
 
 export const deleteTagging = (tagging) => (dispatch) => {

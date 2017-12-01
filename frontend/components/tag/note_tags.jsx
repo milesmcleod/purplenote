@@ -73,11 +73,18 @@ class NoteTags extends React.Component {
       const selectedTag = this.props.tags.filter(tag => (
         tag.title === this.state.tag.title
       ))[0];
-      this.props.postTagging({
-        note_id: this.props.selectedNote,
-        tag_id: selectedTag.id
-      })
-      .then(() => this.props.updateNote());
+      const ownTag = this.props.ownTags.filter(tag => tag.title === this.state.tag.title)[0];
+      if (ownTag) {
+        const errors = document.getElementsByClassName('note-top-tag-errors')[0];
+        errors.classList.add('note-top-tag-errors-show');
+        window.setTimeout(() => errors.classList.remove('note-top-tag-errors-show'), 2000);
+      } else {
+        this.props.postTagging({
+          note_id: this.props.selectedNote,
+          tag_id: selectedTag.id
+        })
+        .then(() => this.props.updateNote());
+      }
     } else {
       this.props.postTag(this.state.tag);
       this.props.updateNote();
@@ -87,6 +94,11 @@ class NoteTags extends React.Component {
   render() {
     return (
       <div className='secondary-note-top'>
+        <div className='note-top-tag-errors'>
+          <p>
+            This tagging already exists. Please choose another title.
+          </p>
+        </div>
         <ul className='note-tags-ul'>
           {
             this.props.ownTags.map(tag => (
