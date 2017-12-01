@@ -1661,6 +1661,10 @@ NoteBody
   justify-content: center;
 }
 
+.new-note-tag-form {
+  margin: 0px 15px;
+}
+
 .note-tags-li:hover {
   cursor:pointer;
 }
@@ -1738,6 +1742,10 @@ em {
 }
 
 .note-top-collapse {
+  display: none;
+}
+
+.note-top-collapse .new-note-tag-form {
   display: none;
 }
 

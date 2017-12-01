@@ -168,7 +168,7 @@ class NoteContent extends React.Component {
     const notebookLink = document.getElementsByClassName("select-notebook-dropdown-link")[0];
     const noteTags = document.getElementsByClassName("secondary-note-top")[0];
     notebookLink.classList.add("note-top-collapse");
-    noteTags.classList.add("note-top-collapse");
+    if (noteTags) noteTags.classList.add("note-top-collapse");
   }
 
   showTagAndNotebookLinks() {
@@ -212,7 +212,10 @@ class NoteContent extends React.Component {
         <span
           className="save-note-button"
           type="submit"
-          onClick={e => this.handleSubmit(e)}
+          onClick={e => {
+            this.handleSubmit(e);
+            this.hideToolbar();
+          }}
           value="Save"
         >Save</span>
       );
@@ -225,6 +228,7 @@ class NoteContent extends React.Component {
           className="exit-fullscreen-button"
           onClick={() => {
             this.props.exitFullscreen();
+            this.hideToolbar();
             this.props.history.goBack();
           }}
           value="Cancel"
@@ -237,6 +241,7 @@ class NoteContent extends React.Component {
           onClick={() => {
             this.props.patchNote(this.state);
             this.props.exitFullscreen();
+            this.hideToolbar();
           }}
           value="Done"
           >Done</span>
@@ -301,7 +306,7 @@ class NoteContent extends React.Component {
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
       // [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      // [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
       // ['blockquote', 'code-block'],
       [{ 'align': [] }],
 

@@ -116,7 +116,7 @@ end
   )
 end
 
-TAGS = ['work', 'play', 'music', 'food', 'todo', 'thoughts', 'ideas', 'quotes']
+TAGS = ['to do', 'lyrics', 'quotes', 'recipes', 'poetry', 'workout', 'school', 'lecture notes']
 i = 0
 8.times do
   tag = Tag.new(title: TAGS.pop)
@@ -137,7 +137,3 @@ notebook = Notebook.new(
 notebook.save
 user2.default_notebook_id = notebook.id
 user2.save
-
-# use Date.now() to get utc, then subtract a random number of
-# milliseconds  within a range of, say, the last 6 months (distributed
-# accordingly) from it to set the created/updated at data.
