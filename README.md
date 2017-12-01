@@ -1,7 +1,7 @@
 # README
 
 <p align="center">
-  <img src="https://media.giphy.com/media/xUOxf4ftMSPHFHplDO/giphy.gif"/>
+  <img src="https://github.com/milesmcleod/purplenote-images/blob/master/purplenote-demo.gif?raw=true"/>
 </p>
 
 <p align="center">
