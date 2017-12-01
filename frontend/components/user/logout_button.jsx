@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LogoutButton = ({deleteSession}) => (
+const LogoutButton = ({deleteSession, userName}) => (
   <button
     className="logout-button"
-    onClick={() => deleteSession()}>Log Out</button>
+    onClick={() => deleteSession()}>log out {userName}</button>
 );
 
 export default LogoutButton;
