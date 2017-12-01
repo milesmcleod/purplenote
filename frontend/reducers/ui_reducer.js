@@ -17,6 +17,9 @@ import {
 import {
   RECEIVE_NOTE
 } from '../actions/note_actions';
+import {
+  REMOVE_SESSION
+} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 // const combineReducers({
@@ -109,6 +112,8 @@ const UIReducer = (state = defaultState, action) => {
       newState['selectedTag'] = undefined;
       newState['selectedNotebook'] = undefined;
       return newState;
+    case REMOVE_SESSION:
+      return defaultState;
     default:
       return state;
   }

@@ -119,20 +119,20 @@ class NoteContent extends React.Component {
         this.setState(newProps.note);
       }
     } else if (newProps.selectedNotebook) {
-      this.state = {
+      this.setState({
         title: "",
         content: {},
         notebook_id: newProps.selectedNotebook,
         id: null
-      };
+      });
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     } else {
-      this.state = {
+      this.setState({
         title: "",
         content: {},
         notebook_id: newProps.defaultNotebook,
         id: null
-      };
+      });
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
   }
@@ -180,13 +180,13 @@ class NoteContent extends React.Component {
 
   hideToolbar() {
     const toolbar = document.getElementsByClassName("ql-toolbar")[0];
-    toolbar.classList.add("note-top-collapse");
+    if (toolbar) toolbar.classList.add("note-top-collapse");
     this.toolbarFlag = false;
   }
 
   showToolbar() {
     const toolbar = document.getElementsByClassName("ql-toolbar")[0];
-    toolbar.classList.remove("note-top-collapse");
+    if (toolbar) toolbar.classList.remove("note-top-collapse");
     this.toolbarFlag = true;
   }
 

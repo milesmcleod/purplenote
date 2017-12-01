@@ -172,8 +172,8 @@ update_at = DateTime.new(
   )
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: astronomy_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: astronomy_tag.id)
 
 note = Note.new(
   title: "astronotes 11.28",
@@ -192,8 +192,8 @@ update_at = DateTime.new(
   )
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: astronomy_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: astronomy_tag.id)
 
 note = Note.new(
   title: "engl 209 paper outline",
@@ -205,8 +205,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "modern & postmodern notes",
@@ -218,8 +218,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: philosophy_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: philosophy_tag.id)
 
 note = Note.new(
   title: "fred moten - preface for a solo by miles davis",
@@ -231,8 +231,8 @@ note = Note.new(
 note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "notes for musc 108 midterm",
@@ -244,8 +244,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: music_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: music_tag.id)
 
 note = Note.new(
   title: "moby dick final essay",
@@ -257,8 +257,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "terre incognita ",
@@ -270,8 +270,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "breathing underwater",
@@ -283,7 +283,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: lyrics_tag.id)
+Tagging.create(note_id: note.id, tag_id: lyrics_tag.id)
 
 note = Note.new(
   title: "nakamarra",
@@ -295,7 +295,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: lyrics_tag.id)
+Tagging.create(note_id: note.id, tag_id: lyrics_tag.id)
 
 note = Note.new(
   title: "life is fine",
@@ -307,8 +307,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "embrace the night and get thee gone",
@@ -320,8 +320,8 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: school_tag.id)
-Tagging.new(note_id: note.id, tag_id: english_tag.id)
+Tagging.create(note_id: note.id, tag_id: school_tag.id)
+Tagging.create(note_id: note.id, tag_id: english_tag.id)
 
 note = Note.new(
   title: "shakshuka",
@@ -333,7 +333,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: recipe_tag.id)
+Tagging.create(note_id: note.id, tag_id: recipe_tag.id)
 
 note = Note.new(
   title: "watermelon mint feta salad",
@@ -345,7 +345,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: recipe_tag.id)
+Tagging.create(note_id: note.id, tag_id: recipe_tag.id)
 
 note = Note.new(
   title: "sourdough",
@@ -357,7 +357,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: recipe_tag.id)
+Tagging.create(note_id: note.id, tag_id: recipe_tag.id)
 
 note = Note.new(
   title: "overheard on bart",
@@ -369,7 +369,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: quotes_tag.id)
+Tagging.create(note_id: note.id, tag_id: quotes_tag.id)
 
 note = Note.new(
   title: "to do",
@@ -408,7 +408,7 @@ note.save
 update_at = update
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: recipe_tag.id)
+Tagging.create(note_id: note.id, tag_id: recipe_tag.id)
 
 note = Note.new(
   title: "the jabberwocky",
@@ -443,7 +443,7 @@ update_at = DateTime.new(
   )
 note.update_attributes(updated_at: update_at)
 
-Tagging.new(note_id: note.id, tag_id: code_tag.id)
+Tagging.create(note_id: note.id, tag_id: code_tag.id)
 Shortcut.create(
   owner_id: user1.id,
   shortcuttable_type: "Note",
