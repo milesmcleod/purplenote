@@ -1,4 +1,6 @@
 import React from 'react';
+import LogoutButtonContainer from '../user/logout_button_container';
+import UserImageContainer from '../user/user_image_container';
 
 class BarNav extends React.Component {
   constructor(props) {
@@ -92,6 +94,8 @@ class BarNav extends React.Component {
             <div className="hover-bar-nav-button-tags"></div>
           </li>
         </ul>
+        <LogoutButtonContainer />
+        <UserImageContainer />
         <div className="bar-nav-user-info"></div>
       </nav>
     );

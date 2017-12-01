@@ -30,7 +30,7 @@ IMAGES = [
   "https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/avatar_images/avatar-14.png",
 ]
 
-user1 = User.new(username: 'demo_user', email: 'demo_user@demo.com', password: 'password', img_url: IMAGES.sample)
+user1 = User.new(username: 'demo_user', email: 'demo_user@demo.com', password: 'password', img_url: "https://raw.githubusercontent.com/milesmcleod/purplenote-images/master/avatar_images/avatar-9.png")
 user1.save
 user2 = User.new(username: 'miles', email: 'miles@gmail.com', password: 'password', img_url: IMAGES.sample)
 user2.save
