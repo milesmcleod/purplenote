@@ -106,6 +106,7 @@ The frontend was built utilizing the React and Redux JavaScript libraries. The r
 ```
 
 ## Demo
+
 <p align="center">
   <img src="https://media.giphy.com/media/xUOxf4ftMSPHFHplDO/giphy.gif"/>
 </p>
