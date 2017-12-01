@@ -135,11 +135,12 @@ class NoteContent extends React.Component {
       });
       let autoFocus = document.getElementsByClassName("note-content-form-title")[0].focus();
     }
-    if (newProps.selectedNote !== 'new' && !this.shortcutNoteIds.includes(this.state.id)) {
+    console.log(newProps.shortcutNoteIds);
+    if (newProps.selectedNote !== 'new' && !newProps.shortcutNoteIds.includes(newProps.note.id)) {
       const star = document.getElementById('note-star');
       if (star) star.classList.add('note-header-shortcut');
       if (star) star.classList.remove('note-header-shortcut-alt');
-    } else if (newProps.selectedNote !== 'new' && this.shortcutNoteIds.includes(this.state.id)) {
+    } else if (newProps.selectedNote !== 'new' && newProps.shortcutNoteIds.includes(newProps.note.id)) {
       const star = document.getElementById('note-star');
       if (star) star.classList.add('note-header-shortcut-alt');
       if (star) star.classList.remove('note-header-shortcut');

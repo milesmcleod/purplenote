@@ -497,6 +497,7 @@ splash
   margin-left: 20px;
   margin-right: 20px;
   min-width: 450px;
+  max-width: 800px;
 }
 
 .splash-signup-header p {
@@ -765,7 +766,7 @@ splash
   opacity: 0.5;
 }
 
-@media all and (max-width: 948px) {
+@media all and (max-width: 950px) {
 
   [class*='pitch-img'] {
     display: none;
@@ -1831,7 +1832,7 @@ NotesHeader
 }
 
 
-[class*="note-header-shortcut"] {
+.note-header-shortcut {
   transition: opacity 0.4s ease;
   width: 25px;
   height: 25px;
@@ -1850,11 +1851,23 @@ NotesHeader
 }
 
 .note-header-shortcut-alt {
+  transition: opacity 0.4s ease;
+  width: 25px;
+  height: 25px;
+  background-image: url('sprite.png');
+  background-size: 760%;
+  background-position-y: -437px;
+  background-position-x: -59px;
+  z-index: 6;
+  margin-left: 30px;
+}
+
+.note-header-shortcut:hover {
   background-position-x: -59px;
   cursor: pointer;
 }
 
-.note-header-shortcut:hover {
+.note-header-shortcut-alt:hover {
   background-position-x: -59px;
   cursor: pointer;
 }
