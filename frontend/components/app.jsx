@@ -5,7 +5,8 @@ import Splash from './splash/splash';
 import HomeContainer from './home_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LogoutButtonContainer from './dummy_logout/logout_button_container';
+import LogoutButtonContainer from './user/logout_button_container';
+import UserImageContainer from './user/user_image_container';
 
 const App = () => (
   <div className='app'>
@@ -15,7 +16,8 @@ const App = () => (
       <AuthRoute exact path='/login' component={AuthModalContainer} />
       <ProtectedRoute component={HomeContainer} />
     </Switch>
-    <LogoutButtonContainer />
+    <ProtectedRoute component={UserImageContainer} />
+    <ProtectedRoute component={LogoutButtonContainer} />
   </div>
 );
 

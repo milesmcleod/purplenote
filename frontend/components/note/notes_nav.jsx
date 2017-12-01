@@ -80,7 +80,7 @@ class NotesNav extends React.Component {
       header = (
         (
           <header className="plain-notes-header">
-            <h4>SEARCH: {props.searchQuery}</h4>
+            <h4>SEARCH: {props.searchQuery.toUpperCase()}</h4>
             <p>{props.notes.length}{(props.notes.length === 1) ? " result" : " results"}</p>
             <p
               className="sort-dropdown-link"
@@ -214,7 +214,6 @@ class NotesNav extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    console.log(newProps.match.params);
     this.sortNotes(newProps.notes, ...newProps.noteSortType);
     if (!newProps.selectedNote && newProps.notes[0]) {
       this.selectNote(newProps.notes[0].id);

@@ -92,7 +92,7 @@ class BarNav extends React.Component {
             <div className="hover-bar-nav-button-tags"></div>
           </li>
         </ul>
-        <div className="bar-nav-user-info">User</div>
+        <div className="bar-nav-user-info"></div>
       </nav>
     );
   }

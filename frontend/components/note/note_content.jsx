@@ -28,6 +28,7 @@ class NoteContent extends React.Component {
     this.focus = undefined;
     this.button = undefined;
     this.toolbarFlag = false;
+    this.shortcutNoteIds = [];
   }
 
   componentDidMount() {
@@ -104,6 +105,7 @@ class NoteContent extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    this.shortcutNoteIds = newProps.shortcutNoteIds;
     if (
       this.props.selectedNote !== 'new' &&
       (newProps.selectedNote === 'new' || this.props.note.id !== newProps.note.id)
@@ -111,7 +113,7 @@ class NoteContent extends React.Component {
       this.props.patchNote(this.state);
     }
     if (newProps.selectedNote !== 'new') {
-      if (this.state.id === newProps.note.id) {
+      if (this.state.id === newProps.note.id ) {
         this.setState(this.state);
       } else {
         this.setState(newProps.note);
@@ -316,21 +318,21 @@ class NoteContent extends React.Component {
           <div className="note-options">
             <div
               className={
-                (this.state.id && this.props.shortcutNoteIds.includes(this.props.note.id)) ? (
+                (this.state.id && this.shortcutNoteIds.includes(this.state.id)) ? (
                   "note-header-shortcut-alt"
                 ) : (
                   "note-header-shortcut"
                 )}
               onClick={(e) => {
                 e.stopPropagation();
-                if (this.state.id && this.props.shortcutNoteIds.includes(this.props.note.id)) {
+                if (this.state.id && this.shortcutNoteIds.includes(this.state.id)) {
                   this.props.patchShortcut({
-                    shortcuttable_id: this.props.note.id,
+                    shortcuttable_id: this.state.id,
                     shortcuttable_type: "Note"
                   });
                 } else if (this.state.id) {
                   this.props.postShortcut({
-                    shortcuttable_id: this.props.note.id,
+                    shortcuttable_id: this.state.id,
                     shortcuttable_type: "Note"
                   });
                 }

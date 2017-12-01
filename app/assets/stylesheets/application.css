@@ -23,26 +23,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.dummy-logout {
-  background-color: #7f00ff;
-  border: 0;
-  border-radius: 10px;
-  height: 50px;
-  width: 50px;
-  color: white;
-  margin: 15px 0;
-  padding: 0 10px;
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  cursor: pointer;
-}
-
 .purple-bar {
   width: 100%;
   height: 4px;
@@ -2583,4 +2563,58 @@ SearchBody
 
 .main-search-input::placeholder {
   color: #e0e0e0;
+}
+
+/*****************************
+
+SearchBody
+
+*****************************/
+
+.logout-button {
+  background-color: white;
+  border-radius: 6px;
+  color: #4d4d4d;
+  padding: 5px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 70px;
+  left: -100000px;
+  cursor: pointer;
+  display: flex;
+  opacity: 0;
+  border: 2px solid #4d4d4d;
+  box-shadow: 6px 5px 28px -5px #bdbdbd;
+  transition: opacity 0.3s ease;
+}
+
+.show-logout {
+  left: 70px;
+  opacity: 1;
+}
+
+.user-image {
+  position: fixed;
+  bottom: 60px;
+  left: 10px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid #4d4d4d;
+  border-radius: 50%;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+  overflow: hidden;
+}
+
+.user-image img {
+  height: 100px;
+  width: 100px;
+}
+
+.user-image:hover {
+  cursor: pointer;
 }
