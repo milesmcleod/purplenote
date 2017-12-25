@@ -1236,7 +1236,7 @@ NotesNav
   position: fixed;
   left: 325px;
   top: 88px;
-  z-index: 5;
+  z-index: 10;
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 2px;
@@ -2632,7 +2632,7 @@ SearchBody
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 138px;
+  top: 75px;
   left: -100000px;
   cursor: pointer;
   display: flex;
@@ -2651,7 +2651,7 @@ SearchBody
 
 .user-image {
   position: relative;
-  top: 90px;
+  top: 25px;
   height: 50px;
   min-height: 50px;
   width: 50px;
